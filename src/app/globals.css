@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f4f7fb;
+  --color-bg-muted: #e8eef6;
+
+  /* Text */
+  --color-ink: #0f172a;
+  --color-ink-muted: #5b6575;
+  --color-ink-subtle: #8b95a5;
+
+  /* Brand blue */
+  --color-brand: #1b4f8c;
+  --color-brand-dark: #123a6b;
+  --color-brand-soft: #e8f0fa;
+
+  /* CTA yellow — only for primary actions */
+  --color-cta: #f5c400;
+  --color-cta-hover: #e6b800;
+  --color-cta-ink: #1a1a1a;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Focus */
+  --color-focus: var(--color-brand);
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-soft: var(--color-bg-soft);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-subtle: var(--color-ink-subtle);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-soft: var(--color-brand-soft);
+  --color-cta: var(--color-cta);
+  --color-cta-hover: var(--color-cta-hover);
+  --color-cta-ink: var(--color-cta-ink);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-focus: var(--color-focus);
+
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-geist);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-geist), "Geist", system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-geist), "Geist", system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .font-geist {
+    font-family: var(--font-geist), "Geist", system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-motion {
+    transition-property: transform, opacity;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-out);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
