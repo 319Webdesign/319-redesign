@@ -1,5 +1,4 @@
 import { AboutSection } from "@/components/home/AboutSection";
-import { BeforeAfterSection } from "@/components/home/BeforeAfterSection";
 import { ClientLogosSection } from "@/components/home/ClientLogosSection";
 import { DesignProposalCta } from "@/components/home/DesignProposalCta";
 import { FaqSection } from "@/components/home/FaqSection";
@@ -42,7 +41,6 @@ export default function HomePage() {
         <ProcessSection />
         <ServicesSection />
         <ReferencesSection />
-        <BeforeAfterSection />
         <AboutSection />
         <TestimonialsSection />
         <FaqSection />

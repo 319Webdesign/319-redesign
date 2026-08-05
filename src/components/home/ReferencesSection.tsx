@@ -1,3 +1,4 @@
+import { BeforeAfterCompare } from "@/components/home/BeforeAfterCompare";
 import {
   DeviceMockup,
   MobileMockup,
@@ -10,7 +11,7 @@ import { projects } from "@/data/site";
 
 export function ReferencesSection() {
   return (
-    <section className="border-b border-border bg-bg-soft">
+    <section className="border-b border-border bg-bg">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <Reveal variant="slide">
           <SectionHeader
@@ -46,9 +47,25 @@ export function ReferencesSection() {
           ))}
         </div>
 
+        <div id="vorher-nachher" className="mt-24 scroll-mt-24 sm:mt-28">
+          <Reveal variant="slide">
+            <SectionHeader
+              eyebrow="Vorher / Nachher"
+              title="Der Unterschied ist sichtbar"
+              lead="Von veraltet und austauschbar zu klar, schnell und anfrageorientiert."
+            />
+          </Reveal>
+
+          <Reveal variant="scale" delay={0.08}>
+            <div className="mt-12 sm:mt-14">
+              <BeforeAfterCompare />
+            </div>
+          </Reveal>
+        </div>
+
         <Reveal variant="fade" delay={0.1}>
-          <div className="mt-16">
-            <Button href="/portfolio" variant="secondary" size="lg">
+          <div className="mt-16 flex justify-center sm:mt-20">
+            <Button href="/portfolio" variant="primary" size="lg">
               Alle Projekte ansehen
             </Button>
           </div>

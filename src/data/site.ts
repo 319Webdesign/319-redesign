@@ -2,12 +2,17 @@ export const siteConfig = {
   name: "319Webdesign",
   tagline: "Premium Webdesign für Handwerk & regionale Unternehmen",
   region: "Darmstadt & Rhein-Main",
-  phone: "+49 6151 000000",
-  phoneHref: "tel:+496151000000",
-  whatsappHref: "https://wa.me/496151000000",
-  email: "hallo@319webdesign.de",
+  phone: "+49 177 3236454",
+  phoneHref: "tel:+491773236454",
+  whatsappHref: "https://wa.me/491773236454",
+  email: "Maik.Schmidt@319Webdesign.de",
   googleRating: "5,0",
   projectCount: "15+",
+  social: {
+    instagram: "https://instagram.com/319webdesign",
+    whatsapp: "https://wa.me/491773236454",
+    facebook: "https://www.facebook.com/319webdesign",
+  },
 };
 
 export const navLinks = [
@@ -184,12 +189,26 @@ export const projects: {
     imageHeight: 867,
   },
   {
-    title: "Garten- & Landschaftsbau",
-    industry: "Handwerk",
-    service: "Webdesign + SEO",
+    title: "HE Immologis UG",
+    industry: "Immobilienmakler",
+    service: "Website Relaunch",
     result:
-      "Stärkere lokale Auffindbarkeit und eine Website, die Projekte statt Visitenkarten zeigt.",
-    href: "/portfolio/garten-landschaftsbau",
+      "Kompletter Website-Relaunch inklusive nahtloser onOffice-Integration für eine effiziente Objektverwaltung.",
+    href: "/portfolio/he-immologis",
+    image: "/case-he.png",
+    imageWidth: 1898,
+    imageHeight: 861,
+  },
+  {
+    title: "Heinerfilm",
+    industry: "Videograf",
+    service: "Website Relaunch",
+    result:
+      "Moderner Webauftritt zur professionellen Präsentation seiner Videoprojekte und einfachen Kontaktaufnahme.",
+    href: "/portfolio/heinerfilm",
+    image: "/case-heinerfilm.png",
+    imageWidth: 1892,
+    imageHeight: 870,
   },
 ];
 
@@ -210,29 +229,44 @@ export const testimonials = [
 
 export const faqItems = [
   {
-    question: "Was kostet eine Website bei 319Webdesign?",
+    question: "Was kostet eine professionelle Website?",
     answer:
-      "Das hängt vom Umfang ab. Im kostenlosen Erstgespräch klären wir Ziele und Rahmen — danach erhältst du ein klares Angebot ohne Überraschungen.",
+      "Jedes Projekt ist individuell, daher gibt es keinen festen Pauschalpreis. Der Umfang, die gewünschten Funktionen und Ihre Anforderungen entscheiden über den Preis. Nach einem unverbindlichen Erstgespräch erhalten Sie ein transparentes Angebot, das genau zu Ihrem Projekt passt.",
   },
   {
-    question: "Wie lange dauert ein typisches Projekt?",
+    question: "Wie läuft ein Website-Projekt bei 319Webdesign ab?",
     answer:
-      "Die meisten Relaunches und neuen Websites liegen zwischen wenigen Wochen und etwa zwei Monaten — abhängig von Feedback-Zyklen und Content.",
+      "Zu Beginn lernen wir Ihr Unternehmen und Ihre Ziele kennen. Anschließend entwickeln wir ein individuelles Konzept, gestalten das Design und setzen Ihre Website technisch um. Selbstverständlich sind Korrekturen möglich – wir arbeiten so lange gemeinsam daran, bis das Ergebnis Ihren Vorstellungen entspricht.",
   },
   {
-    question: "Arbeitest du mit Baukastensystemen?",
+    question: "Wie lange dauert die Erstellung einer Website?",
     answer:
-      "Nein. Individuelles Design und moderne Technik statt vorgefertigter Templates — damit deine Website wirklich zu deinem Betrieb passt.",
+      "Die meisten Projekte werden innerhalb von 3 bis 8 Wochen umgesetzt. Kleinere Websites sind häufig bereits nach 3 bis 5 Wochen online, größere Projekte benötigen je nach Umfang etwa 5 bis 8 Wochen.",
   },
   {
-    question: "Bin ich der richtige Ansprechpartner — oder eine Agentur?",
+    question: "Benötige ich bereits Texte und Bilder?",
     answer:
-      "Du arbeitest direkt mit mir. Kurze Wege, persönliche Betreuung und Entscheidungen ohne Umwege über Account-Manager.",
+      "Nein. Falls Sie noch keine passenden Inhalte haben, unterstütze ich Sie dabei. Gemeinsam finden wir passende Bilder und erstellen professionelle Texte, damit Ihre Website von Anfang an einen hochwertigen Eindruck hinterlässt.",
   },
   {
-    question: "Für wen ist 319Webdesign besonders geeignet?",
+    question: "Kann ich meine Website später selbst bearbeiten?",
     answer:
-      "Für Handwerksbetriebe und regionale Unternehmen im Raum Darmstadt / Rhein-Main, die eine Website als Auftraggeber brauchen — nicht als digitale Visitenkarte.",
+      "Ja. WordPress-Websites lassen sich auf Wunsch einfach selbst pflegen. Gerne zeige ich Ihnen in einer persönlichen Einweisung, wie Sie Texte oder Bilder später eigenständig ändern können.",
+  },
+  {
+    question: "Übernimmst du auch Wartung und Betreuung?",
+    answer:
+      "Ja. Auf Wunsch übernehme ich die technische Betreuung Ihrer Website. Das Wartungspaket beinhaltet Updates, Backups sowie bis zu zwei Arbeitsstunden pro Monat für kleinere Änderungen oder Anpassungen. Eine Wartung ist nicht verpflichtend, wird jedoch empfohlen, damit Ihre Website langfristig sicher und aktuell bleibt.",
+  },
+  {
+    question: "Kannst du auch bestehende Websites überarbeiten?",
+    answer:
+      "Ja. Ich überarbeite bestehende Websites, modernisiere das Design und übernehme auf Wunsch vorhandene Inhalte. Auch der Umzug auf ein neues System oder die technische Migration gehören dazu.",
+  },
+  {
+    question: "Ist Suchmaschinenoptimierung (SEO) bereits enthalten?",
+    answer:
+      "Ja. Jede Website wird technisch für Suchmaschinen optimiert und mit den wichtigsten SEO-Grundlagen erstellt. Dazu gehören unter anderem eine saubere Seitenstruktur, schnelle Ladezeiten und eine suchmaschinenfreundliche Umsetzung. Umfangreichere SEO-Maßnahmen, wie lokale Suchmaschinenoptimierung oder langfristige Strategien, können zusätzlich umgesetzt werden.",
   },
 ];
 

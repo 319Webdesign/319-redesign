@@ -5,7 +5,7 @@ import { faqItems } from "@/data/site";
 
 export function FaqSection() {
   return (
-    <section className="border-b border-border bg-bg-soft">
+    <section className="border-b border-border bg-bg">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <Reveal variant="slide">
           <SectionHeader

@@ -48,7 +48,7 @@ export function ProjectCard({
       >
         <Link
           href={href}
-          className="block overflow-hidden rounded-lg bg-bg-soft transition-opacity duration-300 hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-focus"
+          className="block overflow-hidden rounded-lg bg-bg shadow-[0_20px_50px_rgba(15,23,42,0.16),0_8px_20px_rgba(15,23,42,0.1)] transition-[opacity,box-shadow] duration-300 hover:opacity-95 hover:shadow-[0_28px_60px_rgba(15,23,42,0.2),0_12px_28px_rgba(15,23,42,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-focus"
           aria-label={`Projekt ${title} ansehen`}
         >
           {image ? (

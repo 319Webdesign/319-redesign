@@ -39,7 +39,7 @@ export function FaqAccordion({ items, className }: FaqAccordionProps) {
                 )}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span className="font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
+                <span className="font-display text-base font-medium tracking-tight text-ink sm:text-lg">
                   {item.question}
                 </span>
                 <ChevronDown

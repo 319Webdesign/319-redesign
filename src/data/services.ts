@@ -116,7 +116,7 @@ export const serviceLandings: ServiceLanding[] = [
     },
     relatedProjectHrefs: [
       "/portfolio/elektrotechnik-betrieb",
-      "/portfolio/garten-landschaftsbau",
+      "/portfolio/he-immologis",
     ],
     faq: [
       {
@@ -210,7 +210,7 @@ export const serviceLandings: ServiceLanding[] = [
         },
       ],
     },
-    relatedProjectHrefs: ["/portfolio/garten-landschaftsbau"],
+    relatedProjectHrefs: ["/portfolio/he-immologis"],
     faq: [
       {
         question: "Wie schnell sehe ich SEO-Ergebnisse?",
@@ -388,7 +388,7 @@ export const serviceLandings: ServiceLanding[] = [
     },
     relatedProjectHrefs: [
       "/portfolio/elektrotechnik-betrieb",
-      "/portfolio/garten-landschaftsbau",
+      "/portfolio/he-immologis",
     ],
     faq: [
       {
@@ -479,7 +479,7 @@ export const serviceLandings: ServiceLanding[] = [
     },
     relatedProjectHrefs: [
       "/portfolio/elektrotechnik-betrieb",
-      "/portfolio/garten-landschaftsbau",
+      "/portfolio/he-immologis",
     ],
     processNote:
       "Wartung startet nach kurzem Check der bestehenden Seite — unabhängig davon, ob ich sie gebaut habe.",
@@ -570,7 +570,7 @@ export const serviceLandings: ServiceLanding[] = [
         },
       ],
     },
-    relatedProjectHrefs: ["/portfolio/garten-landschaftsbau"],
+    relatedProjectHrefs: ["/portfolio/he-immologis"],
     processNote:
       "Ablauf kompakt: Zugang klären → Ist-Analyse → Optimierung → Foto- und Bewertungsplan.",
     faq: [
