@@ -1,5 +1,7 @@
 import { AboutSection } from "@/components/home/AboutSection";
 import { BeforeAfterSection } from "@/components/home/BeforeAfterSection";
+import { ClientLogosSection } from "@/components/home/ClientLogosSection";
+import { DesignProposalCta } from "@/components/home/DesignProposalCta";
 import { FaqSection } from "@/components/home/FaqSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
@@ -7,7 +9,6 @@ import { ProcessSection } from "@/components/home/ProcessSection";
 import { ReferencesSection } from "@/components/home/ReferencesSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { TrustSection } from "@/components/home/TrustSection";
 import { WhySection } from "@/components/home/WhySection";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaBlock } from "@/components/ui";
@@ -34,8 +35,9 @@ export default function HomePage() {
     <SiteShell>
       <main>
         <HeroSection />
-        <TrustSection />
+        <ClientLogosSection />
         <ProblemSection />
+        <DesignProposalCta />
         <WhySection />
         <ProcessSection />
         <ServicesSection />

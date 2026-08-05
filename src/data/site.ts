@@ -32,27 +32,23 @@ export const navLinks = [
 export const processSteps = [
   {
     title: "Kennenlernen",
-    description: "Ziele, Zielgruppe und Ist-Zustand — ehrlich und auf Augenhöhe.",
+    description:
+      "Ziele, Zielgruppe und Ist-Zustand — unverbindlich und auf Augenhöhe.",
   },
   {
-    title: "Konzept",
-    description: "Struktur, Inhalte und SEO-Grundlage, bevor Pixel gesetzt werden.",
-  },
-  {
-    title: "Design",
-    description: "Individuelles Layout, das zu deiner Marke und deinen Kunden passt.",
+    title: "Konzept & Design",
+    description:
+      "Struktur, SEO-Grundlage und individuelles Layout, das zu Ihnen passt.",
   },
   {
     title: "Entwicklung",
-    description: "Schnell, sauber und zugänglich — ohne Baukasten-Kompromisse.",
+    description:
+      "Schnell, sauber und modern umgesetzt — ohne Baukasten-Kompromisse.",
   },
   {
-    title: "Livegang",
-    description: "Launch, Tracking und Feinschliff, bis alles sitzt.",
-  },
-  {
-    title: "Betreuung",
-    description: "Updates, Support und Weiterentwicklung — wenn du willst.",
+    title: "Livegang & Betreuung",
+    description:
+      "Online gehen mit gutem Gefühl — und danach ein fester Ansprechpartner.",
   },
 ];
 
@@ -101,14 +97,91 @@ export const services = [
   },
 ];
 
-export const projects = [
+export const digitalSolutions = [
   {
-    title: "Elektrotechnik Betrieb",
+    id: "websites",
+    title: "Ihre Website",
+    description:
+      "Individuelle Unternehmenswebsites, Landingpages und Redesigns, die Vertrauen schaffen und neue Kunden gewinnen.",
+    items: [
+      "Unternehmenswebsite",
+      "Landingpages",
+      "Onepager",
+      "Website-Redesign",
+    ],
+    href: "/leistungen/webdesign-darmstadt",
+  },
+  {
+    id: "branding",
+    title: "Ihr Markenauftritt",
+    description:
+      "Ein einheitlicher Markenauftritt sorgt für Wiedererkennung und Professionalität – online und darüber hinaus.",
+    items: [
+      "Corporate Design",
+      "Farbwelt",
+      "Logo",
+      "E-Mail-Signaturen",
+      "Social-Media-Grafiken",
+    ],
+    href: "/leistungen",
+  },
+  {
+    id: "visibility",
+    title: "Ihre Sichtbarkeit",
+    description:
+      "Damit Kunden Ihr Unternehmen dort finden, wo sie nach Ihren Leistungen suchen.",
+    items: [
+      "Lokale SEO",
+      "Google Unternehmensprofil",
+      "Keyword-Recherche",
+      "Landingpages",
+    ],
+    href: "/leistungen/seo-darmstadt",
+  },
+  {
+    id: "tools",
+    title: "Ihre digitalen Prozesse",
+    description:
+      "Digitale Lösungen, die Ihren Arbeitsalltag vereinfachen und Anfragen effizienter machen.",
+    items: [
+      "Kontaktformulare",
+      "Terminbuchung",
+      "CRM",
+      "Automatisierungen",
+      "Newsletter",
+    ],
+    href: "/leistungen",
+  },
+  {
+    id: "care",
+    title: "Ihre Betreuung",
+    description:
+      "Auch nach dem Livegang bleibe ich Ihr Ansprechpartner und entwickle Ihre Website gemeinsam mit Ihrem Unternehmen weiter.",
+    items: ["Wartung", "Updates", "Backups", "Hosting", "Support"],
+    href: "/leistungen/website-wartung",
+  },
+];
+
+export const projects: {
+  title: string;
+  industry: string;
+  service: string;
+  result: string;
+  href: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+}[] = [
+  {
+    title: "Elektrotechnik Mager GmbH",
     industry: "Handwerk",
     service: "Website Relaunch",
     result:
-      "Klarere Positionierung und spürbar mehr qualifizierte Anfragen aus der Region.",
+      "Moderner und professioneller Unternehmensauftritt mit klarem Fokus auf Industrie- und Gewerbekunden. Die neue Website stärkt das Vertrauen potenzieller Kunden und erleichtert die Kontaktaufnahme.",
     href: "/portfolio/elektrotechnik-betrieb",
+    image: "/case-etm.png",
+    imageWidth: 1897,
+    imageHeight: 867,
   },
   {
     title: "Garten- & Landschaftsbau",
@@ -125,7 +198,7 @@ export const testimonials = [
     quote:
       "Endlich eine Website, die unser Handwerk ernst nimmt — persönlich betreut und messbar besser auffindbar.",
     name: "Thomas M.",
-    company: "Elektrotechnik Betrieb, Darmstadt",
+    company: "Elektrotechnik Mager GmbH",
   },
   {
     quote:
@@ -165,42 +238,38 @@ export const faqItems = [
 
 export const problems = [
   {
-    title: "Sieht aus wie 2014",
-    text: "Veraltetes Design wirkt unglaubwürdig — und Besucher gehen, bevor sie anrufen.",
+    title: "Der erste Eindruck",
+    text: "Eine veraltete Website kostet Vertrauen – noch bevor ein Besucher Kontakt aufnimmt.",
   },
   {
-    title: "Niemand findet dich",
-    text: "Ohne lokale SEO und klare Struktur bleibst du hinter Wettbewerbern unsichtbar.",
+    title: "Die Sichtbarkeit",
+    text: "Wer bei Google kaum gefunden wird, verliert potenzielle Kunden an die Konkurrenz.",
   },
   {
-    title: "Keine klare nächste Aktion",
-    text: "Besucher wissen nicht, was sie tun sollen — Anfragen bleiben aus.",
-  },
-  {
-    title: "Baukasten ohne Persönlichkeit",
-    text: "Standard-Templates sehen austauschbar aus. Genau das Vertrauen, das Handwerk braucht, fehlt.",
+    title: "Das Ergebnis",
+    text: "Eine gute Website überzeugt nicht nur optisch, sondern unterstützt Ihr Unternehmen dabei, neue Anfragen zu gewinnen.",
   },
 ];
 
 export const whyPoints = [
   {
     title: "Persönliche Betreuung",
-    text: "Du sprichst mit dem Webdesigner, der dein Projekt auch umsetzt — nicht mit einer Ticketsystem-Agentur.",
+    text: "Sie sprechen während des gesamten Projekts direkt mit mir – von der ersten Idee bis zum Livegang. Keine wechselnden Ansprechpartner und keine anonymen Prozesse.",
   },
   {
     title: "SEO von Anfang an",
-    text: "Struktur, Inhalte und Technik werden so gebaut, dass Google und Kunden dich finden können.",
+    text: "Eine gute Website muss nicht nur gut aussehen. Inhalte, Struktur und Technik werden von Beginn an so aufgebaut, dass Google sie optimal verstehen kann.",
   },
   {
     title: "Individuelles Design",
-    text: "Kein Template-Look. Eine Website, die zu deinem Betrieb passt und Premium-Anspruch zeigt.",
+    text: "Keine Baukastensysteme. Keine fertigen Templates. Jede Website wird individuell für Ihr Unternehmen entwickelt.",
   },
   {
-    title: "Schnelle Ladezeiten",
-    text: "Performance ist kein Extra — sie entscheidet mit über Absprung und Ranking.",
+    title: "Performance",
+    text: "Kurze Ladezeiten, moderne Technologien und saubere Entwicklung sorgen für eine Website, die langfristig überzeugt.",
   },
   {
-    title: "Keine Baukastensysteme",
-    text: "Moderne, wartbare Technik statt Limitierungen und aufgeblähter Page-Builder.",
+    title: "Langfristige Betreuung",
+    text: "Auch nach dem Livegang bleibe ich Ihr Ansprechpartner für Weiterentwicklungen, Wartung und Fragen rund um Ihre Website.",
   },
 ];

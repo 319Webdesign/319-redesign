@@ -29,6 +29,10 @@ export function ReferencesSection() {
                 service={project.service}
                 result={project.result}
                 href={project.href}
+                image={project.image}
+                imageWidth={project.imageWidth}
+                imageHeight={project.imageHeight}
+                reverse={index % 2 === 1}
                 desktopMockup={
                   <DeviceMockup
                     variant={index % 2 === 0 ? "brand" : "light"}

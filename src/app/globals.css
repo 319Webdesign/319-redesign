@@ -112,6 +112,41 @@
     transition-duration: var(--duration-base);
     transition-timing-function: var(--ease-out);
   }
+
+  .logo-marquee {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+
+  .logo-marquee-track {
+    animation: logo-marquee 42s linear infinite;
+    width: max-content;
+  }
+
+  .logo-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes logo-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
