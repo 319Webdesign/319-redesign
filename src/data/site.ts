@@ -167,50 +167,8 @@ export const digitalSolutions = [
   },
 ];
 
-export const projects: {
-  title: string;
-  industry: string;
-  service: string;
-  result: string;
-  href: string;
-  image?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-}[] = [
-  {
-    title: "Elektrotechnik Mager GmbH",
-    industry: "Handwerk",
-    service: "Website Relaunch",
-    result:
-      "Moderner und professioneller Unternehmensauftritt mit klarem Fokus auf Industrie- und Gewerbekunden. Die neue Website stärkt das Vertrauen potenzieller Kunden und erleichtert die Kontaktaufnahme.",
-    href: "/portfolio/elektrotechnik-betrieb",
-    image: "/case-etm.png",
-    imageWidth: 1897,
-    imageHeight: 867,
-  },
-  {
-    title: "HE Immologis UG",
-    industry: "Immobilienmakler",
-    service: "Website Relaunch",
-    result:
-      "Kompletter Website-Relaunch inklusive nahtloser onOffice-Integration für eine effiziente Objektverwaltung.",
-    href: "/portfolio/he-immologis",
-    image: "/case-he.png",
-    imageWidth: 1898,
-    imageHeight: 861,
-  },
-  {
-    title: "Heinerfilm",
-    industry: "Videograf",
-    service: "Website Relaunch",
-    result:
-      "Moderner Webauftritt zur professionellen Präsentation seiner Videoprojekte und einfachen Kontaktaufnahme.",
-    href: "/portfolio/heinerfilm",
-    image: "/case-heinerfilm.png",
-    imageWidth: 1892,
-    imageHeight: 870,
-  },
-];
+/** @deprecated Import aus `@/data/projects` bevorzugen — bleibt für Home/Related kompatibel */
+export { projects } from "./projects";
 
 export const testimonials = [
   {

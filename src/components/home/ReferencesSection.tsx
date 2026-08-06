@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { projects } from "@/data/site";
+import { projects } from "@/data/projects";
 
 export function ReferencesSection() {
   return (

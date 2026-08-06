@@ -1,0 +1,9 @@
+export { PortfolioHero } from "./PortfolioHero";
+export { PortfolioFacts } from "./PortfolioFacts";
+export { PortfolioFeatured } from "./PortfolioFeatured";
+export { PortfolioCaseBlock } from "./PortfolioCaseBlock";
+export { PortfolioMore } from "./PortfolioMore";
+export { PortfolioApproach } from "./PortfolioApproach";
+export { PortfolioTestimonials } from "./PortfolioTestimonials";
+export { PortfolioCta } from "./PortfolioCta";
+export { ProjectDetailView } from "./ProjectDetailView";

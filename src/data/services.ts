@@ -1,4 +1,5 @@
-import { processSteps, projects } from "@/data/site";
+import { processSteps } from "@/data/site";
+import { projects } from "@/data/projects";
 
 export type ServiceSlug =
   | "webdesign-darmstadt"

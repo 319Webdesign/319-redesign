@@ -1,18 +1,34 @@
+import { SiteShell } from "@/components/layout/SiteShell";
 import {
-  PlaceholderPage,
-  placeholderMetadata,
-} from "@/components/layout/PlaceholderPage";
+  PortfolioApproach,
+  PortfolioCta,
+  PortfolioFacts,
+  PortfolioFeatured,
+  PortfolioHero,
+  PortfolioMore,
+  PortfolioTestimonials,
+} from "@/components/portfolio";
+import type { Metadata } from "next";
 
-export const metadata = placeholderMetadata(
-  "Portfolio",
-  "Referenzen und Case Studies von 319Webdesign — in Arbeit.",
-);
+export const metadata: Metadata = {
+  title: "Portfolio · Ausgewählte Websites & Case Studies",
+  description:
+    "Echte Projekte von 319Webdesign: Websites für Handwerk, Immobilien, Videoproduktion und regionale Unternehmen – individuell, klar und anfrageorientiert.",
+  alternates: { canonical: "/portfolio" },
+};
 
 export default function PortfolioPage() {
   return (
-    <PlaceholderPage
-      title="Portfolio"
-      description="Case Studies folgen. Auf der Startseite findest du bereits ausgewählte Projektbeispiele."
-    />
+    <SiteShell>
+      <main>
+        <PortfolioHero />
+        <PortfolioFacts />
+        <PortfolioFeatured />
+        <PortfolioMore />
+        <PortfolioApproach />
+        <PortfolioTestimonials />
+        <PortfolioCta />
+      </main>
+    </SiteShell>
   );
 }

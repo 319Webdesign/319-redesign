@@ -1,38 +1,45 @@
+import { SiteShell } from "@/components/layout/SiteShell";
+import { ProjectDetailView } from "@/components/portfolio";
 import {
-  PlaceholderPage,
-  placeholderMetadata,
-} from "@/components/layout/PlaceholderPage";
-import { projects } from "@/data/site";
+  getProjectBySlug,
+  portfolioProjects,
+} from "@/data/projects";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const bySlug = Object.fromEntries(
-  projects.map((p) => [p.href.replace("/portfolio/", ""), p]),
-);
-
-export async function generateStaticParams() {
-  return Object.keys(bySlug).map((slug) => ({ slug }));
+export function generateStaticParams() {
+  return portfolioProjects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = bySlug[slug];
-  if (!project) return placeholderMetadata("Case Study", "Case Study folgt.");
-  return placeholderMetadata(project.title, project.result);
+  const project = getProjectBySlug(slug);
+  if (!project) {
+    return { title: "Projekt nicht gefunden" };
+  }
+
+  return {
+    title: project.seo.title,
+    description: project.seo.description,
+    alternates: { canonical: project.href },
+    openGraph: {
+      title: project.seo.title,
+      description: project.seo.description,
+      images: [{ url: project.image.src }],
+    },
+  };
 }
 
 export default async function PortfolioDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = bySlug[slug];
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
   return (
-    <PlaceholderPage
-      eyebrow="Case Study"
-      title={project.title}
-      description={`${project.result} Die ausführliche Case Study folgt.`}
-    />
+    <SiteShell>
+      <ProjectDetailView project={project} />
+    </SiteShell>
   );
 }
