@@ -1,9 +1,9 @@
 import { Reveal, SectionHeader } from "@/components/ui";
-import { getFeaturedProjects } from "@/data/projects";
+import { getAllPortfolioProjects } from "@/data/projects";
 import { PortfolioCaseBlock } from "./PortfolioCaseBlock";
 
 export function PortfolioFeatured() {
-  const featured = getFeaturedProjects();
+  const projects = getAllPortfolioProjects();
 
   return (
     <section id="projekte" className="scroll-mt-24 border-b border-border bg-bg">
@@ -18,18 +18,21 @@ export function PortfolioFeatured() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
-        {featured.map((project, index) => (
-          <div
+        {projects.map((project, index) => (
+          <Reveal
             key={project.slug}
-            id={`projekt-${project.slug}`}
-            className="scroll-mt-24"
+            variant="slide"
+            delay={index === 0 ? 0 : 0.04}
           >
-            <PortfolioCaseBlock
-              project={project}
-              priority={index === 0}
-              nextProject={featured[index + 1] ?? null}
-            />
-          </div>
+            <div id={`projekt-${project.slug}`} className="scroll-mt-24">
+              <PortfolioCaseBlock
+                project={project}
+                priority={index === 0}
+                reverse={index % 2 === 1}
+                nextProject={projects[index + 1] ?? null}
+              />
+            </div>
+          </Reveal>
         ))}
       </div>
     </section>

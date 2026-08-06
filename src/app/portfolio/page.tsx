@@ -5,7 +5,6 @@ import {
   PortfolioFacts,
   PortfolioFeatured,
   PortfolioHero,
-  PortfolioMore,
   PortfolioTestimonials,
 } from "@/components/portfolio";
 import type { Metadata } from "next";
@@ -24,7 +23,6 @@ export default function PortfolioPage() {
         <PortfolioHero />
         <PortfolioFacts />
         <PortfolioFeatured />
-        <PortfolioMore />
         <PortfolioApproach />
         <PortfolioTestimonials />
         <PortfolioCta />

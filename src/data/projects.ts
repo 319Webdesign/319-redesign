@@ -260,6 +260,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Baudienstleistungen Hofmann",
     shortTitle: "Baudienstleistungen Hofmann",
     industry: "Baudienstleistungen",
+    role: "Bauunternehmen",
+    location: "Rhein-Main",
+    duration: "4 Wochen",
     service: "Website Relaunch",
     href: "/portfolio/baudienstleistungen-hofmann",
     liveUrl: "https://www.baudienstleistungen-hofmann.de/",
@@ -270,12 +273,16 @@ export const portfolioProjects: PortfolioProject[] = [
       "Moderner Internetauftritt mit klarer Leistungsstruktur und direkter Kontaktmöglichkeit.",
     result:
       "Moderner Internetauftritt mit klarer Leistungsstruktur und direkter Kontaktmöglichkeit.",
+    resultHeadline:
+      "Klarer Leistungsauftritt mit direkter Kontaktmöglichkeit.",
     services: [
       "Webdesign",
       "Leistungsseiten",
-      "Kontaktformulare",
-      "Mobile Optimierung",
+      "Kontakt",
+      "Responsive",
+      "SEO",
     ],
+    metaServices: ["Webdesign", "Leistungsseiten", "Kontakt"],
     situation:
       "Das Unternehmen brauchte einen zeitgemäßen Webauftritt, der Leistungen verständlich darstellt und regionale Auftraggeber zur Kontaktaufnahme bewegt.",
     goal:
@@ -289,7 +296,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "SEO-Grundlagen",
     ],
     outcome:
-      "Moderner Internetauftritt mit klarer Leistungsstruktur und direkter Kontaktmöglichkeit.",
+      "Auftraggeber finden Leistungen schneller und gelangen ohne Umwege zur Anfrage.",
     image: {
       src: "/case-hofmann.png",
       alt: "Website-Screenshot von Baudienstleistungen Hofmann",
@@ -297,6 +304,7 @@ export const portfolioProjects: PortfolioProject[] = [
       height: 900,
     },
     featured: false,
+    featuredOrder: 4,
     moreOrder: 1,
     relatedServices: [
       {
@@ -316,6 +324,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "1klang Massage",
     shortTitle: "1klang Massage",
     industry: "Wellness & Massage",
+    role: "Massagepraxis",
+    location: "Rhein-Main",
+    duration: "3 Wochen",
     service: "Website Relaunch",
     href: "/portfolio/1klang-massage",
     liveUrl: "https://1klang-massage.de",
@@ -326,12 +337,15 @@ export const portfolioProjects: PortfolioProject[] = [
       "Persönlicher Webauftritt mit ruhigem Design und einfacher Terminorientierung.",
     result:
       "Persönlicher Webauftritt mit ruhigem Design und einfacher Terminorientierung.",
+    resultHeadline:
+      "Ruhiger Auftritt mit klarer Terminorientierung.",
     services: [
       "Webdesign",
-      "Leistungsdarstellung",
-      "Kontakt & Terminorientierung",
-      "Mobile Optimierung",
+      "Leistungen",
+      "Kontakt",
+      "Responsive",
     ],
+    metaServices: ["Webdesign", "Leistungen", "Kontakt"],
     situation:
       "Das Angebot sollte online ruhig, persönlich und einladend wirken – ohne unruhige Agentur-Optik oder überladene Buchungssysteme.",
     goal:
@@ -345,7 +359,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Mobile Optimierung",
     ],
     outcome:
-      "Persönlicher Webauftritt mit ruhigem Design und einfacher Terminorientierung.",
+      "Interessenten erfassen das Angebot schnell und finden den Weg zur Terminaufnahme ohne Ablenkung.",
     image: {
       src: "/case-1klang.png",
       alt: "Website-Screenshot von 1klang Massage",
@@ -353,6 +367,7 @@ export const portfolioProjects: PortfolioProject[] = [
       height: 900,
     },
     featured: false,
+    featuredOrder: 5,
     moreOrder: 2,
     relatedServices: [
       { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
@@ -368,6 +383,9 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Tierhotel Rhein-Main",
     shortTitle: "Tierhotel Rhein-Main",
     industry: "Tierbetreuung",
+    role: "Tierhotel",
+    location: "Rhein-Main",
+    duration: "4 Wochen",
     service: "Website Relaunch",
     href: "/portfolio/tierhotel-rhein-main",
     liveUrl: "https://tierhotel-rhein-main.de",
@@ -378,12 +396,16 @@ export const portfolioProjects: PortfolioProject[] = [
       "Moderner Relaunch mit klarer Struktur und deutlich professionellerem ersten Eindruck.",
     result:
       "Von veraltet und austauschbar zu klar, schnell und anfrageorientiert – der Unterschied ist sichtbar.",
+    resultHeadline:
+      "Vom veralteten Auftritt zum klaren, vertrauenswürdigen Relaunch.",
     services: [
-      "Website-Relaunch",
+      "Relaunch",
       "Webdesign",
-      "Inhaltsstruktur",
-      "Mobile Optimierung",
+      "Struktur",
+      "Responsive",
+      "SEO",
     ],
+    metaServices: ["Relaunch", "Webdesign", "SEO"],
     situation:
       "Der bisherige Auftritt wirkte veraltet und vermittelte zu wenig Vertrauen – obwohl das Angebot regional stark nachgefragt wird.",
     goal:
@@ -397,7 +419,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "SEO-Grundlagen",
     ],
     outcome:
-      "Moderner, vertrauenswürdiger Auftritt mit klarer Struktur – der Unterschied zum vorherigen Internetauftritt ist deutlich sichtbar.",
+      "Der erste Eindruck wirkt professionell und vertrauenswürdig – Anfragen werden deutlich einfacher.",
     image: {
       src: "/case-tierhotel.png",
       alt: "Website-Screenshot von Tierhotel Rhein-Main",
@@ -419,6 +441,7 @@ export const portfolioProjects: PortfolioProject[] = [
       },
     ],
     featured: false,
+    featuredOrder: 6,
     moreOrder: 3,
     relatedServices: [
       { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
@@ -440,6 +463,19 @@ export function getFeaturedProjects() {
   return portfolioProjects
     .filter((p) => p.featured)
     .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
+}
+
+/** Alle Projekte für die Portfolio-Übersicht in Anzeigereihenfolge */
+export function getAllPortfolioProjects() {
+  return [...portfolioProjects].sort((a, b) => {
+    const aKey = a.featured
+      ? (a.featuredOrder ?? 50)
+      : 100 + (a.moreOrder ?? 50);
+    const bKey = b.featured
+      ? (b.featuredOrder ?? 50)
+      : 100 + (b.moreOrder ?? 50);
+    return aKey - bKey;
+  });
 }
 
 export function getMoreProjects() {

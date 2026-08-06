@@ -3,16 +3,19 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button, Reveal } from "@/components/ui";
 import type { PortfolioProject } from "@/data/projects";
+import { cn } from "@/lib/cn";
 
 type Props = {
   project: PortfolioProject;
   priority?: boolean;
+  reverse?: boolean;
   nextProject?: PortfolioProject | null;
 };
 
 export function PortfolioCaseBlock({
   project,
   priority,
+  reverse = false,
   nextProject,
 }: Props) {
   const metaItems = [
@@ -33,7 +36,6 @@ export function PortfolioCaseBlock({
   return (
     <article className="border-b border-border py-16 last:border-b-0 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Meta-Werte quer über dem Bild */}
         <Reveal variant="fade">
           <dl className="mb-10 grid grid-cols-2 gap-x-6 gap-y-6 border-b border-border pb-8 sm:mb-12 sm:grid-cols-3 sm:pb-10 lg:grid-cols-5 lg:gap-x-8">
             {metaItems.map((item) => (
@@ -49,9 +51,12 @@ export function PortfolioCaseBlock({
           </dl>
         </Reveal>
 
-        {/* Bild links · Intro rechts */}
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
-          <Reveal variant="slide" delay={0.04} className="lg:col-span-7">
+          <Reveal
+            variant="scale"
+            delay={0.06}
+            className={cn("lg:col-span-7", reverse && "lg:order-2")}
+          >
             <Link
               href={project.href}
               className="group block overflow-hidden rounded-md shadow-[0_16px_40px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04)] ring-1 ring-border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-focus"
@@ -71,8 +76,11 @@ export function PortfolioCaseBlock({
 
           <Reveal
             variant="slide"
-            delay={0.08}
-            className="flex flex-col justify-center lg:col-span-5"
+            delay={0.12}
+            className={cn(
+              "flex flex-col justify-center lg:col-span-5",
+              reverse ? "lg:order-1 lg:pr-2" : "lg:pl-2",
+            )}
           >
             <h3 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               {project.shortTitle}
