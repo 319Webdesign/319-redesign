@@ -22,11 +22,12 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Leistungen · Webdesign, SEO & mehr in Darmstadt",
   description:
-    "Leistungen von 319Webdesign: Webdesign Darmstadt, SEO, Website Relaunch, Homepage für Handwerker, Wartung und Google Unternehmensprofil.",
+    "Leistungen von 319Webdesign: Webdesign, SEO, Website Relaunch, Homepage für Handwerker, Wartung und Google Unternehmensprofil.",
   alternates: { canonical: "/leistungen" },
 };
 
 const icons: Record<string, ReactNode> = {
+  webdesign: <Globe className="size-7" strokeWidth={1.5} />,
   "webdesign-darmstadt": <Globe className="size-7" strokeWidth={1.5} />,
   "seo-darmstadt": <Search className="size-7" strokeWidth={1.5} />,
   "website-relaunch": <RefreshCw className="size-7" strokeWidth={1.5} />,

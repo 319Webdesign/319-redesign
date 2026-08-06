@@ -113,6 +113,36 @@
     transition-timing-function: var(--ease-out);
   }
 
+  .mega-menu-enter {
+    animation: mega-menu-enter 200ms var(--ease-out) both;
+  }
+
+  .mega-menu-detail {
+    animation: mega-menu-detail 180ms var(--ease-out) both;
+  }
+
+  @keyframes mega-menu-enter {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes mega-menu-detail {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .logo-marquee {
     -webkit-mask-image: linear-gradient(
       90deg,

@@ -16,23 +16,125 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  {
-    label: "Leistungen",
-    href: "/leistungen",
-    children: [
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
-      { label: "SEO Darmstadt", href: "/leistungen/seo-darmstadt" },
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
-      { label: "Homepage für Handwerker", href: "/leistungen/homepage-handwerker" },
-      { label: "Website-Wartung", href: "/leistungen/website-wartung" },
-      { label: "Google Unternehmensprofil", href: "/leistungen/google-unternehmensprofil" },
-    ],
-  },
+  { label: "Leistungen", href: "/leistungen", megaMenu: true },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Über mich", href: "/ueber-mich" },
   { label: "Blog", href: "/blog" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
+
+export type LeistungenMegaIcon =
+  | "globe"
+  | "search"
+  | "palette"
+  | "settings"
+  | "shield";
+
+export type LeistungenMegaCategory = {
+  id: string;
+  title: string;
+  shortDescription: string;
+  icon: LeistungenMegaIcon;
+  href: string;
+  headline: string;
+  description: string;
+  features: readonly string[];
+  ctaLabel: string;
+};
+
+export const leistungenMegaMenu = {
+  label: "Leistungen",
+  href: "/leistungen",
+  categories: [
+    {
+      id: "webdesign",
+      title: "Webdesign",
+      shortDescription: "Moderne Unternehmenswebsites",
+      icon: "globe" as const,
+      href: "/leistungen/webdesign",
+      headline: "Individuelle Websites für Unternehmen.",
+      description:
+        "Moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und neue Kunden gewinnen.",
+      features: [
+        "Unternehmenswebsites",
+        "Landingpages",
+        "Onepager",
+        "Website-Redesign",
+      ],
+      ctaLabel: "Mehr über Webdesign",
+    },
+    {
+      id: "seo",
+      title: "Lokale SEO",
+      shortDescription: "Mehr Sichtbarkeit bei Google",
+      icon: "search" as const,
+      href: "/leistungen/seo-darmstadt",
+      headline: "Mehr Sichtbarkeit bei Google.",
+      description:
+        "Lokale Suchmaschinenoptimierung für Unternehmen, die regional gefunden werden möchten.",
+      features: [
+        "Lokale SEO",
+        "Google Unternehmensprofil",
+        "Keyword-Recherche",
+        "Standortseiten",
+      ],
+      ctaLabel: "Mehr über SEO",
+    },
+    {
+      id: "branding",
+      title: "Markenauftritt",
+      shortDescription: "Corporate Design & Gestaltung",
+      icon: "palette" as const,
+      href: "/leistungen",
+      headline: "Ein professioneller Markenauftritt.",
+      description:
+        "Vom Logo bis zur HTML-E-Mail-Signatur entsteht ein einheitlicher Unternehmensauftritt.",
+      features: [
+        "Corporate Design",
+        "Farbwelt",
+        "Typografie",
+        "HTML-E-Mail-Signaturen",
+        "Visitenkarten",
+      ],
+      ctaLabel: "Mehr über Corporate Design",
+    },
+    {
+      id: "digital",
+      title: "Digitale Lösungen",
+      shortDescription: "Automatisierungen & Formulare",
+      icon: "settings" as const,
+      href: "/leistungen",
+      headline: "Digitale Prozesse vereinfachen.",
+      description:
+        "Praktische Lösungen für mehr Effizienz im Arbeitsalltag.",
+      features: [
+        "Kontaktformulare",
+        "Terminbuchung",
+        "Newsletter",
+        "CRM-Anbindungen",
+        "Automatisierungen",
+      ],
+      ctaLabel: "Mehr erfahren",
+    },
+    {
+      id: "care",
+      title: "Betreuung",
+      shortDescription: "Wartung & Support",
+      icon: "shield" as const,
+      href: "/leistungen/website-wartung",
+      headline: "Auch nach dem Livegang für Sie da.",
+      description:
+        "Langfristige Betreuung, Wartung und technische Unterstützung.",
+      features: ["Updates", "Backups", "Wartung", "Hosting-Beratung", "Support"],
+      ctaLabel: "Betreuung ansehen",
+    },
+  ] satisfies readonly LeistungenMegaCategory[],
+  footer: {
+    text: "Nicht sicher, welche Leistung zu Ihrem Projekt passt?",
+    ctaLabel: "Kostenloses Erstgespräch vereinbaren",
+    ctaHref: "/kontakt",
+  },
+} as const;
 
 export const processSteps = [
   {
@@ -59,9 +161,16 @@ export const processSteps = [
 
 export const services = [
   {
+    title: "Webdesign",
+    description:
+      "Individuelle Websites, die Vertrauen aufbauen und Anfragen generieren — modern und premium.",
+    href: "/leistungen/webdesign",
+    icon: "globe" as const,
+  },
+  {
     title: "Webdesign Darmstadt",
     description:
-      "Individuelle Websites, die Vertrauen aufbauen und Anfragen generieren — lokal und premium.",
+      "Lokales Webdesign für Handwerk und regionale Unternehmen im Raum Darmstadt.",
     href: "/leistungen/webdesign-darmstadt",
     icon: "globe" as const,
   },
@@ -114,7 +223,7 @@ export const digitalSolutions = [
       "Onepager",
       "Website-Redesign",
     ],
-    href: "/leistungen/webdesign-darmstadt",
+    href: "/leistungen/webdesign",
   },
   {
     id: "branding",

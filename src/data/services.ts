@@ -2,6 +2,7 @@ import { processSteps } from "@/data/site";
 import { projects } from "@/data/projects";
 
 export type ServiceSlug =
+  | "webdesign"
   | "webdesign-darmstadt"
   | "seo-darmstadt"
   | "website-relaunch"
@@ -50,6 +51,102 @@ export type ServiceLanding = {
 };
 
 export const serviceLandings: ServiceLanding[] = [
+  {
+    slug: "webdesign",
+    title: "Webdesign",
+    metaTitle: "Webdesign · Individuelle Websites für Unternehmen",
+    metaDescription:
+      "Professionelles Webdesign für Unternehmen: moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und neue Kunden gewinnen.",
+    hero: {
+      eyebrow: "Webdesign",
+      headline: "Individuelle Websites für Unternehmen",
+      lead: "Moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und planbar neue Anfragen bringen — ohne Baukasten.",
+      primaryCta: "Kostenloses Erstgespräch",
+      secondaryCta: "Referenzen ansehen",
+      secondaryHref: "/portfolio",
+    },
+    problem: {
+      eyebrow: "Das Problem",
+      title: "Eine Website ohne Wirkung kostet Aufträge",
+      lead: "Viele Unternehmen haben „eine Homepage“ — aber keine Seite, die überzeugt, gefunden wird und zur Anfrage führt.",
+      items: [
+        {
+          title: "Austauschbares Design",
+          text: "Baukasten-Look wirkt beliebig. Genau das Vertrauen, das potenzielle Kunden brauchen, fehlt.",
+        },
+        {
+          title: "Unklare Botschaft",
+          text: "Leistungen, Zielgruppe und nächste Schritte sind nicht sofort verständlich.",
+        },
+        {
+          title: "Schwache Conversion",
+          text: "Besucher scrollen — und gehen. Ohne klare Call-to-Actions bleiben Anfragen aus.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Die Lösung",
+      title: "Webdesign mit einem Ziel: qualifizierte Anfragen",
+      lead: "Ich entwickle keine Online-Visitenkarte — sondern eine Website, die Ihr Unternehmen professionell und greifbar macht.",
+      paragraphs: [
+        "Von der Struktur über Inhalte und Design bis zur technischen Umsetzung: alles aus einer Hand, persönlich betreut.",
+        "SEO, Ladezeiten und mobile Nutzung sind von Anfang an getrennt mitgedacht — nicht nachträglich aufgesetzt.",
+      ],
+    },
+    benefits: {
+      eyebrow: "Vorteile",
+      title: "Was Sie konkret bekommen",
+      lead: "Ergebnisorientiert — nicht Feature-Listen.",
+      items: [
+        {
+          title: "Individuelles Design",
+          text: "Keine Templates. Eine klare visuelle Sprache, die zu Ihrem Unternehmen passt.",
+        },
+        {
+          title: "Struktur für Menschen und Google",
+          text: "Seitenaufbau, Headings und Inhalte so, dass Besucher und Suchmaschinen Sie verstehen.",
+        },
+        {
+          title: "Schnelle, moderne Technik",
+          text: "Kurze Ladezeiten, saubere Umsetzung, ohne unnötigen Page-Builder-Ballast.",
+        },
+        {
+          title: "Persönliche Betreuung",
+          text: "Kurze Wege, ehrliches Feedback und Entscheidungen ohne Agentur-Umwege.",
+        },
+      ],
+    },
+    relatedProjectHrefs: [
+      "/portfolio/elektrotechnik-betrieb",
+      "/portfolio/he-immologis",
+    ],
+    faq: [
+      {
+        question: "Was kostet ein professionelles Webdesign?",
+        answer:
+          "Das hängt vom Umfang ab. Im Erstgespräch klären wir Ziele und Seitenumfang — danach erhalten Sie ein klares Angebot.",
+      },
+      {
+        question: "Wie lange dauert ein Webdesign-Projekt?",
+        answer:
+          "Die meisten Projekte sind innerhalb von 3 bis 8 Wochen online — abhängig von Feedback und Content-Lieferung.",
+      },
+      {
+        question: "Erstellen Sie auch die Texte?",
+        answer:
+          "Ja, auf Wunsch. Wir können Inhalte gemeinsam erarbeiten oder vorhandene Texte professionell schärfen.",
+      },
+      {
+        question: "Für wen ist das Angebot gedacht?",
+        answer:
+          "Für Handwerksbetriebe und regionale Unternehmen, die mit ihrer Website Anfragen gewinnen wollen — nicht nur Online-Präsenz.",
+      },
+    ],
+    cta: {
+      title: "Bereit für Webdesign, das wirkt?",
+      lead: "Lassen Sie uns in einem kostenlosen Erstgespräch klären, was Ihre Website wirklich leisten soll.",
+    },
+  },
   {
     slug: "webdesign-darmstadt",
     title: "Webdesign Darmstadt",

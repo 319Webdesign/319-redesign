@@ -1,17 +1,57 @@
 "use client";
 
+import { LeistungenMegaMenu } from "@/components/layout/LeistungenMegaMenu";
 import { Button } from "@/components/ui/Button";
-import { navLinks, siteConfig } from "@/data/site";
+import {
+  leistungenMegaMenu,
+  navLinks,
+  siteConfig,
+  type LeistungenMegaIcon,
+} from "@/data/site";
 import { cn } from "@/lib/cn";
-import { ChevronDown, Menu, X } from "lucide-react";
+import {
+  Check,
+  ChevronDown,
+  Globe,
+  Menu,
+  Palette,
+  Search,
+  Settings2,
+  Shield,
+  X,
+} from "lucide-react";
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ComponentType,
+} from "react";
+
+const megaIcons: Record<
+  LeistungenMegaIcon,
+  ComponentType<{ className?: string; strokeWidth?: number }>
+> = {
+  globe: Globe,
+  search: Search,
+  palette: Palette,
+  settings: Settings2,
+  shield: Shield,
+};
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopLeistungenOpen, setDesktopLeistungenOpen] = useState(false);
+  const [mobileLeistungenOpen, setMobileLeistungenOpen] = useState(false);
+  const [mobileActiveCategory, setMobileActiveCategory] = useState<
+    string | null
+  >(null);
   const menuId = useId();
+  const leistungenRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openedAt = useRef(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -26,6 +66,67 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      setMobileLeistungenOpen(false);
+      setMobileActiveCategory(null);
+    }
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!desktopLeistungenOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (
+        leistungenRef.current &&
+        !leistungenRef.current.contains(e.target as Node)
+      ) {
+        setDesktopLeistungenOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [desktopLeistungenOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  const openDesktop = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setDesktopLeistungenOpen((wasOpen) => {
+      if (!wasOpen) openedAt.current = Date.now();
+      return true;
+    });
+  };
+
+  const scheduleCloseDesktop = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
+      setDesktopLeistungenOpen(false);
+    }, 120);
+  };
+
+  const onLeistungenTriggerClick = () => {
+    // Nur den Klick der Hover-Öffnen-Geste ignorieren — nicht spätere Klicks
+    if (
+      desktopLeistungenOpen &&
+      Date.now() - openedAt.current < 350
+    ) {
+      return;
+    }
+    setDesktopLeistungenOpen((open) => {
+      if (!open) openedAt.current = Date.now();
+      return !open;
+    });
+  };
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <header
@@ -44,20 +145,30 @@ export function SiteHeader() {
           {siteConfig.name}
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        <nav
+          className="hidden items-center gap-1 md:flex"
+          aria-label="Hauptnavigation"
+        >
           {navLinks.map((item) =>
-            "children" in item && item.children ? (
+            "megaMenu" in item && item.megaMenu ? (
               <div
                 key={item.href}
+                ref={leistungenRef}
                 className="relative"
-                onMouseEnter={() => setDesktopLeistungenOpen(true)}
-                onMouseLeave={() => setDesktopLeistungenOpen(false)}
+                onMouseEnter={openDesktop}
+                onMouseLeave={scheduleCloseDesktop}
               >
                 <button
                   type="button"
-                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-muted transition-motion hover:text-ink"
+                  className={cn(
+                    "inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-motion",
+                    desktopLeistungenOpen
+                      ? "text-ink"
+                      : "text-ink-muted hover:text-ink",
+                  )}
                   aria-expanded={desktopLeistungenOpen}
-                  onClick={() => setDesktopLeistungenOpen((v) => !v)}
+                  aria-haspopup="menu"
+                  onClick={onLeistungenTriggerClick}
                 >
                   {item.label}
                   <ChevronDown
@@ -68,27 +179,11 @@ export function SiteHeader() {
                     aria-hidden
                   />
                 </button>
-                {desktopLeistungenOpen ? (
-                  <div className="absolute left-0 top-full z-50 min-w-[16rem] pt-2">
-                    <div className="rounded-md border border-border bg-bg p-2 shadow-none">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block rounded-sm px-3 py-2.5 text-sm text-ink-muted transition-motion hover:bg-bg-soft hover:text-ink"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                      <Link
-                        href={item.href}
-                        className="mt-1 block border-t border-border px-3 py-2.5 text-sm font-semibold text-brand"
-                      >
-                        Alle Leistungen
-                      </Link>
-                    </div>
-                  </div>
-                ) : null}
+                <LeistungenMegaMenu
+                  open={desktopLeistungenOpen}
+                  onClose={() => setDesktopLeistungenOpen(false)}
+                  onNavigate={() => setDesktopLeistungenOpen(false)}
+                />
               </div>
             ) : (
               <Link
@@ -113,7 +208,7 @@ export function SiteHeader() {
           </Button>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-md text-ink lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-md text-ink md:hidden"
             aria-expanded={mobileOpen}
             aria-controls={menuId}
             aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
@@ -127,39 +222,159 @@ export function SiteHeader() {
       {mobileOpen ? (
         <div
           id={menuId}
-          className="border-t border-border bg-bg lg:hidden"
+          className="border-t border-border bg-bg md:hidden"
         >
           <nav
             className="mx-auto flex max-h-[calc(100dvh-4.5rem)] max-w-6xl flex-col gap-1 overflow-y-auto px-6 py-6 sm:px-8"
             aria-label="Mobile Navigation"
           >
-            {navLinks.map((item) => (
-              <div key={item.href} className="border-b border-border py-3">
-                <Link
-                  href={item.href}
-                  className="block py-1 text-lg font-medium text-ink"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-                {"children" in item && item.children ? (
-                  <div className="mt-2 space-y-1 pl-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block py-1.5 text-sm text-ink-muted"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
+            {navLinks.map((item) =>
+              "megaMenu" in item && item.megaMenu ? (
+                <div key={item.href} className="border-b border-border py-3">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between gap-4 py-1 text-left text-lg font-medium text-ink"
+                    aria-expanded={mobileLeistungenOpen}
+                    onClick={() => setMobileLeistungenOpen((v) => !v)}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className={cn(
+                        "size-5 shrink-0 text-brand transition-motion",
+                        mobileLeistungenOpen && "rotate-180",
+                      )}
+                      aria-hidden
+                    />
+                  </button>
+
+                  {mobileLeistungenOpen ? (
+                    <div className="mt-3 space-y-1">
+                      {leistungenMegaMenu.categories.map((category) => {
+                        const Icon = megaIcons[category.icon];
+                        const isOpen = mobileActiveCategory === category.id;
+
+                        return (
+                          <div
+                            key={category.id}
+                            className="overflow-hidden rounded-xl"
+                          >
+                            <button
+                              type="button"
+                              className={cn(
+                                "flex w-full items-start gap-3 px-3 py-3 text-left transition-colors",
+                                isOpen
+                                  ? "bg-[#F8FAFC] text-brand"
+                                  : "text-ink hover:bg-[#F8FAFC]",
+                              )}
+                              aria-expanded={isOpen}
+                              onClick={() =>
+                                setMobileActiveCategory(
+                                  isOpen ? null : category.id,
+                                )
+                              }
+                            >
+                              <Icon
+                                className={cn(
+                                  "mt-0.5 size-[18px] shrink-0",
+                                  isOpen ? "text-brand" : "text-ink-muted",
+                                )}
+                                strokeWidth={1.5}
+                                aria-hidden
+                              />
+                              <span className="min-w-0 flex-1">
+                                <span
+                                  className={cn(
+                                    "block text-base font-medium",
+                                    isOpen ? "text-brand" : "text-ink",
+                                  )}
+                                >
+                                  {category.title}
+                                </span>
+                                <span className="mt-0.5 block text-sm text-ink-muted">
+                                  {category.shortDescription}
+                                </span>
+                              </span>
+                              <ChevronDown
+                                className={cn(
+                                  "mt-1 size-4 shrink-0 text-ink-subtle transition-motion",
+                                  isOpen && "rotate-180 text-brand",
+                                )}
+                                aria-hidden
+                              />
+                            </button>
+
+                            {isOpen ? (
+                              <div className="space-y-4 bg-[#F8FAFC] px-3 pb-4 pt-1">
+                                <p className="pl-[30px] text-sm leading-relaxed text-ink-muted">
+                                  {category.description}
+                                </p>
+                                <ul className="space-y-2 pl-[30px]">
+                                  {category.features.map((feature) => (
+                                    <li
+                                      key={feature}
+                                      className="flex items-center gap-2 text-sm text-ink"
+                                    >
+                                      <Check
+                                        className="size-3.5 shrink-0 text-brand"
+                                        strokeWidth={2}
+                                        aria-hidden
+                                      />
+                                      {feature}
+                                    </li>
+                                  ))}
+                                </ul>
+                                <div className="pl-[30px]">
+                                  <Link
+                                    href={category.href}
+                                    onClick={closeMobile}
+                                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
+                                  >
+                                    {category.ctaLabel}
+                                  </Link>
+                                </div>
+                              </div>
+                            ) : null}
+                          </div>
+                        );
+                      })}
+
+                      <div className="mt-4 space-y-3 border-t border-border pt-4">
+                        <p className="text-xs leading-relaxed text-ink-subtle">
+                          {leistungenMegaMenu.footer.text}
+                        </p>
+                        <Button
+                          href={leistungenMegaMenu.footer.ctaHref}
+                          variant="primary"
+                          size="md"
+                          className="w-full"
+                          onClick={closeMobile}
+                        >
+                          {leistungenMegaMenu.footer.ctaLabel}
+                        </Button>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <div key={item.href} className="border-b border-border py-3">
+                  <Link
+                    href={item.href}
+                    className="block py-1 text-lg font-medium text-ink"
+                    onClick={closeMobile}
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              ),
+            )}
             <div className="pt-4">
-              <Button href="/kontakt" variant="primary" size="lg" className="w-full">
+              <Button
+                href="/kontakt"
+                variant="primary"
+                size="lg"
+                className="w-full"
+                onClick={closeMobile}
+              >
                 Kostenloses Erstgespräch
               </Button>
             </div>

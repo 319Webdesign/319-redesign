@@ -7,6 +7,7 @@ const footerColumns = [
   {
     title: "Leistungen",
     links: [
+      { label: "Webdesign", href: "/leistungen/webdesign" },
       { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
       { label: "SEO Darmstadt", href: "/leistungen/seo-darmstadt" },
       { label: "Website Relaunch", href: "/leistungen/website-relaunch" },

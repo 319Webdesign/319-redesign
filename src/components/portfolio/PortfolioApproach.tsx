@@ -37,7 +37,7 @@ export function PortfolioApproach() {
           <p className="mt-10 text-base text-ink-muted">
             Passend dazu:{" "}
             <Link
-              href="/leistungen/webdesign-darmstadt"
+              href="/leistungen/webdesign"
               className="font-medium text-brand transition-colors hover:text-brand-dark"
             >
               Webdesign
