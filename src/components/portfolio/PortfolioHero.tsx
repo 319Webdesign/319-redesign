@@ -106,14 +106,6 @@ export function PortfolioHero() {
           </div>
 
           <div className="relative lg:col-span-6">
-            <div
-              className="pointer-events-none absolute -inset-x-3 -inset-y-6 bg-white/[0.06] sm:-inset-x-2 sm:-inset-y-8 lg:-right-4 lg:left-4"
-              style={{
-                borderRadius: "2.5rem 1.15rem 2.25rem 1.5rem",
-              }}
-              aria-hidden
-            />
-
             <Reveal variant="slide" delay={0.12}>
               <div className="relative" aria-label="Projektvorschauen">
                 <ProjectFrame
@@ -123,7 +115,7 @@ export function PortfolioHero() {
                   className="relative z-10"
                 />
 
-                <div className="relative z-20 mt-[-12px] grid grid-cols-2 gap-3 sm:mt-[-14px] sm:gap-3">
+                <div className="relative z-20 mt-4 grid grid-cols-2 gap-3 sm:mt-5 sm:gap-3">
                   <ProjectFrame
                     project={leftSmall}
                     sizes="(max-width: 1024px) 45vw, 22vw"
