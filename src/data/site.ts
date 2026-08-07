@@ -68,10 +68,10 @@ export const leistungenMegaMenu = {
       title: "Lokale SEO",
       shortDescription: "Mehr Sichtbarkeit bei Google",
       icon: "search" as const,
-      href: "/leistungen/seo-darmstadt",
+      href: "/lokale-seo",
       headline: "Mehr Sichtbarkeit bei Google.",
       description:
-        "Lokale Suchmaschinenoptimierung für Unternehmen, die regional gefunden werden möchten.",
+        "Lokale Suchmaschinenoptimierung für Unternehmen, die regional gefunden werden möchten – verständlich und ohne Ranking-Garantien.",
       features: [
         "Lokale SEO",
         "Google Unternehmensprofil",
@@ -175,9 +175,16 @@ export const services = [
     icon: "globe" as const,
   },
   {
+    title: "Lokale SEO",
+    description:
+      "Lokale Sichtbarkeit bei Google: Website, Unternehmensprofil und regionale Suchanfragen – verständlich und ohne Garantien.",
+    href: "/lokale-seo",
+    icon: "search" as const,
+  },
+  {
     title: "SEO Darmstadt",
     description:
-      "Lokale Sichtbarkeit von Anfang an: Struktur, Inhalte und technische Grundlage.",
+      "Lokale SEO für Betriebe im Raum Darmstadt – Struktur, Inhalte und technische Grundlage.",
     href: "/leistungen/seo-darmstadt",
     icon: "search" as const,
   },
@@ -250,7 +257,7 @@ export const digitalSolutions = [
       "Keyword-Recherche",
       "Landingpages",
     ],
-    href: "/leistungen/seo-darmstadt",
+    href: "/lokale-seo",
   },
   {
     id: "tools",

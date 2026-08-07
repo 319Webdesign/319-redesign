@@ -158,7 +158,7 @@ export const webdesignSeo = {
   ],
   note: "SEO-Grundlagen sind bei der Website-Erstellung enthalten. Weiterführende Suchmaschinenoptimierung ist eine separate Leistung.",
   linkLabel: "Mehr über SEO erfahren",
-  linkHref: "/leistungen/seo-darmstadt",
+  linkHref: "/lokale-seo",
 } as const;
 
 export const webdesignIndividual = {

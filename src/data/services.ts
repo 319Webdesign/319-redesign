@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 
 export type ServiceSlug =
   | "webdesign"
+  | "lokale-seo"
   | "webdesign-darmstadt"
   | "seo-darmstadt"
   | "website-relaunch"
@@ -149,6 +150,91 @@ export const serviceLandings: ServiceLanding[] = [
     cta: {
       title: "Zeit für eine Website, die zu Ihrem Unternehmen passt?",
       lead: "In einem unverbindlichen Erstgespräch schauen wir gemeinsam, wie Ihre neue Website aufgebaut sein sollte.",
+    },
+  },
+  {
+    slug: "lokale-seo",
+    title: "Lokale SEO",
+    path: "/lokale-seo",
+    metaTitle: "Lokale SEO für Unternehmen",
+    metaDescription:
+      "Mit lokaler SEO bei Google besser gefunden werden: Website, Google Unternehmensprofil, lokale Inhalte und technische Optimierung aus einer Hand.",
+    hero: {
+      eyebrow: "Lokale Suchmaschinenoptimierung",
+      headline:
+        "Lokale SEO für Unternehmen, die bei Google gefunden werden wollen.",
+      lead: "Individuelle lokale SEO für Handwerksbetriebe und regionale Unternehmen – verständlich, transparent und ohne Ranking-Garantien.",
+      primaryCta: "SEO-Potenzial besprechen",
+      secondaryCta: "SEO Darmstadt",
+      secondaryHref: "/leistungen/seo-darmstadt",
+    },
+    problem: {
+      eyebrow: "Sichtbarkeit",
+      title: "Eine gute Website bringt wenig, wenn sie niemand findet.",
+      lead: "Viele Unternehmen besitzen bereits eine Website, werden bei relevanten regionalen Suchanfragen aber kaum gefunden.",
+      items: [
+        {
+          title: "Kunden suchen bereits",
+          text: "Nach Leistungen in Ihrer Region – bei Google.",
+        },
+        {
+          title: "Website allein reicht nicht",
+          text: "Ohne lokale Optimierung bleibt Sichtbarkeit oft aus.",
+        },
+        {
+          title: "Mehrere Signale zählen",
+          text: "Website, Unternehmensprofil und Inhalte greifen ineinander.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Local SEO",
+      title: "Was bedeutet lokale Suchmaschinenoptimierung?",
+      lead: "Maßnahmen, mit denen Unternehmen bei Suchanfragen mit regionalem Bezug besser gefunden werden können.",
+      paragraphs: [
+        "Von der Keyword-Analyse über OnPage-SEO bis zum Google Unternehmensprofil.",
+        "Weiterführende lokale SEO ist separat von den SEO-Grundlagen neuer Websites.",
+      ],
+    },
+    benefits: {
+      eyebrow: "Leistungen",
+      title: "Was wir für Ihre lokale Sichtbarkeit tun.",
+      lead: "Konkrete Maßnahmen statt Buzzwords.",
+      items: [
+        {
+          title: "Keyword- & Suchintentionanalyse",
+          text: "Wonach suchen Kunden in Ihrer Region wirklich?",
+        },
+        {
+          title: "Website & OnPage",
+          text: "Struktur, Inhalte und technische Grundlagen.",
+        },
+        {
+          title: "Google Unternehmensprofil",
+          text: "Abstimmung von Profil und Website.",
+        },
+        {
+          title: "Weiterentwicklung",
+          text: "Beobachtung und gezielte Verbesserungen über die Zeit.",
+        },
+      ],
+    },
+    relatedProjectHrefs: ["/portfolio/he-immologis"],
+    faq: [
+      {
+        question: "Kann 319Webdesign Platz 1 bei Google garantieren?",
+        answer:
+          "Nein. Seriöse Suchmaschinenoptimierung kann keine bestimmte Position garantieren.",
+      },
+      {
+        question: "Ist SEO bei einer neuen Website bereits enthalten?",
+        answer:
+          "SEO-Grundlagen ja – weiterführende lokale SEO wird separat angeboten.",
+      },
+    ],
+    cta: {
+      title: "Werden Sie dort sichtbar, wo Ihre Kunden suchen.",
+      lead: "Lassen Sie uns prüfen, welche Maßnahmen für mehr lokale Sichtbarkeit sinnvoll sind.",
     },
   },
   {
@@ -619,7 +705,7 @@ export const serviceLandings: ServiceLanding[] = [
       lead: "Dein Unternehmensprofil ist oft der erste Eindruck — wir machen ihn vollständig, glaubwürdig und anfragebereit.",
       primaryCta: "Kostenloses Erstgespräch",
       secondaryCta: "SEO Darmstadt",
-      secondaryHref: "/leistungen/seo-darmstadt",
+      secondaryHref: "/lokale-seo",
     },
     problem: {
       eyebrow: "Das Problem",

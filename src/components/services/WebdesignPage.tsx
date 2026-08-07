@@ -487,25 +487,19 @@ export function WebdesignPage() {
         </section>
 
         {/* 07 SEO & Performance */}
-        <section className="bg-brand">
+        <section className="bg-bg">
           <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-6">
                 <Reveal variant="slide">
-                  <header className="max-w-3xl">
-                    <p className="mb-3 text-sm font-medium uppercase tracking-[0.12em] text-white/70">
-                      {webdesignSeo.eyebrow}
-                    </p>
-                    <h2 className="text-balance font-display text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
-                      {webdesignSeo.headline}
-                    </h2>
-                    <p className="mt-5 text-lg leading-relaxed text-white/75 sm:text-xl">
-                      {webdesignSeo.lead}
-                    </p>
-                  </header>
+                  <SectionHeader
+                    eyebrow={webdesignSeo.eyebrow}
+                    title={webdesignSeo.headline}
+                    lead={webdesignSeo.lead}
+                  />
                 </Reveal>
                 <Reveal variant="slide" delay={0.08}>
-                  <p className="mt-8 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                  <p className="mt-8 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
                     {webdesignSeo.note}
                   </p>
                 </Reveal>
@@ -513,7 +507,7 @@ export function WebdesignPage() {
                   <div className="mt-8">
                     <Link
                       href={webdesignSeo.linkHref}
-                      className="group inline-flex items-center gap-2 text-base font-medium text-white transition-motion hover:text-cta"
+                      className="group inline-flex items-center gap-2 text-base font-medium text-brand transition-motion hover:text-brand-dark"
                     >
                       {webdesignSeo.linkLabel}
                       <ArrowRight
@@ -526,11 +520,11 @@ export function WebdesignPage() {
               </div>
               <div className="lg:col-span-5 lg:col-start-8">
                 <Reveal variant="slide" delay={0.06}>
-                  <ul className="divide-y divide-white/15 border-y border-white/15">
+                  <ul className="divide-y divide-border border-y border-border">
                     {webdesignSeo.points.map((point) => (
                       <li
                         key={point}
-                        className="py-4 font-display text-lg font-medium tracking-tight text-white sm:text-xl"
+                        className="py-4 font-display text-lg font-medium tracking-tight text-ink sm:text-xl"
                       >
                         {point}
                       </li>
@@ -632,25 +626,19 @@ export function WebdesignPage() {
         </section>
 
         {/* 10 Betreuung */}
-        <section className="bg-brand">
+        <section className="bg-bg">
           <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-start">
               <div className="lg:col-span-6">
                 <Reveal variant="slide">
-                  <header className="max-w-3xl">
-                    <p className="mb-3 text-sm font-medium uppercase tracking-[0.12em] text-white/70">
-                      {webdesignCare.eyebrow}
-                    </p>
-                    <h2 className="text-balance font-display text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
-                      {webdesignCare.headline}
-                    </h2>
-                    <p className="mt-5 text-lg leading-relaxed text-white/75 sm:text-xl">
-                      {webdesignCare.lead}
-                    </p>
-                  </header>
+                  <SectionHeader
+                    eyebrow={webdesignCare.eyebrow}
+                    title={webdesignCare.headline}
+                    lead={webdesignCare.lead}
+                  />
                 </Reveal>
                 <Reveal variant="fade" delay={0.08}>
-                  <p className="mt-6 text-base text-white/70 sm:text-lg">
+                  <p className="mt-6 text-base text-ink-muted sm:text-lg">
                     {webdesignCare.optionalNote}
                   </p>
                 </Reveal>
@@ -658,7 +646,7 @@ export function WebdesignPage() {
                   <div className="mt-8">
                     <Link
                       href={webdesignCare.linkHref}
-                      className="group inline-flex items-center gap-2 text-base font-medium text-white transition-motion hover:text-cta"
+                      className="group inline-flex items-center gap-2 text-base font-medium text-brand transition-motion hover:text-brand-dark"
                     >
                       {webdesignCare.linkLabel}
                       <ArrowRight
@@ -672,13 +660,13 @@ export function WebdesignPage() {
 
               <div className="lg:col-span-5 lg:col-start-8">
                 <Reveal variant="slide" delay={0.06}>
-                  <div className="border-t border-white/15 pt-8">
-                    <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/55">
+                  <div className="border-t border-border pt-8">
+                    <p className="text-sm font-medium uppercase tracking-[0.12em] text-ink-subtle">
                       {webdesignCare.priceLabel}
                     </p>
-                    <p className="mt-3 font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
+                    <p className="mt-3 font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl">
                       {webdesignCare.price}
-                      <span className="ml-2 text-lg font-normal text-white/70 sm:text-xl">
+                      <span className="ml-2 text-lg font-normal text-ink-muted sm:text-xl">
                         {webdesignCare.priceSuffix}
                       </span>
                     </p>
@@ -686,10 +674,10 @@ export function WebdesignPage() {
                       {webdesignCare.includes.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-3 text-base text-white/75"
+                          className="flex items-start gap-3 text-base text-ink-muted"
                         >
                           <Check
-                            className="mt-0.5 size-4 shrink-0 text-cta"
+                            className="mt-0.5 size-4 shrink-0 text-brand"
                             strokeWidth={2.25}
                             aria-hidden
                           />
@@ -705,7 +693,7 @@ export function WebdesignPage() {
         </section>
 
         {/* 11 Zielgruppe */}
-        <section className="bg-bg-soft">
+        <section className="bg-bg">
           <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
             <Reveal variant="slide">
               <SectionHeader

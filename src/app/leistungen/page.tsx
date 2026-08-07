@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 const icons: Record<string, ReactNode> = {
   webdesign: <Globe className="size-7" strokeWidth={1.5} />,
+  "lokale-seo": <Search className="size-7" strokeWidth={1.5} />,
   "webdesign-darmstadt": <Globe className="size-7" strokeWidth={1.5} />,
   "seo-darmstadt": <Search className="size-7" strokeWidth={1.5} />,
   "website-relaunch": <RefreshCw className="size-7" strokeWidth={1.5} />,

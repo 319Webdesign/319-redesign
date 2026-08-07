@@ -275,7 +275,7 @@ export default function DesignSystemPage() {
               icon={<Search className="size-7" strokeWidth={1.5} />}
               title="SEO Darmstadt"
               description="Lokale Sichtbarkeit von Anfang an — Struktur, Inhalte und technische Grundlage."
-              href="/leistungen/seo-darmstadt"
+              href="/lokale-seo"
             />
             <ServiceItem
               icon={<Wrench className="size-7" strokeWidth={1.5} />}
