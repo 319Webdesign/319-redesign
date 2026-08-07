@@ -47,17 +47,18 @@ export function ReferencesSection() {
           ))}
         </div>
 
-        <div id="vorher-nachher" className="mt-24 scroll-mt-24 sm:mt-28">
+        <div id="vorher-nachher" className="mt-20 scroll-mt-24 sm:mt-24">
           <Reveal variant="slide">
             <SectionHeader
               eyebrow="Vorher / Nachher"
               title="Der Unterschied ist sichtbar"
               lead="Von veraltet und austauschbar zu klar, schnell und anfrageorientiert."
+              align="center"
             />
           </Reveal>
 
           <Reveal variant="scale" delay={0.08}>
-            <div className="mt-12 sm:mt-14">
+            <div className="mt-8 sm:mt-10">
               <BeforeAfterCompare />
             </div>
           </Reveal>

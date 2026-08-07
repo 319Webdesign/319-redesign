@@ -14,7 +14,9 @@ export function generateStaticParams() {
       (s) =>
         s.slug !== "webdesign" &&
         s.slug !== "lokale-seo" &&
-        s.slug !== "corporate-design",
+        s.slug !== "corporate-design" &&
+        s.slug !== "digitale-loesungen" &&
+        s.slug !== "website-wartung",
     )
     .map((s) => ({ slug: s.slug }));
 }

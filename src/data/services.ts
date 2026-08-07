@@ -5,6 +5,7 @@ export type ServiceSlug =
   | "webdesign"
   | "lokale-seo"
   | "corporate-design"
+  | "digitale-loesungen"
   | "webdesign-darmstadt"
   | "seo-darmstadt"
   | "website-relaunch"
@@ -323,6 +324,91 @@ export const serviceLandings: ServiceLanding[] = [
     cta: {
       title: "Zeit für einen Auftritt, der wirklich zusammenpasst?",
       lead: "Lassen Sie uns gemeinsam schauen, welche Gestaltungselemente Ihr Unternehmen benötigt.",
+    },
+  },
+  {
+    slug: "digitale-loesungen",
+    title: "Digitale Lösungen",
+    path: "/digitale-loesungen",
+    metaTitle: "Digitale Lösungen für Unternehmen",
+    metaDescription:
+      "Formulare, Terminbuchung, CRM-Anbindungen, Schnittstellen und praktische Automatisierungen für Unternehmen – individuell umgesetzt von 319Webdesign.",
+    hero: {
+      eyebrow: "Digitale Lösungen",
+      headline:
+        "Digitale Lösungen, die Ihren Unternehmensalltag einfacher machen.",
+      lead: "Von Formularen über Terminbuchungen bis hin zu Schnittstellen und Automatisierungen – praktische Funktionen, die Prozesse vereinfachen.",
+      primaryCta: "Digitale Lösung besprechen",
+      secondaryCta: "Mehr erfahren",
+      secondaryHref: "/digitale-loesungen",
+    },
+    problem: {
+      eyebrow: "Wenn digital noch umständlich ist",
+      title: "Viele kleine Prozesse kosten jeden Tag unnötig Zeit.",
+      lead: "Oft reichen gezielte Funktionen, um wiederkehrende Abläufe deutlich einfacher zu machen.",
+      items: [
+        {
+          title: "Unstrukturierte Anfragen",
+          text: "Anfragen kommen unübersichtlich per E-Mail oder Telefon.",
+        },
+        {
+          title: "Manuelle Abstimmung",
+          text: "Termine und Daten müssen ständig manuell organisiert werden.",
+        },
+        {
+          title: "Medienbrüche",
+          text: "Informationen werden mehrfach eingetragen und gehen verloren.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Praktisch statt kompliziert",
+      title: "Digitale Lösungen müssen nicht kompliziert sein.",
+      lead: "Gemeint sind praktische Funktionen, die Webauftritt und Abläufe sinnvoll ergänzen.",
+      paragraphs: [
+        "Ziel ist nicht mehr Technik, sondern weniger Aufwand.",
+        "Der Umfang wird individuell geprüft – auch einzelne Funktionen sind möglich.",
+      ],
+    },
+    benefits: {
+      eyebrow: "Möglichkeiten",
+      title: "Funktionen, die den Alltag vereinfachen.",
+      lead: "Je nach Bedarf und technischen Voraussetzungen.",
+      items: [
+        {
+          title: "Formulare & Anfragen",
+          text: "Kontakt-, Anfrage- und Bewerbungsformulare mit klarer Weiterleitung.",
+        },
+        {
+          title: "Terminbuchung",
+          text: "Integration geeigneter Buchungs- oder Kalendersysteme.",
+        },
+        {
+          title: "Schnittstellen",
+          text: "Anbindung bestehender Systeme, wenn technisch möglich – z. B. onOffice.",
+        },
+        {
+          title: "Einfache Automatisierungen",
+          text: "Wiederkehrende Schritte sinnvoll automatisieren – ohne IT-Großprojekt.",
+        },
+      ],
+    },
+    relatedProjectHrefs: ["/portfolio/he-immologis"],
+    faq: [
+      {
+        question: "Kann ich auch nur ein Formular erstellen lassen?",
+        answer:
+          "Ja. Auch einzelne digitale Funktionen können umgesetzt werden, sofern dies technisch sinnvoll ist.",
+      },
+      {
+        question: "Können bestehende Systeme angebunden werden?",
+        answer:
+          "Ja, sofern das jeweilige System eine nutzbare Schnittstelle bereitstellt. Der Umfang wird vorab individuell geprüft.",
+      },
+    ],
+    cta: {
+      title: "Welcher Ablauf könnte in Ihrem Unternehmen einfacher sein?",
+      lead: "Erzählen Sie mir, was heute unnötig Zeit kostet – wir prüfen gemeinsam die sinnvolle Lösung.",
     },
   },
   {
@@ -690,66 +776,67 @@ export const serviceLandings: ServiceLanding[] = [
   },
   {
     slug: "website-wartung",
-    title: "Website-Wartung",
-    metaTitle: "Website-Wartung · Updates, Sicherheit, ruhiger Betrieb",
+    title: "Website-Betreuung",
+    path: "/betreuung",
+    metaTitle: "Website Wartung & Betreuung für Unternehmen",
     metaDescription:
-      "Website-Wartung für Betriebe: Updates, Sicherheit, Backups und Support — damit deine Seite läuft, während du arbeitest.",
+      "Website-Wartung für 79 € monatlich: Updates, Backups, Support und bis zu 2 Arbeitsstunden für kleinere Änderungen. Persönliche Betreuung durch 319Webdesign.",
     hero: {
-      eyebrow: "Website-Wartung",
-      headline: "Deine Website soll laufen — nicht dich beschäftigen",
-      lead: "Updates, Sicherheit und Support aus einer Hand. Persönlich, zuverlässig, ohne Ticketsystem-Chaos.",
-      primaryCta: "Wartung anfragen",
-      secondaryCta: "Alle Leistungen",
-      secondaryHref: "/leistungen",
+      eyebrow: "Website-Betreuung & Wartung",
+      headline: "Ihre Website läuft. Wir kümmern uns um den Rest.",
+      lead: "Mit der Website-Betreuung von 319Webdesign haben Sie auch nach dem Livegang einen festen Ansprechpartner für Wartung, Updates, Backups und kleinere Änderungen.",
+      primaryCta: "Betreuung anfragen",
+      secondaryCta: "Wartungspaket ansehen",
+      secondaryHref: "/betreuung#wartungspaket",
     },
     problem: {
-      eyebrow: "Das Problem",
-      title: "Ungepflegte Websites werden zum Risiko",
-      lead: "Veraltete Plugins, fehlende Backups und niemand, der sich kümmert — bis etwas kaputtgeht.",
+      eyebrow: "Nach dem Livegang",
+      title: "Eine Website ist nach dem Livegang nicht einfach erledigt.",
+      lead: "Inhalte ändern sich, Systeme werden aktualisiert und manchmal müssen kurzfristig kleinere Anpassungen vorgenommen werden.",
       items: [
         {
-          title: "Sicherheitslücken",
-          text: "Nicht aktualisierte Systeme sind ein Einfallstor für Angriffe.",
+          title: "Regelmäßige Pflege",
+          text: "Updates und technische Pflege gehören zum laufenden Betrieb.",
         },
         {
-          title: "Ausfälle ohne Plan",
-          text: "Wenn die Seite down ist, fehlt oft der Ansprechpartner mit Kontext.",
+          title: "Kleine Änderungen",
+          text: "Texte, Bilder oder Öffnungszeiten müssen oft kurzfristig angepasst werden.",
         },
         {
-          title: "Kleine Änderungen dauern ewig",
-          text: "Text ändern, Nummer updaten, Banner entfernen — und niemand reagiert.",
+          title: "Fester Ansprechpartner",
+          text: "Bei Fragen oder Problemen sollte klar sein, wer hilft.",
         },
       ],
     },
     solution: {
-      eyebrow: "Die Lösung",
-      title: "Wartung mit klarem Ansprechpartner",
-      lead: "Ich halte deine Website aktuell, sicher und erreichbar — und setze kleine Änderungen unkompliziert um.",
+      eyebrow: "Persönliche Betreuung",
+      title: "Ein Ansprechpartner für alles rund um Ihre Website.",
+      lead: "Wartung, Aktualisierungen, Backups und kleinere Änderungen – optional und transparent.",
       paragraphs: [
-        "Regelmäßige Updates, Monitoring und Backups gehören zum Paket.",
-        "Du schreibst mir direkt, wenn etwas geändert werden soll. Kurze Wege statt Agentur-Schlange.",
+        "Das Wartungspaket kostet 79 € pro Monat und enthält bis zu zwei Arbeitsstunden für kleinere Anpassungen.",
+        "Die Betreuung ist nicht verpflichtend – sinnvoll, wenn Sie die technische Pflege nicht selbst übernehmen möchten.",
       ],
     },
     benefits: {
-      eyebrow: "Vorteile",
-      title: "Was im Wartungspaket steckt",
-      lead: "Ruhe im Hintergrund — Fokus auf dein Geschäft.",
+      eyebrow: "Im Paket",
+      title: "Was für 79 € im Monat enthalten ist.",
+      lead: "Klar und verständlich – ohne komplizierte Paketstufen.",
       items: [
         {
-          title: "Updates & Sicherheit",
-          text: "Systeme und Komponenten aktuell halten, bevor Probleme entstehen.",
+          title: "Wartung & Updates",
+          text: "Regelmäßige technische Pflege und notwendige Aktualisierungen.",
         },
         {
           title: "Backups",
-          text: "Wiederherstellbarkeit, falls etwas schiefläuft.",
+          text: "Regelmäßige Sicherungen als zusätzliche Absicherung.",
         },
         {
-          title: "Kleine Content-Änderungen",
-          text: "Texte, Kontaktdaten, Hinweise — ohne großes Projekt.",
+          title: "2 Arbeitsstunden",
+          text: "Kleinere Änderungen ohne jedes Mal eine neue Rechnung.",
         },
         {
           title: "Persönlicher Support",
-          text: "Du weißt, wer antwortet.",
+          text: "Direkter Ansprechpartner – kein anonymes Ticketsystem.",
         },
       ],
     },
@@ -758,27 +845,27 @@ export const serviceLandings: ServiceLanding[] = [
       "/portfolio/he-immologis",
     ],
     processNote:
-      "Wartung startet nach kurzem Check der bestehenden Seite — unabhängig davon, ob ich sie gebaut habe.",
+      "Auch bestehende Websites können nach technischer Prüfung in die Betreuung übernommen werden.",
     faq: [
       {
-        question: "Wartest du auch Seiten, die du nicht gebaut hast?",
+        question: "Ist das Wartungspaket verpflichtend?",
         answer:
-          "Oft ja — nach einem kurzen Technik-Check. Manche Baukästen sind nur eingeschränkt sinnvoll wartbar.",
+          "Nein. Die laufende Betreuung ist optional. Kunden können ihre Website selbstverständlich auch selbst verwalten.",
       },
       {
-        question: "Was ist nicht in der Wartung enthalten?",
+        question: "Was kostet die Website-Betreuung?",
         answer:
-          "Große Redesigns, neue Leistungsseiten oder umfangreiche Features sind eigene Projekte — wir trennen das klar.",
+          "Das Wartungspaket kostet 79 € pro Monat und beinhaltet Wartung, Aktualisierungen, Backups sowie bis zu zwei Arbeitsstunden für kleinere Änderungen.",
       },
       {
-        question: "Wie läuft die Abrechnung?",
+        question: "Kann auch eine bestehende Website betreut werden?",
         answer:
-          "Typischerweise als monatliches Paket. Details klären wir transparent im Gespräch.",
+          "Grundsätzlich ja, sofern die Website nach einer technischen Prüfung für eine Übernahme geeignet ist.",
       },
     ],
     cta: {
-      title: "Website in ruhige Hände geben?",
-      lead: "Schreib mir kurz, welches System du nutzt — ich sage dir ehrlich, ob Wartung Sinn ergibt.",
+      title: "Sie kümmern sich um Ihr Unternehmen. Ich kümmere mich um Ihre Website.",
+      lead: "Lassen Sie uns unverbindlich prüfen, ob die laufende Betreuung zu Ihnen passt.",
     },
   },
   {

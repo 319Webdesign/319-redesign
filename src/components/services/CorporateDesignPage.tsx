@@ -14,7 +14,6 @@ import {
   corporateDesignFaq,
   corporateDesignHero,
   corporateDesignLogo,
-  corporateDesignPractice,
   corporateDesignProcess,
   corporateDesignWebsite,
   corporateDesignWhy,
@@ -23,83 +22,6 @@ import {
 import { siteConfig } from "@/data/site";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import Link from "next/link";
-
-/** Editorial Hero Visual – ruhige Komposition echter CD-Elemente */
-function HeroBrandComposition() {
-  const { brand } = corporateDesignPractice;
-
-  return (
-    <div
-      className="overflow-hidden rounded-lg border border-white/15 bg-white/[0.06]"
-      aria-hidden
-    >
-      <div className="grid gap-px bg-white/10 sm:grid-cols-2">
-        {/* Logo + Farben */}
-        <div className="bg-[#123a6b]/80] p-5 sm:p-6">
-          <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">
-            Logo
-          </p>
-          <p className="mt-4 font-display text-2xl font-medium tracking-[0.08em] text-white sm:text-3xl">
-            {brand.name}
-          </p>
-          <p className="mt-1 text-xs text-white/50">{brand.tagline}</p>
-          <div className="mt-8 flex gap-2">
-            {brand.colors.slice(0, 3).map((color) => (
-              <span
-                key={color.hex}
-                className={`size-8 rounded-sm border border-white/10 ${color.swatch}`}
-                title={color.name}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Typografie */}
-        <div className="bg-[#123a6b]/80] p-5 sm:p-6">
-          <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">
-            Typografie
-          </p>
-          <p className="mt-4 font-display text-3xl font-medium tracking-tight text-white">
-            Aa
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/65">
-            Einheitliche Schriften für Überschriften und Fließtext.
-          </p>
-        </div>
-
-        {/* E-Mail-Signatur */}
-        <div className="bg-[#123a6b]/80] p-5 sm:p-6">
-          <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">
-            E-Mail-Signatur
-          </p>
-          <div className="mt-4 border-l-2 border-[#C4A35A] pl-3">
-            <p className="text-sm font-medium text-white">Max Mustermann</p>
-            <p className="text-xs text-white/55">Geschäftsführung</p>
-            <p className="mt-2 text-xs text-white/45">{brand.name}</p>
-          </div>
-        </div>
-
-        {/* Visitenkarte + Website-Ausschnitt */}
-        <div className="bg-[#123a6b]/80] p-5 sm:p-6">
-          <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">
-            Visitenkarte
-          </p>
-          <div className="mt-4 aspect-[1.75/1] max-w-[220px] border border-white/15 bg-white/[0.08] p-4">
-            <p className="font-display text-sm font-medium tracking-[0.1em] text-white">
-              {brand.name}
-            </p>
-            <p className="mt-auto pt-6 text-[10px] text-white/50">
-              {brand.tagline}
-            </p>
-          </div>
-        </div>
-      </div>
-      <p className="border-t border-white/10 px-5 py-3 text-center text-[11px] tracking-wide text-white/40">
-        Beispielhafte Darstellung · Alle Elemente einer Marke
-      </p>
-    </div>
-  );
-}
 
 function EmailSignaturePreview({
   details,
@@ -193,8 +115,8 @@ export function CorporateDesignPage() {
             className="pointer-events-none absolute -right-16 bottom-0 h-[55%] w-[45%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.12)_0%,transparent_70%)]"
             aria-hidden
           />
-          <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-10 sm:px-8 sm:pb-16 sm:pt-14">
-            <nav aria-label="Brotkrumen" className="mb-8 text-sm text-white/55">
+          <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:pb-24">
+            <nav aria-label="Brotkrumen" className="mb-10 text-sm text-white/55 sm:mb-12">
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
                   <Link href="/" className="transition-motion hover:text-white">
@@ -215,67 +137,58 @@ export function CorporateDesignPage() {
               </ol>
             </nav>
 
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
-              <div className="lg:col-span-6">
-                <Reveal variant="fade">
-                  <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/70">
-                    {corporateDesignHero.eyebrow}
-                  </p>
-                </Reveal>
-                <Reveal variant="slide" delay={0.05}>
-                  <h1 className="mt-4 text-balance font-display text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-                    {corporateDesignHero.headline}
-                  </h1>
-                </Reveal>
-                <Reveal variant="slide" delay={0.1}>
-                  <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                    {corporateDesignHero.lead}
-                  </p>
-                </Reveal>
-                <Reveal variant="slide" delay={0.14}>
-                  <div className="mt-7 flex flex-nowrap items-center gap-2">
-                    <Button
-                      href={corporateDesignHero.primaryHref}
-                      variant="primary"
-                      size="sm"
-                      className="h-9 shrink-0 whitespace-nowrap px-3 text-xs sm:px-3.5 sm:text-sm"
+            <div className="max-w-4xl">
+              <Reveal variant="fade">
+                <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70 sm:text-base">
+                  {corporateDesignHero.eyebrow}
+                </p>
+              </Reveal>
+              <Reveal variant="slide" delay={0.05}>
+                <h1 className="mt-5 text-balance font-display text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.08]">
+                  {corporateDesignHero.headline}
+                </h1>
+              </Reveal>
+              <Reveal variant="slide" delay={0.1}>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:text-[1.375rem]">
+                  {corporateDesignHero.lead}
+                </p>
+              </Reveal>
+              <Reveal variant="slide" delay={0.14}>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Button
+                    href={corporateDesignHero.primaryHref}
+                    variant="primary"
+                    size="lg"
+                  >
+                    {corporateDesignHero.primaryCta}
+                  </Button>
+                  <Button
+                    href={corporateDesignHero.secondaryHref}
+                    variant="secondary"
+                    size="lg"
+                    className="border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white"
+                  >
+                    {corporateDesignHero.secondaryCta}
+                  </Button>
+                </div>
+              </Reveal>
+              <Reveal variant="fade" delay={0.18}>
+                <ul className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+                  {corporateDesignHero.trust.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-2.5 text-base text-white/70"
                     >
-                      {corporateDesignHero.primaryCta}
-                    </Button>
-                    <Button
-                      href={corporateDesignHero.secondaryHref}
-                      variant="secondary"
-                      size="sm"
-                      className="h-9 shrink-0 whitespace-nowrap border-white/70 px-3 text-xs text-white hover:border-white hover:bg-white/10 hover:text-white sm:px-3.5 sm:text-sm"
-                    >
-                      {corporateDesignHero.secondaryCta}
-                    </Button>
-                  </div>
-                </Reveal>
-                <Reveal variant="fade" delay={0.18}>
-                  <ul className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
-                    {corporateDesignHero.trust.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center gap-2 text-sm text-white/70"
-                      >
-                        <Check
-                          className="size-4 shrink-0 text-cta"
-                          strokeWidth={2.25}
-                          aria-hidden
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </div>
-
-              <div className="lg:col-span-6">
-                <Reveal variant="scale" delay={0.1}>
-                  <HeroBrandComposition />
-                </Reveal>
-              </div>
+                      <Check
+                        className="size-4 shrink-0 text-cta"
+                        strokeWidth={2.25}
+                        aria-hidden
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -381,6 +294,13 @@ export function CorporateDesignPage() {
               <p className="mt-12 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
                 {corporateDesignBuildingBlocks.note}
               </p>
+            </Reveal>
+            <Reveal variant="slide" delay={0.1}>
+              <div className="mt-8">
+                <Button href="/kontakt" variant="primary" size="lg">
+                  Individuelles Angebot einfordern
+                </Button>
+              </div>
             </Reveal>
           </div>
         </section>

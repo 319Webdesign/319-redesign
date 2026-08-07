@@ -103,7 +103,7 @@ export const leistungenMegaMenu = {
       title: "Digitale Lösungen",
       shortDescription: "Automatisierungen & Formulare",
       icon: "settings" as const,
-      href: "/leistungen",
+      href: "/digitale-loesungen",
       headline: "Digitale Prozesse vereinfachen.",
       description:
         "Praktische Lösungen für mehr Effizienz im Arbeitsalltag.",
@@ -114,14 +114,14 @@ export const leistungenMegaMenu = {
         "CRM-Anbindungen",
         "Automatisierungen",
       ],
-      ctaLabel: "Mehr erfahren",
+      ctaLabel: "Mehr über digitale Lösungen",
     },
     {
       id: "care",
       title: "Betreuung",
       shortDescription: "Wartung & Support",
       icon: "shield" as const,
-      href: "/leistungen/website-wartung",
+      href: "/betreuung",
       headline: "Auch nach dem Livegang für Sie da.",
       description:
         "Langfristige Betreuung, Wartung und technische Unterstützung.",
@@ -182,6 +182,13 @@ export const services = [
     icon: "palette" as const,
   },
   {
+    title: "Digitale Lösungen",
+    description:
+      "Formulare, Terminbuchung, Schnittstellen und praktische Automatisierungen für den Unternehmensalltag.",
+    href: "/digitale-loesungen",
+    icon: "settings" as const,
+  },
+  {
     title: "Lokale SEO",
     description:
       "Lokale Sichtbarkeit bei Google: Website, Unternehmensprofil und regionale Suchanfragen – verständlich und ohne Garantien.",
@@ -210,10 +217,10 @@ export const services = [
     icon: "wrench" as const,
   },
   {
-    title: "Website-Wartung",
+    title: "Website-Betreuung",
     description:
-      "Sicherheit, Updates und ruhiger Betrieb — damit du dich um dein Handwerk kümmern kannst.",
-    href: "/leistungen/website-wartung",
+      "Wartung, Updates, Backups und kleinere Änderungen – persönlich und optional für 79 € im Monat.",
+    href: "/betreuung",
     icon: "shield" as const,
   },
   {
@@ -278,7 +285,7 @@ export const digitalSolutions = [
       "Automatisierungen",
       "Newsletter",
     ],
-    href: "/leistungen",
+    href: "/digitale-loesungen",
   },
   {
     id: "care",
@@ -286,7 +293,7 @@ export const digitalSolutions = [
     description:
       "Auch nach dem Livegang bleibe ich Ihr Ansprechpartner und entwickle Ihre Website gemeinsam mit Ihrem Unternehmen weiter.",
     items: ["Wartung", "Updates", "Backups", "Hosting", "Support"],
-    href: "/leistungen/website-wartung",
+    href: "/betreuung",
   },
 ];
 

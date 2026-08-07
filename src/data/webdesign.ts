@@ -246,7 +246,7 @@ export const webdesignCare = {
     "Bis zu 2 Arbeitsstunden pro Monat für kleinere Anpassungen",
   ],
   linkLabel: "Mehr über Wartung & Betreuung",
-  linkHref: "/leistungen/website-wartung",
+  linkHref: "/betreuung",
 } as const;
 
 export const webdesignAudience = {

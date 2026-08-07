@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         destination: "/webdesign",
         permanent: true,
       },
+      {
+        source: "/leistungen/website-wartung",
+        destination: "/betreuung",
+        permanent: true,
+      },
     ];
   },
 };

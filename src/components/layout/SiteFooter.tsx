@@ -10,10 +10,11 @@ const footerColumns = [
     links: [
       { label: "Webdesign", href: "/webdesign" },
       { label: "Corporate Design", href: "/corporate-design" },
+      { label: "Digitale Lösungen", href: "/digitale-loesungen" },
       { label: "Lokale SEO", href: "/lokale-seo" },
       { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
       { label: "Homepage Handwerker", href: "/leistungen/homepage-handwerker" },
-      { label: "Website-Wartung", href: "/leistungen/website-wartung" },
+      { label: "Betreuung", href: "/betreuung" },
       { label: "Google Unternehmensprofil", href: "/leistungen/google-unternehmensprofil" },
     ],
   },

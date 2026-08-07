@@ -8,16 +8,16 @@ export function BeforeAfterCompare() {
   const [position, setPosition] = useState(52);
 
   return (
-    <div>
+    <div className="mx-auto max-w-2xl">
       <div
-        className="relative aspect-[1900/870] overflow-hidden rounded-lg border border-border bg-bg-soft select-none"
+        className="relative aspect-[16/9] overflow-hidden rounded-md border border-border bg-bg-soft select-none"
         style={{ touchAction: "none" }}
       >
         <Image
           src="/tierhotel-vorher.png"
           alt="Website vorher"
           fill
-          sizes="(max-width: 1152px) 100vw, 1152px"
+          sizes="(max-width: 672px) 100vw, 672px"
           className="object-cover object-top"
         />
 
@@ -29,16 +29,16 @@ export function BeforeAfterCompare() {
             src="/tierhotel-header.png"
             alt="Website nachher"
             fill
-            sizes="(max-width: 1152px) 100vw, 1152px"
+            sizes="(max-width: 672px) 100vw, 672px"
             className="object-cover object-top"
           />
         </div>
 
-        <div className="pointer-events-none absolute top-4 left-4 z-10 rounded-md bg-bg/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted">
+        <div className="pointer-events-none absolute top-3 left-3 z-10 rounded-sm bg-bg/85 px-2 py-1 text-[11px] font-medium tracking-wide text-ink-muted">
           Vorher
         </div>
         <div
-          className="pointer-events-none absolute top-4 right-4 z-10 rounded-md bg-brand/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white"
+          className="pointer-events-none absolute top-3 right-3 z-10 rounded-sm bg-brand/85 px-2 py-1 text-[11px] font-medium tracking-wide text-white"
           style={{
             opacity: position < 88 ? 1 : 0,
             transition: "opacity 150ms ease",
@@ -48,14 +48,14 @@ export function BeforeAfterCompare() {
         </div>
 
         <div
-          className="pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-bg"
+          className="pointer-events-none absolute inset-y-0 z-10 w-px bg-bg"
           style={{ left: `${position}%` }}
           aria-hidden
         >
-          <span className="absolute top-1/2 left-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg shadow-[0_4px_16px_rgba(15,23,42,0.15)]">
-            <span className="h-3 w-0.5 bg-ink-muted" />
-            <span className="mx-1 h-0.5 w-3 bg-ink-muted" />
-            <span className="h-3 w-0.5 bg-ink-muted" />
+          <span className="absolute top-1/2 left-1/2 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg shadow-[0_2px_10px_rgba(15,23,42,0.1)]">
+            <span className="h-2.5 w-px bg-ink-muted" />
+            <span className="mx-0.5 h-px w-2.5 bg-ink-muted" />
+            <span className="h-2.5 w-px bg-ink-muted" />
           </span>
         </div>
 
@@ -71,7 +71,7 @@ export function BeforeAfterCompare() {
           aria-label="Vorher-Nachher-Vergleich verschieben"
         />
       </div>
-      <p className="mt-4 text-sm text-ink-muted">
+      <p className="mt-3 text-center text-sm text-ink-subtle">
         Ziehen, um Alt und Neu zu vergleichen.
       </p>
     </div>

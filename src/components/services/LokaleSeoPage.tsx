@@ -25,76 +25,6 @@ import { siteConfig } from "@/data/site";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
-function SearchJourneyVisual({ tone = "light" }: { tone?: "light" | "brand" }) {
-  const onBrand = tone === "brand";
-  const steps = [
-    { label: "Suchanfrage", example: "Elektriker Darmstadt" },
-    { label: "Google", example: "Lokale Ergebnisse" },
-    { label: "Unternehmen", example: "Ihr Betrieb" },
-    { label: "Website", example: "Kontaktaufnahme" },
-  ];
-
-  return (
-    <div
-      className={
-        onBrand
-          ? "rounded-lg border border-white/15 bg-white/5 p-5 sm:p-6"
-          : "rounded-lg border border-border bg-bg p-5 sm:p-6"
-      }
-    >
-      <ol className="space-y-0">
-        {steps.map((step, index) => (
-          <li key={step.label}>
-            <div className="flex items-start gap-4">
-              <div className="flex w-8 shrink-0 flex-col items-center">
-                <span
-                  className={
-                    onBrand
-                      ? "flex size-8 items-center justify-center rounded-full border border-white/25 text-xs font-medium text-white"
-                      : "flex size-8 items-center justify-center rounded-full border border-border bg-bg-soft text-xs font-medium text-brand"
-                  }
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {index < steps.length - 1 ? (
-                  <span
-                    className={
-                      onBrand
-                        ? "mt-1 h-8 w-px bg-white/20"
-                        : "mt-1 h-8 w-px bg-border"
-                    }
-                    aria-hidden
-                  />
-                ) : null}
-              </div>
-              <div className="min-w-0 pt-1">
-                <p
-                  className={
-                    onBrand
-                      ? "text-sm font-medium text-white/60"
-                      : "text-sm font-medium text-ink-subtle"
-                  }
-                >
-                  {step.label}
-                </p>
-                <p
-                  className={
-                    onBrand
-                      ? "mt-0.5 font-display text-lg font-medium tracking-tight text-white"
-                      : "mt-0.5 font-display text-lg font-medium tracking-tight text-ink"
-                  }
-                >
-                  {step.example}
-                </p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
 function GbpCard() {
   return (
     <div className="rounded-lg border border-border bg-bg p-6 sm:p-8">
@@ -141,8 +71,8 @@ export function LokaleSeoPage() {
             className="pointer-events-none absolute -right-16 bottom-0 h-[55%] w-[45%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.12)_0%,transparent_70%)]"
             aria-hidden
           />
-          <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-10 sm:px-8 sm:pb-16 sm:pt-14">
-            <nav aria-label="Brotkrumen" className="mb-8 text-sm text-white/55">
+          <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:pb-24">
+            <nav aria-label="Brotkrumen" className="mb-10 text-sm text-white/55 sm:mb-12">
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
                   <Link href="/" className="transition-motion hover:text-white">
@@ -163,67 +93,58 @@ export function LokaleSeoPage() {
               </ol>
             </nav>
 
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
-              <div className="lg:col-span-6">
-                <Reveal variant="fade">
-                  <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/70">
-                    {lokaleSeoHero.eyebrow}
-                  </p>
-                </Reveal>
-                <Reveal variant="slide" delay={0.05}>
-                  <h1 className="mt-4 text-balance font-display text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12]">
-                    {lokaleSeoHero.headline}
-                  </h1>
-                </Reveal>
-                <Reveal variant="slide" delay={0.1}>
-                  <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                    {lokaleSeoHero.lead}
-                  </p>
-                </Reveal>
-                <Reveal variant="slide" delay={0.14}>
-                  <div className="mt-7 flex flex-nowrap items-center gap-2">
-                    <Button
-                      href={lokaleSeoHero.primaryHref}
-                      variant="primary"
-                      size="sm"
-                      className="h-9 shrink-0 whitespace-nowrap px-3 text-xs sm:px-3.5 sm:text-sm"
+            <div className="max-w-4xl">
+              <Reveal variant="fade">
+                <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70 sm:text-base">
+                  {lokaleSeoHero.eyebrow}
+                </p>
+              </Reveal>
+              <Reveal variant="slide" delay={0.05}>
+                <h1 className="mt-5 text-balance font-display text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.08]">
+                  {lokaleSeoHero.headline}
+                </h1>
+              </Reveal>
+              <Reveal variant="slide" delay={0.1}>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:text-[1.375rem]">
+                  {lokaleSeoHero.lead}
+                </p>
+              </Reveal>
+              <Reveal variant="slide" delay={0.14}>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Button
+                    href={lokaleSeoHero.primaryHref}
+                    variant="primary"
+                    size="lg"
+                  >
+                    {lokaleSeoHero.primaryCta}
+                  </Button>
+                  <Button
+                    href={lokaleSeoHero.secondaryHref}
+                    variant="secondary"
+                    size="lg"
+                    className="border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white"
+                  >
+                    {lokaleSeoHero.secondaryCta}
+                  </Button>
+                </div>
+              </Reveal>
+              <Reveal variant="fade" delay={0.18}>
+                <ul className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+                  {lokaleSeoHero.trust.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-2.5 text-base text-white/70"
                     >
-                      {lokaleSeoHero.primaryCta}
-                    </Button>
-                    <Button
-                      href={lokaleSeoHero.secondaryHref}
-                      variant="secondary"
-                      size="sm"
-                      className="h-9 shrink-0 whitespace-nowrap border-white/70 px-3 text-xs text-white hover:border-white hover:bg-white/10 hover:text-white sm:px-3.5 sm:text-sm"
-                    >
-                      {lokaleSeoHero.secondaryCta}
-                    </Button>
-                  </div>
-                </Reveal>
-                <Reveal variant="fade" delay={0.18}>
-                  <ul className="mt-8 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
-                    {lokaleSeoHero.trust.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center gap-2 text-sm text-white/70"
-                      >
-                        <Check
-                          className="size-4 shrink-0 text-cta"
-                          strokeWidth={2.25}
-                          aria-hidden
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </div>
-
-              <div className="lg:col-span-6">
-                <Reveal variant="scale" delay={0.1}>
-                  <SearchJourneyVisual tone="brand" />
-                </Reveal>
-              </div>
+                      <Check
+                        className="size-4 shrink-0 text-cta"
+                        strokeWidth={2.25}
+                        aria-hidden
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
             </div>
           </div>
         </section>
