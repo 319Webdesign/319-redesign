@@ -9,6 +9,7 @@ const footerColumns = [
     title: "Leistungen",
     links: [
       { label: "Webdesign", href: "/webdesign" },
+      { label: "Corporate Design", href: "/corporate-design" },
       { label: "Lokale SEO", href: "/lokale-seo" },
       { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
       { label: "Homepage Handwerker", href: "/leistungen/homepage-handwerker" },

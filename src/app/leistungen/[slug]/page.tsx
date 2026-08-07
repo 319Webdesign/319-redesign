@@ -10,7 +10,12 @@ type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return serviceLandings
-    .filter((s) => s.slug !== "webdesign" && s.slug !== "lokale-seo")
+    .filter(
+      (s) =>
+        s.slug !== "webdesign" &&
+        s.slug !== "lokale-seo" &&
+        s.slug !== "corporate-design",
+    )
     .map((s) => ({ slug: s.slug }));
 }
 

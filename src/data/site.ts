@@ -85,7 +85,7 @@ export const leistungenMegaMenu = {
       title: "Markenauftritt",
       shortDescription: "Corporate Design & Gestaltung",
       icon: "palette" as const,
-      href: "/leistungen",
+      href: "/corporate-design",
       headline: "Ein professioneller Markenauftritt.",
       description:
         "Vom Logo bis zur HTML-E-Mail-Signatur entsteht ein einheitlicher Unternehmensauftritt.",
@@ -175,6 +175,13 @@ export const services = [
     icon: "globe" as const,
   },
   {
+    title: "Corporate Design",
+    description:
+      "Einheitlicher Unternehmensauftritt mit Logo, Farben, Typografie und weiteren Gestaltungselementen.",
+    href: "/corporate-design",
+    icon: "palette" as const,
+  },
+  {
     title: "Lokale SEO",
     description:
       "Lokale Sichtbarkeit bei Google: Website, Unternehmensprofil und regionale Suchanfragen – verständlich und ohne Garantien.",
@@ -244,7 +251,7 @@ export const digitalSolutions = [
       "E-Mail-Signaturen",
       "Social-Media-Grafiken",
     ],
-    href: "/leistungen",
+    href: "/corporate-design",
   },
   {
     id: "visibility",

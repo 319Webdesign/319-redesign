@@ -161,6 +161,14 @@ export const webdesignSeo = {
   linkHref: "/lokale-seo",
 } as const;
 
+export const webdesignCorporateDesign = {
+  eyebrow: "Einheitlicher Auftritt",
+  headline: "Website und Corporate Design gehören zusammen.",
+  lead: "Eine neue Website ist oft der ideale Zeitpunkt, Farben, Schriften und Gestaltungselemente so zu definieren, dass sie auch außerhalb der Website konsistent wirken – von der E-Mail-Signatur bis zur Geschäftsausstattung.",
+  linkLabel: "Mehr über Corporate Design",
+  linkHref: "/corporate-design",
+} as const;
+
 export const webdesignIndividual = {
   eyebrow: "Individuell entwickelt",
   headline: "Ihre Website sollte nicht aussehen wie jede andere.",

@@ -4,6 +4,7 @@ import { projects } from "@/data/projects";
 export type ServiceSlug =
   | "webdesign"
   | "lokale-seo"
+  | "corporate-design"
   | "webdesign-darmstadt"
   | "seo-darmstadt"
   | "website-relaunch"
@@ -235,6 +236,93 @@ export const serviceLandings: ServiceLanding[] = [
     cta: {
       title: "Werden Sie dort sichtbar, wo Ihre Kunden suchen.",
       lead: "Lassen Sie uns prüfen, welche Maßnahmen für mehr lokale Sichtbarkeit sinnvoll sind.",
+    },
+  },
+  {
+    slug: "corporate-design",
+    title: "Corporate Design",
+    path: "/corporate-design",
+    metaTitle: "Corporate Design für Unternehmen",
+    metaDescription:
+      "Einheitlicher Unternehmensauftritt mit Logo, Farben, Typografie, E-Mail-Signaturen und weiteren Gestaltungselementen. Corporate Design individuell von 319Webdesign.",
+    hero: {
+      eyebrow: "Corporate Design",
+      headline: "Ein Auftritt, der überall nach Ihrem Unternehmen aussieht.",
+      lead: "Professionelles Corporate Design für einen einheitlichen Unternehmensauftritt – von Logo und Farben bis zu E-Mail-Signatur und Geschäftsausstattung.",
+      primaryCta: "Unternehmensauftritt besprechen",
+      secondaryCta: "Mehr erfahren",
+      secondaryHref: "/corporate-design",
+    },
+    problem: {
+      eyebrow: "Der erste Eindruck",
+      title: "Professionalität entsteht nicht erst auf Ihrer Website.",
+      lead: "Wenn Website, E-Mail und Geschäftsmaterialien unterschiedlich aussehen, entsteht schnell ein uneinheitlicher Eindruck.",
+      items: [
+        {
+          title: "Uneinheitlicher Auftritt",
+          text: "Verschiedene Kontaktpunkte wirken wie von unterschiedlichen Unternehmen.",
+        },
+        {
+          title: "Veraltetes Logo",
+          text: "Das Logo passt nicht mehr – oder fehlt in digitalen Anwendungen.",
+        },
+        {
+          title: "Keine klare Linie",
+          text: "Farben und Schriften sind nicht definiert und werden beliebig eingesetzt.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Corporate Design",
+      title: "Ein konsistentes visuelles Erscheinungsbild.",
+      lead: "Farben, Schriften, Logo und weitere Elemente werden so aufeinander abgestimmt, dass Ihr Unternehmen überall wiedererkennbar bleibt.",
+      paragraphs: [
+        "Der Umfang wird individuell auf Ihr Unternehmen abgestimmt.",
+        "Bestehende Logos können häufig beibehalten und in ein Gestaltungssystem integriert werden.",
+      ],
+    },
+    benefits: {
+      eyebrow: "Leistungsumfang",
+      title: "Was zum Unternehmensauftritt gehören kann.",
+      lead: "Nicht alles ist automatisch Bestandteil – der Umfang wird gemeinsam festgelegt.",
+      items: [
+        {
+          title: "Logo & Farbwelt",
+          text: "Visueller Ausgangspunkt und klare Farbdefinition.",
+        },
+        {
+          title: "Typografie & System",
+          text: "Schriften und Gestaltungsregeln für einen einheitlichen Auftritt.",
+        },
+        {
+          title: "E-Mail & Ausstattung",
+          text: "HTML-Signaturen, Visitenkarten und digitale Vorlagen nach Bedarf.",
+        },
+        {
+          title: "Website-Abstimmung",
+          text: "Corporate Design und Webdesign greifen ineinander.",
+        },
+      ],
+    },
+    relatedProjectHrefs: [
+      "/portfolio/he-immologis",
+      "/portfolio/elektrotechnik-betrieb",
+    ],
+    faq: [
+      {
+        question: "Brauche ich ein komplett neues Logo?",
+        answer:
+          "Nein. Wenn ein bestehendes Logo weiterhin zum Unternehmen passt, kann es häufig beibehalten und in ein neues Gestaltungssystem integriert werden.",
+      },
+      {
+        question: "Kann ich auch nur einzelne Elemente beauftragen?",
+        answer:
+          "Ja. Je nach Bedarf können auch einzelne Bestandteile wie eine E-Mail-Signatur umgesetzt werden.",
+      },
+    ],
+    cta: {
+      title: "Zeit für einen Auftritt, der wirklich zusammenpasst?",
+      lead: "Lassen Sie uns gemeinsam schauen, welche Gestaltungselemente Ihr Unternehmen benötigt.",
     },
   },
   {

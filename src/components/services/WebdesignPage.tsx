@@ -11,6 +11,7 @@ import {
   webdesignAudience,
   webdesignCare,
   webdesignClosing,
+  webdesignCorporateDesign,
   webdesignFaq,
   webdesignHero,
   webdesignIncludes,
@@ -533,6 +534,33 @@ export function WebdesignPage() {
                 </Reveal>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 07b Corporate Design */}
+        <section className="bg-bg-soft">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-20">
+            <Reveal variant="slide">
+              <SectionHeader
+                eyebrow={webdesignCorporateDesign.eyebrow}
+                title={webdesignCorporateDesign.headline}
+                lead={webdesignCorporateDesign.lead}
+              />
+            </Reveal>
+            <Reveal variant="fade" delay={0.08}>
+              <div className="mt-8">
+                <Link
+                  href={webdesignCorporateDesign.linkHref}
+                  className="group inline-flex items-center gap-2 text-base font-medium text-brand transition-motion hover:text-brand-dark"
+                >
+                  {webdesignCorporateDesign.linkLabel}
+                  <ArrowRight
+                    className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
 
