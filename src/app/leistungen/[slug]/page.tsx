@@ -9,7 +9,9 @@ import { notFound } from "next/navigation";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return serviceLandings.map((s) => ({ slug: s.slug }));
+  return serviceLandings
+    .filter((s) => s.slug !== "webdesign")
+    .map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -51,10 +51,10 @@ export const leistungenMegaMenu = {
       title: "Webdesign",
       shortDescription: "Moderne Unternehmenswebsites",
       icon: "globe" as const,
-      href: "/leistungen/webdesign",
-      headline: "Individuelle Websites für Unternehmen.",
+      href: "/webdesign",
+      headline: "Websites, die Vertrauen schaffen und Kunden gewinnen.",
       description:
-        "Moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und neue Kunden gewinnen.",
+        "Individuelle Unternehmenswebsites, die professionell wirken, gefunden werden können und Besucher zur Kontaktaufnahme führen.",
       features: [
         "Unternehmenswebsites",
         "Landingpages",
@@ -164,7 +164,7 @@ export const services = [
     title: "Webdesign",
     description:
       "Individuelle Websites, die Vertrauen aufbauen und Anfragen generieren — modern und premium.",
-    href: "/leistungen/webdesign",
+    href: "/webdesign",
     icon: "globe" as const,
   },
   {
@@ -223,7 +223,7 @@ export const digitalSolutions = [
       "Onepager",
       "Website-Redesign",
     ],
-    href: "/leistungen/webdesign",
+    href: "/webdesign",
   },
   {
     id: "branding",

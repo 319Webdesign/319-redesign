@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
+import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -7,11 +8,12 @@ const footerColumns = [
   {
     title: "Leistungen",
     links: [
-      { label: "Webdesign", href: "/leistungen/webdesign" },
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
-      { label: "SEO Darmstadt", href: "/leistungen/seo-darmstadt" },
+      { label: "Webdesign", href: "/webdesign" },
+      { label: "Lokale SEO", href: "/leistungen/seo-darmstadt" },
       { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
       { label: "Homepage Handwerker", href: "/leistungen/homepage-handwerker" },
+      { label: "Website-Wartung", href: "/leistungen/website-wartung" },
+      { label: "Google Unternehmensprofil", href: "/leistungen/google-unternehmensprofil" },
     ],
   },
   {
@@ -23,13 +25,11 @@ const footerColumns = [
       { label: "Kontakt", href: "/kontakt" },
     ],
   },
-  {
-    title: "Rechtliches",
-    links: [
-      { label: "Impressum", href: "/impressum" },
-      { label: "Datenschutz", href: "/datenschutz" },
-    ],
-  },
+];
+
+const legalLinks = [
+  { label: "Impressum", href: "/impressum" },
+  { label: "Datenschutz", href: "/datenschutz" },
 ];
 
 function SocialIcon({
@@ -62,7 +62,7 @@ const socialLinks: {
     icon: (
       <SocialIcon
         className="size-4"
-        path="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"
+        path="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.75a3.05 3.05 0 1 1 0-6.1 3.05 3.05 0 0 1 0 6.1Zm5.86-7.94a1.1 1.1 0 1 1-2.19 0 1.1 1.1 0 0 1 2.19 0ZM12 3.2c-2.39 0-2.69.01-3.63.05-.93.04-1.57.2-2.13.42a4.3 4.3 0 0 0-1.55 1.01 4.3 4.3 0 0 0-1.01 1.55c-.23.56-.38 1.2-.42 2.13C3.21 9.31 3.2 9.61 3.2 12s.01 2.69.05 3.63c.04.93.2 1.57.42 2.13.23.6.53 1.1 1.01 1.55.45.48.95.78 1.55 1.01.56.23 1.2.38 2.13.42.94.04 1.24.05 3.63.05s2.69-.01 3.63-.05c.93-.04 1.57-.2 2.13-.42a4.3 4.3 0 0 0 1.55-1.01 4.3 4.3 0 0 0 1.01-1.55c.23-.56.38-1.2.42-2.13.04-.94.05-1.24.05-3.63s-.01-2.69-.05-3.63c-.04-.93-.2-1.57-.42-2.13a4.3 4.3 0 0 0-1.01-1.55 4.3 4.3 0 0 0-1.55-1.01c-.56-.23-1.2-.38-2.13-.42C14.69 3.21 14.39 3.2 12 3.2Zm0 1.62c2.35 0 2.63.01 3.55.05.86.04 1.32.18 1.63.3.41.16.71.35.96.6.25.25.44.55.6.96.12.31.26.77.3 1.63.04.92.05 1.2.05 3.55s-.01 2.63-.05 3.55c-.04.86-.18 1.32-.3 1.63-.16.41-.35.71-.6.96-.25.25-.55.44-.96.6-.31.12-.77.26-1.63.3-.92.04-1.2.05-3.55.05s-2.63-.01-3.55-.05c-.86-.04-1.32-.18-1.63-.3a2.6 2.6 0 0 1-.96-.6 2.6 2.6 0 0 1-.6-.96c-.12-.31-.26-.77-.3-1.63-.04-.92-.05-1.2-.05-3.55s.01-2.63.05-3.55c.04-.86.18-1.32.3-1.63.16-.41.35-.71.6-.96.25-.25.55-.44.96-.6.31-.12.77-.26 1.63-.3.92-.04 1.2-.05 3.55-.05Z"
       />
     ),
   },
@@ -82,17 +82,36 @@ const socialLinks: {
     icon: (
       <SocialIcon
         className="size-4"
-        path="M14 8h2.5V5.5c0-1.2.1-3 3-3H20v3h-1.8c-1.1 0-1.2.5-1.2 1.2V8H20l-.4 3h-2.6v8h-3.2v-8H11V8h2z"
+        path="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"
       />
     ),
   },
 ];
 
+function SocialLinks() {
+  return (
+    <div className="flex items-center gap-2">
+      {socialLinks.map(({ label, href, icon }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          className="inline-flex size-10 items-center justify-center rounded-md border border-border bg-bg text-ink-muted transition-motion hover:border-brand hover:text-brand"
+        >
+          {icon}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-bg">
+    <footer className="border-t border-border bg-bg-soft">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <p className="font-display text-2xl font-medium tracking-tight text-ink">
             {siteConfig.name}
           </p>
@@ -100,35 +119,21 @@ export function SiteFooter() {
             {siteConfig.tagline}. Persönliche Betreuung im Raum{" "}
             {siteConfig.region}.
           </p>
-          <p className="mt-6 text-sm text-ink-muted">
+          <div className="mt-6 flex flex-col gap-2.5 text-sm text-ink-muted">
             <a
               href={siteConfig.phoneHref}
-              className="transition-motion hover:text-brand"
+              className="inline-flex items-center gap-2.5 transition-motion hover:text-brand"
             >
+              <Phone className="size-4 shrink-0 text-brand" strokeWidth={1.75} aria-hidden />
               {siteConfig.phone}
             </a>
-            <br />
             <a
               href={`mailto:${siteConfig.email}`}
-              className="transition-motion hover:text-brand"
+              className="inline-flex items-center gap-2.5 transition-motion hover:text-brand"
             >
+              <Mail className="size-4 shrink-0 text-brand" strokeWidth={1.75} aria-hidden />
               {siteConfig.email}
             </a>
-          </p>
-
-          <div className="mt-6 flex items-center gap-2">
-            {socialLinks.map(({ label, href, icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="inline-flex size-10 items-center justify-center rounded-md border border-border text-ink-muted transition-motion hover:border-brand hover:text-brand"
-              >
-                {icon}
-              </a>
-            ))}
           </div>
         </div>
 
@@ -152,24 +157,46 @@ export function SiteFooter() {
           </div>
         ))}
 
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-3">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink-subtle">
             Starten
           </p>
-          <div className="mt-4">
-            <Button href="/kontakt" variant="primary" size="md">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
+            Unverbindlich sprechen — über Ziele, Umfang und den nächsten Schritt.
+          </p>
+          <div className="mt-5">
+            <Button
+              href="/kontakt"
+              size="md"
+              className="!border-brand !bg-brand !text-white hover:!bg-brand-dark hover:!text-white"
+            >
               Kostenloses Erstgespräch
             </Button>
+          </div>
+          <div className="mt-5">
+            <SocialLinks />
           </div>
         </div>
       </div>
 
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-ink-subtle sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <div className="border-t border-border/80 bg-bg-muted/40">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs text-ink-subtle sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>
             © {new Date().getFullYear()} {siteConfig.name}
+            <span className="mx-2 text-border-strong">·</span>
+            {siteConfig.region}
           </p>
-          <p>{siteConfig.region}</p>
+          <nav aria-label="Rechtliches" className="flex items-center gap-4">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-motion hover:text-brand"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

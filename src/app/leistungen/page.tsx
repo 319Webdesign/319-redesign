@@ -70,7 +70,7 @@ export default function LeistungenPage() {
                   icon={icons[service.slug]}
                   title={service.title}
                   description={service.hero.lead}
-                  href={`/leistungen/${service.slug}`}
+                  href={service.path ?? `/leistungen/${service.slug}`}
                   ctaLabel="Zur Leistung"
                 />
               </Reveal>

@@ -269,7 +269,7 @@ export default function DesignSystemPage() {
               icon={<Globe className="size-7" strokeWidth={1.5} />}
               title="Webdesign Darmstadt"
               description="Individuelle Websites, die Vertrauen aufbauen und Anfragen generieren — ohne Baukasten."
-              href="/leistungen/webdesign"
+              href="/webdesign"
             />
             <ServiceItem
               icon={<Search className="size-7" strokeWidth={1.5} />}

@@ -13,6 +13,8 @@ export type ServiceSlug =
 export type ServiceLanding = {
   slug: ServiceSlug;
   title: string;
+  /** Öffentlicher Pfad – Standard: `/leistungen/${slug}` */
+  path?: string;
   metaTitle: string;
   metaDescription: string;
   hero: {
@@ -54,97 +56,99 @@ export const serviceLandings: ServiceLanding[] = [
   {
     slug: "webdesign",
     title: "Webdesign",
-    metaTitle: "Webdesign · Individuelle Websites für Unternehmen",
+    path: "/webdesign",
+    metaTitle: "Professionelles Webdesign für Unternehmen",
     metaDescription:
-      "Professionelles Webdesign für Unternehmen: moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und neue Kunden gewinnen.",
+      "Individuelle Websites für Unternehmen: modernes Webdesign, SEO-Grundlagen, schnelle Ladezeiten und persönliche Betreuung. Jetzt Projekt unverbindlich besprechen.",
     hero: {
-      eyebrow: "Webdesign",
-      headline: "Individuelle Websites für Unternehmen",
-      lead: "Moderne, schnelle und suchmaschinenfreundliche Websites, die Vertrauen schaffen und planbar neue Anfragen bringen — ohne Baukasten.",
-      primaryCta: "Kostenloses Erstgespräch",
-      secondaryCta: "Referenzen ansehen",
+      eyebrow: "Professionelles Webdesign",
+      headline: "Websites, die Vertrauen schaffen und Kunden gewinnen.",
+      lead: "Individuelle Unternehmenswebsites, die professionell wirken, Vertrauen schaffen, bei Google gefunden werden können und Besucher zur Kontaktaufnahme führen.",
+      primaryCta: "Kostenloses Erstgespräch vereinbaren",
+      secondaryCta: "Webdesign-Projekte ansehen",
       secondaryHref: "/portfolio",
     },
     problem: {
-      eyebrow: "Das Problem",
-      title: "Eine Website ohne Wirkung kostet Aufträge",
-      lead: "Viele Unternehmen haben „eine Homepage“ — aber keine Seite, die überzeugt, gefunden wird und zur Anfrage führt.",
+      eyebrow: "Der erste Eindruck zählt",
+      title: "Ihre Website arbeitet für Ihr Unternehmen – rund um die Uhr.",
+      lead: "Potenzielle Kunden informieren sich häufig online, bevor sie Kontakt aufnehmen.",
       items: [
         {
-          title: "Austauschbares Design",
-          text: "Baukasten-Look wirkt beliebig. Genau das Vertrauen, das potenzielle Kunden brauchen, fehlt.",
+          title: "Vertrauen schaffen",
+          text: "Ein professioneller Auftritt vermittelt Qualität und schafft Vertrauen.",
         },
         {
-          title: "Unklare Botschaft",
-          text: "Leistungen, Zielgruppe und nächste Schritte sind nicht sofort verständlich.",
+          title: "Gefunden werden",
+          text: "Saubere Struktur und Technik schaffen die Grundlage für Sichtbarkeit bei Google.",
         },
         {
-          title: "Schwache Conversion",
-          text: "Besucher scrollen — und gehen. Ohne klare Call-to-Actions bleiben Anfragen aus.",
+          title: "Anfragen erleichtern",
+          text: "Klare Inhalte und Kontaktwege führen Besucher zum nächsten Schritt.",
         },
       ],
     },
     solution: {
-      eyebrow: "Die Lösung",
-      title: "Webdesign mit einem Ziel: qualifizierte Anfragen",
-      lead: "Ich entwickle keine Online-Visitenkarte — sondern eine Website, die Ihr Unternehmen professionell und greifbar macht.",
+      eyebrow: "Webdesign von 319Webdesign",
+      title: "Nicht einfach eine schöne Website.",
+      lead: "Gestaltung, Nutzerführung, Technik und Sichtbarkeit greifen ineinander.",
       paragraphs: [
-        "Von der Struktur über Inhalte und Design bis zur technischen Umsetzung: alles aus einer Hand, persönlich betreut.",
-        "SEO, Ladezeiten und mobile Nutzung sind von Anfang an getrennt mitgedacht — nicht nachträglich aufgesetzt.",
+        "Jede Website wird individuell auf Unternehmen, Zielgruppe und Leistungen abgestimmt.",
+        "SEO-Grundlagen, mobile Optimierung und klare Kontaktwege sind von Anfang an mitgedacht.",
       ],
     },
     benefits: {
-      eyebrow: "Vorteile",
-      title: "Was Sie konkret bekommen",
-      lead: "Ergebnisorientiert — nicht Feature-Listen.",
+      eyebrow: "Leistungsumfang",
+      title: "Alles, was Ihre neue Website braucht.",
+      lead: "Professionelles Webdesign aus Kundensicht.",
       items: [
         {
           title: "Individuelles Design",
-          text: "Keine Templates. Eine klare visuelle Sprache, die zu Ihrem Unternehmen passt.",
+          text: "Keine Baukästen – Gestaltung passend zu Ihrem Unternehmen.",
         },
         {
-          title: "Struktur für Menschen und Google",
-          text: "Seitenaufbau, Headings und Inhalte so, dass Besucher und Suchmaschinen Sie verstehen.",
+          title: "SEO-Grundlagen inklusive",
+          text: "Struktur, Meta-Daten und technische Basis bereits bei der Erstellung.",
         },
         {
-          title: "Schnelle, moderne Technik",
-          text: "Kurze Ladezeiten, saubere Umsetzung, ohne unnötigen Page-Builder-Ballast.",
+          title: "Mobile optimiert",
+          text: "Gute Darstellung auf Smartphone, Tablet und Desktop.",
         },
         {
           title: "Persönliche Betreuung",
-          text: "Kurze Wege, ehrliches Feedback und Entscheidungen ohne Agentur-Umwege.",
+          text: "Direkter Ansprechpartner – auch nach dem Livegang optional möglich.",
         },
       ],
     },
     relatedProjectHrefs: [
-      "/portfolio/elektrotechnik-betrieb",
       "/portfolio/he-immologis",
+      "/portfolio/elektrotechnik-betrieb",
+      "/portfolio/heinerfilm",
     ],
     faq: [
       {
-        question: "Was kostet ein professionelles Webdesign?",
+        question: "Was kostet eine professionelle Website?",
         answer:
-          "Das hängt vom Umfang ab. Im Erstgespräch klären wir Ziele und Seitenumfang — danach erhalten Sie ein klares Angebot.",
+          "Jedes Projekt ist individuell, daher gibt es keinen festen Pauschalpreis. Nach einem unverbindlichen Erstgespräch erhalten Sie ein transparentes Angebot.",
       },
       {
-        question: "Wie lange dauert ein Webdesign-Projekt?",
+        question: "Wie lange dauert die Erstellung einer Website?",
         answer:
-          "Die meisten Projekte sind innerhalb von 3 bis 8 Wochen online — abhängig von Feedback und Content-Lieferung.",
+          "Die meisten Projekte benötigen zwischen 3 und 8 Wochen – abhängig vom Umfang und der Bereitstellung der Inhalte.",
       },
       {
-        question: "Erstellen Sie auch die Texte?",
+        question: "Ist SEO enthalten?",
         answer:
-          "Ja, auf Wunsch. Wir können Inhalte gemeinsam erarbeiten oder vorhandene Texte professionell schärfen.",
+          "Grundlegende SEO-Maßnahmen sind enthalten. Weiterführende Suchmaschinenoptimierung ist separat buchbar.",
       },
       {
         question: "Für wen ist das Angebot gedacht?",
         answer:
-          "Für Handwerksbetriebe und regionale Unternehmen, die mit ihrer Website Anfragen gewinnen wollen — nicht nur Online-Präsenz.",
+          "Für Handwerksbetriebe, regionale Unternehmen und Dienstleister, die professionell auftreten und Anfragen gewinnen möchten.",
       },
     ],
     cta: {
-      title: "Bereit für Webdesign, das wirkt?",
-      lead: "Lassen Sie uns in einem kostenlosen Erstgespräch klären, was Ihre Website wirklich leisten soll.",
+      title: "Zeit für eine Website, die zu Ihrem Unternehmen passt?",
+      lead: "In einem unverbindlichen Erstgespräch schauen wir gemeinsam, wie Ihre neue Website aufgebaut sein sollte.",
     },
   },
   {
