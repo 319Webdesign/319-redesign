@@ -23,7 +23,6 @@ const footerColumns = [
     links: [
       { label: "Portfolio", href: "/portfolio" },
       { label: "Über mich", href: "/ueber-mich" },
-      { label: "Blog", href: "/blog" },
       { label: "Kontakt", href: "/kontakt" },
     ],
   },

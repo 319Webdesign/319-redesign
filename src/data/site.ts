@@ -19,7 +19,6 @@ export const navLinks = [
   { label: "Leistungen", href: "/leistungen", megaMenu: true },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Über mich", href: "/ueber-mich" },
-  { label: "Blog", href: "/blog" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
 
