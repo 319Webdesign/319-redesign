@@ -143,11 +143,12 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "319Webdesign <onboarding@resend.dev>";
+  const fromEmail = process.env.CONTACT_FROM_EMAIL;
 
-  if (!apiKey) {
-    console.error("[kontakt] RESEND_API_KEY fehlt – Anfrage nicht versendet.");
+  if (!apiKey || !fromEmail) {
+    console.error(
+      "[kontakt] RESEND_API_KEY oder CONTACT_FROM_EMAIL fehlt – Anfrage nicht versendet.",
+    );
     return NextResponse.json(
       {
         ok: false,

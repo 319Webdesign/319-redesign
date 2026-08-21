@@ -281,7 +281,7 @@ export default function DesignSystemPage() {
               icon={<Wrench className="size-7" strokeWidth={1.5} />}
               title="Homepage für Handwerker"
               description="Websites, die Handwerksbetriebe als Auftraggeber ernst nehmen — klar und lokal."
-              href="/leistungen/homepage-handwerker"
+              href="/webdesign-handwerker"
             />
           </div>
         </PreviewSection>

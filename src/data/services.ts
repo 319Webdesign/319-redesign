@@ -168,7 +168,7 @@ export const serviceLandings: ServiceLanding[] = [
       lead: "Individuelle lokale SEO für Handwerksbetriebe und regionale Unternehmen – verständlich, transparent und ohne Ranking-Garantien.",
       primaryCta: "SEO-Potenzial besprechen",
       secondaryCta: "SEO Darmstadt",
-      secondaryHref: "/leistungen/seo-darmstadt",
+      secondaryHref: "/seo-darmstadt",
     },
     problem: {
       eyebrow: "Sichtbarkeit",
@@ -414,6 +414,7 @@ export const serviceLandings: ServiceLanding[] = [
   {
     slug: "webdesign-darmstadt",
     title: "Webdesign Darmstadt",
+    path: "/webdesign/darmstadt",
     metaTitle: "Webdesign Darmstadt · Premium Websites für Betriebe",
     metaDescription:
       "Webdesign in Darmstadt für Handwerk und regionale Unternehmen. Individuell, schnell, SEO-stark — persönliche Betreuung statt Agentur-Anonymität.",
@@ -510,6 +511,7 @@ export const serviceLandings: ServiceLanding[] = [
   {
     slug: "seo-darmstadt",
     title: "SEO Darmstadt",
+    path: "/seo-darmstadt",
     metaTitle: "SEO Darmstadt · Lokale Sichtbarkeit für Betriebe",
     metaDescription:
       "SEO in Darmstadt für Handwerk und regionale Unternehmen. Lokale Suchmaschinenoptimierung, die Anfragen bringt — persönlich und nachhaltig.",
@@ -598,6 +600,7 @@ export const serviceLandings: ServiceLanding[] = [
   {
     slug: "website-relaunch",
     title: "Website Relaunch",
+    path: "/website-relaunch",
     metaTitle: "Website Relaunch · Von veraltet zu anfrageorientiert",
     metaDescription:
       "Website Relaunch für Handwerk und regionale Unternehmen: neues Design, moderne Technik, bessere Conversion und SEO — persönlich betreut.",
@@ -686,6 +689,7 @@ export const serviceLandings: ServiceLanding[] = [
   {
     slug: "homepage-handwerker",
     title: "Homepage für Handwerker",
+    path: "/webdesign-handwerker",
     metaTitle: "Homepage für Handwerker · Webdesign das Aufträge bringt",
     metaDescription:
       "Homepage für Handwerker: Webdesign speziell für Handwerksbetriebe — klar, lokal, anfrageorientiert. Persönliche Betreuung aus dem Raum Darmstadt.",
@@ -962,6 +966,13 @@ export const serviceLandings: ServiceLanding[] = [
 
 export function getServiceBySlug(slug: string): ServiceLanding | undefined {
   return serviceLandings.find((s) => s.slug === slug);
+}
+
+export function getServicePath(service: ServiceLanding | string): string {
+  const resolved =
+    typeof service === "string" ? getServiceBySlug(service) : service;
+  if (!resolved) return "/leistungen";
+  return resolved.path ?? `/leistungen/${resolved.slug}`;
 }
 
 export function getRelatedProjects(hrefs: string[]) {

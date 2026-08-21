@@ -11,7 +11,9 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { WhySection } from "@/components/home/WhySection";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaBlock } from "@/components/ui";
-import { siteConfig } from "@/data/site";
+import { faqItems, siteConfig } from "@/data/site";
+import { breadcrumbJsonLd, faqJsonLd, JsonLd } from "@/lib/json-ld";
+import { defaultOpenGraph } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,18 +22,23 @@ export const metadata: Metadata = {
   },
   description:
     "Premium Webdesign für Handwerksbetriebe und regionale Unternehmen im Raum Darmstadt. Persönliche Betreuung, SEO von Anfang an, keine Baukastensysteme.",
-  openGraph: {
-    title: `Webdesign Darmstadt · ${siteConfig.name}`,
-    description:
-      "Premium Webdesign für Handwerk & regionale Unternehmen — persönlich betreut aus dem Raum Darmstadt.",
-    locale: "de_DE",
-    type: "website",
+  alternates: {
+    canonical: "/",
   },
+  openGraph: defaultOpenGraph(
+    `Webdesign Darmstadt · ${siteConfig.name}`,
+    "Premium Webdesign für Handwerk & regionale Unternehmen — persönlich betreut aus dem Raum Darmstadt.",
+    "/",
+  ),
 };
 
 export default function HomePage() {
   return (
     <SiteShell>
+      <JsonLd
+        data={breadcrumbJsonLd([{ name: "Start", path: "/" }])}
+      />
+      <JsonLd data={faqJsonLd(faqItems)} />
       <main>
         <HeroSection />
         <ClientLogosSection />

@@ -69,6 +69,23 @@
     scroll-behavior: smooth;
   }
 
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    border-radius: var(--radius-md);
+    background: var(--color-brand);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
   body {
     background: var(--color-bg);
     color: var(--color-ink);

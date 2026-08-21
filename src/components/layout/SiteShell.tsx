@@ -6,7 +6,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <>
       <SiteHeader />
-      <div className="flex-1">{children}</div>
+      <div id="inhalt" tabIndex={-1} className="flex-1 outline-none">
+        {children}
+      </div>
       <SiteFooter />
     </>
   );

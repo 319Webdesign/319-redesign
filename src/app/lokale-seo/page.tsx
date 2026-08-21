@@ -1,5 +1,7 @@
 import { LokaleSeoPage } from "@/components/services/LokaleSeoPage";
 import { lokaleSeoFaq, lokaleSeoMeta } from "@/data/lokale-seo";
+import { breadcrumbJsonLd, faqJsonLd, JsonLd } from "@/lib/json-ld";
+import { defaultOpenGraph } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,72 +10,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: lokaleSeoMeta.canonical,
   },
-  openGraph: {
-    title: lokaleSeoMeta.ogTitle,
-    description: lokaleSeoMeta.ogDescription,
-    locale: "de_DE",
-    type: "website",
-    url: lokaleSeoMeta.canonical,
-  },
+  openGraph: defaultOpenGraph(
+    lokaleSeoMeta.ogTitle,
+    lokaleSeoMeta.ogDescription,
+    lokaleSeoMeta.canonical,
+  ),
 };
-
-function JsonLd() {
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Start",
-        item: "https://319webdesign.de/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Leistungen",
-        item: "https://319webdesign.de/leistungen",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Lokale SEO",
-        item: "https://319webdesign.de/lokale-seo",
-      },
-    ],
-  };
-
-  const faq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: lokaleSeoFaq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
-      />
-    </>
-  );
-}
 
 export default function LokaleSeoRoutePage() {
   return (
     <>
-      <JsonLd />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", path: "/" },
+          { name: "Leistungen", path: "/leistungen" },
+          { name: "Lokale SEO", path: "/lokale-seo" },
+        ])}
+      />
+      <JsonLd data={faqJsonLd(lokaleSeoFaq)} />
       <LokaleSeoPage />
     </>
   );

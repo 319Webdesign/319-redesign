@@ -112,8 +112,8 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
     featuredOrder: 1,
     relatedServices: [
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
+      { label: "Website Relaunch", href: "/website-relaunch" },
+      { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },
     ],
     seo: {
       title: "HE Immologis · Immobilienwebsite mit onOffice",
@@ -172,8 +172,8 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
     featuredOrder: 2,
     relatedServices: [
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
+      { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },
+      { label: "Website Relaunch", href: "/website-relaunch" },
     ],
     seo: {
       title: "Heinerfilm · Website für Videoproduktion",
@@ -244,10 +244,10 @@ export const portfolioProjects: PortfolioProject[] = [
     relatedServices: [
       {
         label: "Homepage für Handwerker",
-        href: "/leistungen/homepage-handwerker",
+        href: "/webdesign-handwerker",
       },
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
-      { label: "SEO Darmstadt", href: "/leistungen/seo-darmstadt" },
+      { label: "Website Relaunch", href: "/website-relaunch" },
+      { label: "SEO Darmstadt", href: "/seo-darmstadt" },
     ],
     seo: {
       title: "Elektrotechnik Mager · Website-Relaunch",
@@ -309,9 +309,9 @@ export const portfolioProjects: PortfolioProject[] = [
     relatedServices: [
       {
         label: "Homepage für Handwerker",
-        href: "/leistungen/homepage-handwerker",
+        href: "/webdesign-handwerker",
       },
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
+      { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },
     ],
     seo: {
       title: "Baudienstleistungen Hofmann · Website",
@@ -370,7 +370,7 @@ export const portfolioProjects: PortfolioProject[] = [
     featuredOrder: 5,
     moreOrder: 2,
     relatedServices: [
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
+      { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },
     ],
     seo: {
       title: "1klang Massage · Website für Wellness",
@@ -444,8 +444,8 @@ export const portfolioProjects: PortfolioProject[] = [
     featuredOrder: 6,
     moreOrder: 3,
     relatedServices: [
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
-      { label: "Webdesign Darmstadt", href: "/leistungen/webdesign-darmstadt" },
+      { label: "Website Relaunch", href: "/website-relaunch" },
+      { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },
     ],
     seo: {
       title: "Tierhotel Rhein-Main · Website-Relaunch",

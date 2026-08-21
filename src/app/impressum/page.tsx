@@ -1,19 +1,32 @@
-import {
-  PlaceholderPage,
-  placeholderMetadata,
-} from "@/components/layout/PlaceholderPage";
+import { LegalPage } from "@/components/legal/LegalPage";
+import { impressumContent, impressumMeta } from "@/data/legal";
+import { breadcrumbJsonLd, JsonLd } from "@/lib/json-ld";
+import { defaultOpenGraph } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = placeholderMetadata(
-  "Impressum",
-  "Impressum von 319Webdesign — Inhalt folgt.",
-);
+export const metadata: Metadata = {
+  title: impressumMeta.title,
+  description: impressumMeta.description,
+  alternates: {
+    canonical: impressumMeta.canonical,
+  },
+  openGraph: defaultOpenGraph(
+    impressumMeta.ogTitle,
+    impressumMeta.ogDescription,
+    impressumMeta.canonical,
+  ),
+};
 
 export default function ImpressumPage() {
   return (
-    <PlaceholderPage
-      eyebrow="Rechtliches"
-      title="Impressum"
-      description="Rechtliche Angaben folgen vor dem Go-Live."
-    />
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", path: "/" },
+          { name: "Impressum", path: "/impressum" },
+        ])}
+      />
+      <LegalPage content={impressumContent} />
+    </>
   );
 }

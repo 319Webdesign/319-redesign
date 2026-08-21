@@ -266,7 +266,7 @@ export const webdesignAudience = {
   localNote:
     "Für Unternehmen aus Darmstadt und dem Rhein-Main-Gebiet gibt es zusätzlich lokale Informationen zum Webdesign vor Ort.",
   localLinkLabel: "Webdesign Darmstadt",
-  localLinkHref: "/leistungen/webdesign-darmstadt",
+  localLinkHref: "/webdesign/darmstadt",
 } as const;
 
 export const webdesignFaq = [

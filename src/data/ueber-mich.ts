@@ -9,7 +9,7 @@ export const ueberMichMeta = {
   ogTitle: "Über 319Webdesign | Persönliches Webdesign mit Maik Schmidt",
   ogDescription:
     "Lernen Sie Maik Schmidt und 319Webdesign kennen: persönliche Betreuung, direkte Kommunikation und individuelles Webdesign für Unternehmen und Handwerksbetriebe.",
-  canonical: "/ueber-mich",
+  canonical: "/uber-mich",
 } as const;
 
 export const ueberMichHero = {

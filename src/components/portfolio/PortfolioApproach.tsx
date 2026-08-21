@@ -44,14 +44,14 @@ export function PortfolioApproach() {
             </Link>
             ,{" "}
             <Link
-              href="/leistungen/website-relaunch"
+              href="/website-relaunch"
               className="font-medium text-brand transition-colors hover:text-brand-dark"
             >
               Website Relaunch
             </Link>{" "}
             und{" "}
             <Link
-              href="/leistungen/homepage-handwerker"
+              href="/webdesign-handwerker"
               className="font-medium text-brand transition-colors hover:text-brand-dark"
             >
               Homepages für Handwerker

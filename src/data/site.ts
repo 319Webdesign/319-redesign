@@ -6,6 +6,13 @@ export const siteConfig = {
   phoneHref: "tel:+491773236454",
   whatsappHref: "https://wa.me/491773236454",
   email: "Maik.Schmidt@319Webdesign.de",
+  legalEmail: "kontakt@319webdesign.com",
+  address: {
+    street: "Weserstrasse 4",
+    zip: "65468",
+    city: "Trebur",
+    country: "Deutschland",
+  },
   googleRating: "5,0",
   projectCount: "15+",
   social: {
@@ -18,7 +25,7 @@ export const siteConfig = {
 export const navLinks = [
   { label: "Leistungen", href: "/leistungen", megaMenu: true },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Über mich", href: "/ueber-mich" },
+  { label: "Über mich", href: "/uber-mich" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
 
@@ -170,7 +177,7 @@ export const services = [
     title: "Webdesign Darmstadt",
     description:
       "Lokales Webdesign für Handwerk und regionale Unternehmen im Raum Darmstadt.",
-    href: "/leistungen/webdesign-darmstadt",
+    href: "/webdesign/darmstadt",
     icon: "globe" as const,
   },
   {
@@ -198,21 +205,21 @@ export const services = [
     title: "SEO Darmstadt",
     description:
       "Lokale SEO für Betriebe im Raum Darmstadt – Struktur, Inhalte und technische Grundlage.",
-    href: "/leistungen/seo-darmstadt",
+    href: "/seo-darmstadt",
     icon: "search" as const,
   },
   {
     title: "Website Relaunch",
     description:
       "Von veraltet zu überzeugend — Design, Technik und Conversion neu gedacht.",
-    href: "/leistungen/website-relaunch",
+    href: "/website-relaunch",
     icon: "refresh" as const,
   },
   {
     title: "Homepage für Handwerker",
     description:
       "Websites, die Handwerksbetriebe als Auftraggeber ernst nehmen — klar und regional.",
-    href: "/leistungen/homepage-handwerker",
+    href: "/webdesign-handwerker",
     icon: "wrench" as const,
   },
   {

@@ -1,52 +1,43 @@
-import { ServiceLandingPage } from "@/components/services/ServiceLandingPage";
 import {
-  getServiceBySlug,
-  serviceLandings,
-} from "@/data/services";
+  ServiceRoutePage,
+  serviceMetadata,
+} from "@/components/services/ServiceRoutePage";
+import { getServiceBySlug, serviceLandings } from "@/data/services";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const dedicatedSlugs = new Set([
+  "webdesign",
+  "lokale-seo",
+  "corporate-design",
+  "digitale-loesungen",
+  "website-wartung",
+  "webdesign-darmstadt",
+  "seo-darmstadt",
+  "website-relaunch",
+  "homepage-handwerker",
+]);
+
 export function generateStaticParams() {
   return serviceLandings
-    .filter(
-      (s) =>
-        s.slug !== "webdesign" &&
-        s.slug !== "lokale-seo" &&
-        s.slug !== "corporate-design" &&
-        s.slug !== "digitale-loesungen" &&
-        s.slug !== "website-wartung",
-    )
+    .filter((s) => !dedicatedSlugs.has(s.slug))
     .map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) {
-    return { title: "Leistung nicht gefunden" };
+  if (dedicatedSlugs.has(slug) || !getServiceBySlug(slug)) {
+    return { title: "Leistung nicht gefunden", robots: { index: false } };
   }
-
-  return {
-    title: service.metaTitle,
-    description: service.metaDescription,
-    openGraph: {
-      title: service.metaTitle,
-      description: service.metaDescription,
-      locale: "de_DE",
-      type: "website",
-    },
-    alternates: {
-      canonical: `/leistungen/${service.slug}`,
-    },
-  };
+  return serviceMetadata(slug);
 }
 
 export default async function LeistungDetailPage({ params }: Props) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) notFound();
-
-  return <ServiceLandingPage service={service} />;
+  if (dedicatedSlugs.has(slug) || !getServiceBySlug(slug)) {
+    notFound();
+  }
+  return <ServiceRoutePage slug={slug} />;
 }

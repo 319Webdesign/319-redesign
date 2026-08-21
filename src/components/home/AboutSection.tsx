@@ -61,7 +61,7 @@ export function AboutSection() {
 
           <Reveal variant="fade" delay={0.18}>
             <div className="mt-10">
-              <Button href="/ueber-mich" variant="primary" size="lg">
+              <Button href="/uber-mich" variant="primary" size="lg">
                 Mehr über mich
               </Button>
             </div>

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { CookieSettingsButton } from "@/components/legal/CookieSettingsButton";
 import { siteConfig } from "@/data/site";
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
@@ -12,8 +13,8 @@ const footerColumns = [
       { label: "Corporate Design", href: "/corporate-design" },
       { label: "Digitale Lösungen", href: "/digitale-loesungen" },
       { label: "Lokale SEO", href: "/lokale-seo" },
-      { label: "Website Relaunch", href: "/leistungen/website-relaunch" },
-      { label: "Homepage Handwerker", href: "/leistungen/homepage-handwerker" },
+      { label: "Website Relaunch", href: "/website-relaunch" },
+      { label: "Homepage Handwerker", href: "/webdesign-handwerker" },
       { label: "Betreuung", href: "/betreuung" },
       { label: "Google Unternehmensprofil", href: "/leistungen/google-unternehmensprofil" },
     ],
@@ -22,7 +23,7 @@ const footerColumns = [
     title: "Unternehmen",
     links: [
       { label: "Portfolio", href: "/portfolio" },
-      { label: "Über mich", href: "/ueber-mich" },
+      { label: "Über mich", href: "/uber-mich" },
       { label: "Kontakt", href: "/kontakt" },
     ],
   },
@@ -120,6 +121,11 @@ export function SiteFooter() {
             {siteConfig.tagline}. Persönliche Betreuung im Raum{" "}
             {siteConfig.region}.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+            {siteConfig.address.street}
+            <br />
+            {siteConfig.address.zip} {siteConfig.address.city}
+          </p>
           <div className="mt-6 flex flex-col gap-2.5 text-sm text-ink-muted">
             <a
               href={siteConfig.phoneHref}
@@ -187,7 +193,7 @@ export function SiteFooter() {
             <span className="mx-2 text-border-strong">·</span>
             {siteConfig.region}
           </p>
-          <nav aria-label="Rechtliches" className="flex items-center gap-4">
+          <nav aria-label="Rechtliches" className="flex flex-wrap items-center gap-4">
             {legalLinks.map((link) => (
               <Link
                 key={link.href}
@@ -197,6 +203,7 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+            <CookieSettingsButton />
           </nav>
         </div>
       </div>

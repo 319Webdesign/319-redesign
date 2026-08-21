@@ -6,8 +6,10 @@ import {
   SectionHeader,
   ServiceItem,
 } from "@/components/ui";
-import { serviceLandings } from "@/data/services";
+import { getServicePath, serviceLandings } from "@/data/services";
 import { siteConfig } from "@/data/site";
+import { breadcrumbJsonLd, JsonLd } from "@/lib/json-ld";
+import { defaultOpenGraph } from "@/lib/seo";
 import {
   Globe,
   MapPinned,
@@ -26,6 +28,11 @@ export const metadata: Metadata = {
   description:
     "Leistungen von 319Webdesign: Webdesign, Corporate Design, Digitale Lösungen, SEO, Website-Betreuung, Website Relaunch, Homepage für Handwerker und Google Unternehmensprofil.",
   alternates: { canonical: "/leistungen" },
+  openGraph: defaultOpenGraph(
+    "Leistungen · Webdesign, SEO & mehr in Darmstadt",
+    "Leistungen von 319Webdesign: Webdesign, Corporate Design, Digitale Lösungen, SEO, Website-Betreuung, Website Relaunch, Homepage für Handwerker und Google Unternehmensprofil.",
+    "/leistungen",
+  ),
 };
 
 const icons: Record<string, ReactNode> = {
@@ -46,6 +53,12 @@ const icons: Record<string, ReactNode> = {
 export default function LeistungenPage() {
   return (
     <SiteShell>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", path: "/" },
+          { name: "Leistungen", path: "/leistungen" },
+        ])}
+      />
       <main>
         <section className="border-b border-border bg-[linear-gradient(180deg,#ffffff_0%,#f4f7fb_100%)]">
           <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
@@ -75,7 +88,7 @@ export default function LeistungenPage() {
                   icon={icons[service.slug]}
                   title={service.title}
                   description={service.hero.lead}
-                  href={service.path ?? `/leistungen/${service.slug}`}
+                  href={getServicePath(service)}
                   ctaLabel="Zur Leistung"
                 />
               </Reveal>

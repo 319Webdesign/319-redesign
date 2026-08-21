@@ -89,6 +89,18 @@ export function SiteHeader() {
   }, [desktopLeistungenOpen]);
 
   useEffect(() => {
+    if (!mobileOpen && !desktopLeistungenOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        setDesktopLeistungenOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, desktopLeistungenOpen]);
+
+  useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
     };
