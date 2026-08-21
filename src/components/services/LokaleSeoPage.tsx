@@ -93,7 +93,7 @@ export function LokaleSeoPage() {
               </ol>
             </nav>
 
-            <div className="max-w-4xl">
+            <div className="max-w-4xl text-center md:text-left">
               <Reveal variant="fade">
                 <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70 sm:text-base">
                   {lokaleSeoHero.eyebrow}
@@ -105,16 +105,17 @@ export function LokaleSeoPage() {
                 </h1>
               </Reveal>
               <Reveal variant="slide" delay={0.1}>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:text-[1.375rem]">
+                <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl md:mx-0 lg:text-[1.375rem]">
                   {lokaleSeoHero.lead}
                 </p>
               </Reveal>
               <Reveal variant="slide" delay={0.14}>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
                   <Button
                     href={lokaleSeoHero.primaryHref}
                     variant="primary"
                     size="lg"
+                    className="w-full md:w-auto"
                   >
                     {lokaleSeoHero.primaryCta}
                   </Button>
@@ -122,14 +123,14 @@ export function LokaleSeoPage() {
                     href={lokaleSeoHero.secondaryHref}
                     variant="secondary"
                     size="lg"
-                    className="border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white"
+                    className="w-full border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white md:w-auto"
                   >
                     {lokaleSeoHero.secondaryCta}
                   </Button>
                 </div>
               </Reveal>
               <Reveal variant="fade" delay={0.18}>
-                <ul className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+                <ul className="mt-10 flex flex-col items-center gap-3 md:flex-row md:flex-wrap md:items-center md:justify-start md:gap-x-6 md:gap-y-3">
                   {lokaleSeoHero.trust.map((item) => (
                     <li
                       key={item}

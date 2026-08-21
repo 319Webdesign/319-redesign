@@ -161,7 +161,7 @@ export function ProjectDetailView({ project }: { project: PortfolioProject }) {
           </nav>
 
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
-            <div className="relative z-10 min-w-0 lg:col-span-5">
+            <div className="relative z-10 min-w-0 text-center lg:col-span-5 lg:text-left">
               <Reveal variant="fade">
                 <Eyebrow>Ausgewähltes Projekt</Eyebrow>
               </Reveal>
@@ -179,13 +179,13 @@ export function ProjectDetailView({ project }: { project: PortfolioProject }) {
                 </p>
               </Reveal>
               <Reveal variant="subtle" delay={0.1}>
-                <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-muted">
+                <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-ink-muted lg:mx-0">
                   {project.summary}
                 </p>
               </Reveal>
               {project.liveUrl ? (
                 <Reveal variant="fade" delay={0.12}>
-                  <div className="relative z-10 mt-6">
+                  <div className="relative z-10 mt-6 flex justify-center lg:justify-start">
                     <Button
                       href={project.liveUrl}
                       variant="secondary"
@@ -193,7 +193,7 @@ export function ProjectDetailView({ project }: { project: PortfolioProject }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       icon={<ExternalLink className="size-4" aria-hidden />}
-                      className="whitespace-nowrap"
+                      className="w-full whitespace-nowrap md:w-auto"
                     >
                       Live-Website ansehen
                     </Button>
@@ -201,7 +201,7 @@ export function ProjectDetailView({ project }: { project: PortfolioProject }) {
                 </Reveal>
               ) : null}
               <Reveal variant="subtle" delay={0.14}>
-                <div className="mt-10 max-w-md">
+                <div className="mx-auto mt-10 max-w-md text-left lg:mx-0">
                   <MetaList items={heroMeta} />
                 </div>
               </Reveal>

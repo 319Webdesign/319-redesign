@@ -64,7 +64,7 @@ export function PortfolioHero() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-14 sm:px-8 sm:py-20 lg:py-24">
         <div className="grid items-center gap-9 lg:grid-cols-12 lg:gap-8 xl:gap-10">
-          <div className="lg:col-span-6">
+          <div className="text-center lg:col-span-6 lg:text-left">
             <Reveal variant="fade">
               <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/70">
                 Ausgewählte Projekte
@@ -80,7 +80,7 @@ export function PortfolioHero() {
             </Reveal>
 
             <Reveal variant="slide" delay={0.1}>
-              <p className="mt-8 max-w-[34rem] text-lg leading-[1.7] text-white/80 sm:text-[1.125rem]">
+              <p className="mx-auto mt-8 max-w-[34rem] text-lg leading-[1.7] text-white/80 sm:text-[1.125rem] lg:mx-0">
                 Von der Immobilienvermittlung bis zum Handwerksbetrieb – jede
                 Website entsteht individuell und mit einem klaren Ziel:
                 Unternehmen professionell präsentieren und neue Anfragen
@@ -89,15 +89,20 @@ export function PortfolioHero() {
             </Reveal>
 
             <Reveal variant="slide" delay={0.16}>
-              <div className="mt-11 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Button href="/kontakt" variant="primary" size="lg">
+              <div className="mt-11 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
+                <Button
+                  href="/kontakt"
+                  variant="primary"
+                  size="lg"
+                  className="w-full md:w-auto"
+                >
                   Projekt unverbindlich besprechen
                 </Button>
                 <Button
                   href="#projekte"
                   variant="secondary"
                   size="lg"
-                  className="min-h-14 border-white/70 px-9 font-semibold text-white hover:border-white hover:bg-white/10 hover:text-white"
+                  className="min-h-14 w-full border-white/70 px-9 font-semibold text-white hover:border-white hover:bg-white/10 hover:text-white md:w-auto"
                 >
                   Zu den Projekten
                 </Button>

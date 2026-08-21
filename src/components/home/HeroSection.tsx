@@ -20,7 +20,7 @@ export function HeroSection() {
         aria-hidden
       />
       <div className="relative mx-auto flex min-h-[min(85vh,52rem)] max-w-6xl items-center px-6 py-20 sm:px-8 sm:py-28">
-        <div className="max-w-xl lg:max-w-2xl">
+        <div className="mx-auto max-w-xl text-center md:mx-0 md:text-left lg:max-w-2xl">
           <Reveal variant="slide">
             <h1 className="text-balance font-display text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.08]">
               Websites, die Vertrauen schaffen und Kunden gewinnen.
@@ -34,15 +34,20 @@ export function HeroSection() {
             </p>
           </Reveal>
           <Reveal variant="slide" delay={0.12}>
-            <div className="mt-8 flex flex-row flex-wrap gap-3">
-              <Button href="/kontakt" variant="primary" size="md">
+            <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap">
+              <Button
+                href="/kontakt"
+                variant="primary"
+                size="md"
+                className="w-full md:w-auto"
+              >
                 Kostenloses Erstgespräch
               </Button>
               <Button
                 href="/portfolio"
                 variant="secondary"
                 size="md"
-                className="border-white/70 text-white hover:bg-white/10 hover:text-white"
+                className="w-full border-white/70 text-white hover:bg-white/10 hover:text-white md:w-auto"
               >
                 Referenzen ansehen
               </Button>

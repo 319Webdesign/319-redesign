@@ -68,11 +68,17 @@ export default function LeistungenPage() {
                 title="Was ich für deinen Betrieb umsetze"
                 lead="Klare Angebote für Handwerk und regionale Unternehmen — von Webdesign bis lokaler Sichtbarkeit."
                 as="h1"
+                className="mx-auto text-center md:mx-0 md:text-left"
               />
             </Reveal>
             <Reveal variant="fade" delay={0.1}>
-              <div className="mt-10">
-                <Button href="/kontakt" variant="primary" size="lg">
+              <div className="mt-10 flex justify-center md:justify-start">
+                <Button
+                  href="/kontakt"
+                  variant="primary"
+                  size="lg"
+                  className="w-full md:w-auto"
+                >
                   Kostenloses Erstgespräch
                 </Button>
               </div>

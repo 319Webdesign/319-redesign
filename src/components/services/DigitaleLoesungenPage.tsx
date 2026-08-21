@@ -117,7 +117,7 @@ export function DigitaleLoesungenPage() {
               </ol>
             </nav>
 
-            <div className="max-w-4xl">
+            <div className="max-w-4xl text-center md:text-left">
               <Reveal variant="fade">
                 <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70 sm:text-base">
                   {digitaleLoesungenHero.eyebrow}
@@ -129,16 +129,17 @@ export function DigitaleLoesungenPage() {
                 </h1>
               </Reveal>
               <Reveal variant="slide" delay={0.1}>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:text-[1.375rem]">
+                <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl md:mx-0 lg:text-[1.375rem]">
                   {digitaleLoesungenHero.lead}
                 </p>
               </Reveal>
               <Reveal variant="slide" delay={0.14}>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
                   <Button
                     href={digitaleLoesungenHero.primaryHref}
                     variant="primary"
                     size="lg"
+                    className="w-full md:w-auto"
                   >
                     {digitaleLoesungenHero.primaryCta}
                   </Button>
@@ -146,18 +147,18 @@ export function DigitaleLoesungenPage() {
                     href={digitaleLoesungenHero.secondaryHref}
                     variant="secondary"
                     size="lg"
-                    className="border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white"
+                    className="w-full border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white md:w-auto"
                   >
                     {digitaleLoesungenHero.secondaryCta}
                   </Button>
                 </div>
               </Reveal>
               <Reveal variant="fade" delay={0.18}>
-                <ul className="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3">
+                <ul className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 md:mx-0">
                   {digitaleLoesungenHero.trust.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-2.5 text-base text-white/70"
+                      className="flex items-center justify-center gap-2.5 text-base text-white/70 md:justify-start"
                     >
                       <Check
                         className="size-4 shrink-0 text-cta"

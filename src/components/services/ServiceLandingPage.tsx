@@ -55,7 +55,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
             </nav>
 
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
-              <div className="lg:col-span-6">
+              <div className="text-center lg:col-span-6 lg:text-left">
                 <Reveal variant="fade">
                   <p className="text-sm font-medium uppercase tracking-[0.12em] text-brand">
                     {service.hero.eyebrow}
@@ -67,19 +67,25 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
                   </h1>
                 </Reveal>
                 <Reveal variant="slide" delay={0.1}>
-                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+                  <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ink-muted sm:text-xl lg:mx-0">
                     {service.hero.lead}
                   </p>
                 </Reveal>
                 <Reveal variant="slide" delay={0.16}>
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                    <Button href="/kontakt" variant="primary" size="lg">
+                  <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap">
+                    <Button
+                      href="/kontakt"
+                      variant="primary"
+                      size="lg"
+                      className="w-full md:w-auto"
+                    >
                       {service.hero.primaryCta}
                     </Button>
                     <Button
                       href={service.hero.secondaryHref}
                       variant="secondary"
                       size="lg"
+                      className="w-full md:w-auto"
                     >
                       {service.hero.secondaryCta}
                     </Button>

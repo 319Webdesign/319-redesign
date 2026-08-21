@@ -86,11 +86,11 @@ export function ProjectCard({
 
       <div
         className={cn(
-          "flex flex-col justify-center lg:col-span-5",
+          "flex flex-col justify-center text-center lg:col-span-5 lg:text-left",
           reverse ? "lg:order-1 lg:pr-2" : "lg:pl-2",
         )}
       >
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
           <Badge tone="brand">{industry}</Badge>
           <Badge>{service}</Badge>
         </div>
@@ -101,7 +101,7 @@ export function ProjectCard({
           <span className="font-medium text-ink">Ergebnis: </span>
           {result}
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center lg:justify-start">
           <Button
             href={href}
             variant="secondary"

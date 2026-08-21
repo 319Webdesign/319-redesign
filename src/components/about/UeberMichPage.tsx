@@ -63,7 +63,7 @@ export function UeberMichPage() {
             </nav>
 
             <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-              <div className="order-2 lg:order-1 lg:col-span-7">
+              <div className="order-2 text-center lg:order-1 lg:col-span-7 lg:text-left">
                 <Reveal variant="fade">
                   <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70 sm:text-base">
                     {ueberMichHero.eyebrow}
@@ -75,16 +75,17 @@ export function UeberMichPage() {
                   </h1>
                 </Reveal>
                 <Reveal variant="slide" delay={0.1}>
-                  <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:text-[1.375rem]">
+                  <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl lg:mx-0 lg:text-[1.375rem]">
                     {ueberMichHero.lead}
                   </p>
                 </Reveal>
                 <Reveal variant="slide" delay={0.14}>
-                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
                     <Button
                       href={ueberMichHero.primaryHref}
                       variant="primary"
                       size="lg"
+                      className="w-full md:w-auto"
                     >
                       {ueberMichHero.primaryCta}
                     </Button>
@@ -92,7 +93,7 @@ export function UeberMichPage() {
                       href={ueberMichHero.secondaryHref}
                       variant="secondary"
                       size="lg"
-                      className="border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white"
+                      className="w-full border-white/70 text-white hover:border-white hover:bg-white/10 hover:text-white md:w-auto"
                     >
                       {ueberMichHero.secondaryCta}
                     </Button>

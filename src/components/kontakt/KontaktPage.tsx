@@ -56,6 +56,7 @@ export function KontaktPage() {
               </ol>
             </nav>
 
+            <div className="text-center md:text-left">
             <Reveal variant="fade">
               <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70">
                 {kontaktHero.eyebrow}
@@ -67,12 +68,12 @@ export function KontaktPage() {
               </h1>
             </Reveal>
             <Reveal variant="slide" delay={0.1}>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl md:mx-0">
                 {kontaktHero.lead}
               </p>
             </Reveal>
             <Reveal variant="fade" delay={0.14}>
-              <ul className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium text-white/70 sm:text-base">
+              <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm font-medium text-white/70 sm:text-base md:justify-start">
                 {kontaktHero.trust.map((item, index) => (
                   <li key={item} className="flex items-center gap-3">
                     {index > 0 ? (
@@ -85,6 +86,7 @@ export function KontaktPage() {
                 ))}
               </ul>
             </Reveal>
+            </div>
           </div>
         </section>
 

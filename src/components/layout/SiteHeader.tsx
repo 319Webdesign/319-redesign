@@ -210,14 +210,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            href="/kontakt"
-            variant="primary"
-            size={scrolled ? "sm" : "md"}
-            className="hidden sm:inline-flex"
-          >
-            Kostenloses Erstgespräch
-          </Button>
+          <div className="hidden md:block">
+            <Button
+              href="/kontakt"
+              variant="primary"
+              size={scrolled ? "sm" : "md"}
+            >
+              Kostenloses Erstgespräch
+            </Button>
+          </div>
           <button
             type="button"
             className="inline-flex size-11 items-center justify-center rounded-md text-ink md:hidden"
