@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-type RevealVariant = "fade" | "slide" | "scale";
+type RevealVariant = "fade" | "slide" | "scale" | "subtle";
 
 export type RevealProps = {
   children: ReactNode;
@@ -28,6 +28,10 @@ const variants: Record<
   scale: {
     hidden: { opacity: 0, scale: 0.96 },
     visible: { opacity: 1, scale: 1 },
+  },
+  subtle: {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0 },
   },
 };
 

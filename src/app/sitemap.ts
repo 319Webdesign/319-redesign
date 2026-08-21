@@ -1,4 +1,4 @@
-import { portfolioProjects } from "@/data/projects";
+import { getListedPortfolioProjects } from "@/data/projects";
 import { serviceLandings, getServicePath } from "@/data/services";
 import { SITE_URL } from "@/lib/seo";
 import type { MetadataRoute } from "next";
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}${path}`,
     }));
 
-  const projectEntries = portfolioProjects.map((project) => ({
+  const projectEntries = getListedPortfolioProjects().map((project) => ({
     url: `${SITE_URL}${project.href}`,
   }));
 

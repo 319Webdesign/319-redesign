@@ -1,8 +1,8 @@
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ProjectDetailView } from "@/components/portfolio";
 import {
+  getListedPortfolioProjects,
   getProjectBySlug,
-  portfolioProjects,
 } from "@/data/projects";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/json-ld";
 import { defaultOpenGraph } from "@/lib/seo";
@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return portfolioProjects.map((project) => ({ slug: project.slug }));
+  return getListedPortfolioProjects().map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -46,7 +46,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
     <SiteShell>
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: "Start", path: "/" },
+          { name: "Startseite", path: "/" },
           { name: "Portfolio", path: "/portfolio" },
           { name: project.shortTitle, path: project.href },
         ])}

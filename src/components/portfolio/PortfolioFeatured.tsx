@@ -17,7 +17,7 @@ export function PortfolioFeatured() {
         </Reveal>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
         {projects.map((project, index) => (
           <Reveal
             key={project.slug}

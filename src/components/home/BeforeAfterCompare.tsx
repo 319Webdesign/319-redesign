@@ -4,20 +4,45 @@ import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 
-export function BeforeAfterCompare() {
+type CompareImage = {
+  src: string;
+  alt: string;
+};
+
+type BeforeAfterCompareProps = {
+  before?: CompareImage;
+  after?: CompareImage;
+  className?: string;
+};
+
+const defaultBefore = {
+  src: "/tierhotel-vorher.png",
+  alt: "Website vorher",
+};
+
+const defaultAfter = {
+  src: "/tierhotel-header.png",
+  alt: "Website nachher",
+};
+
+export function BeforeAfterCompare({
+  before = defaultBefore,
+  after = defaultAfter,
+  className,
+}: BeforeAfterCompareProps) {
   const [position, setPosition] = useState(52);
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className={cn("mx-auto", className ?? "max-w-2xl")}>
       <div
         className="relative aspect-[16/9] overflow-hidden rounded-md border border-border bg-bg-soft select-none"
         style={{ touchAction: "none" }}
       >
         <Image
-          src="/tierhotel-vorher.png"
-          alt="Website vorher"
+          src={before.src}
+          alt={before.alt}
           fill
-          sizes="(max-width: 672px) 100vw, 672px"
+          sizes="(max-width: 1024px) 100vw, 672px"
           className="object-cover object-top"
         />
 
@@ -26,10 +51,10 @@ export function BeforeAfterCompare() {
           style={{ clipPath: `inset(0 0 0 ${position}%)` }}
         >
           <Image
-            src="/tierhotel-header.png"
-            alt="Website nachher"
+            src={after.src}
+            alt={after.alt}
             fill
-            sizes="(max-width: 672px) 100vw, 672px"
+            sizes="(max-width: 1024px) 100vw, 672px"
             className="object-cover object-top"
           />
         </div>
