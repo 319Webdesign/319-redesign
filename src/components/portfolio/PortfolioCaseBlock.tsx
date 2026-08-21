@@ -58,7 +58,7 @@ export function PortfolioCaseBlock({
             showCaption={false}
             priority={priority}
             sizes="(max-width: 1024px) 100vw, 1440px"
-            heightClass="h-[min(62vh,42rem)] min-h-[22rem]"
+            heightClass="aspect-[16/10] md:aspect-auto md:h-[min(62vh,42rem)] md:min-h-[22rem]"
           />
         ) : (
           <Link

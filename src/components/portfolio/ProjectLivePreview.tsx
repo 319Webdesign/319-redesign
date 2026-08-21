@@ -30,13 +30,25 @@ export function ProjectLivePreview({
   compact = false,
   className,
   frameClassName,
-  heightClass = "h-[min(72vh,52rem)] min-h-[28rem]",
+  heightClass = "aspect-[16/10] md:aspect-auto md:h-[min(72vh,52rem)] md:min-h-[28rem]",
   sizes = "(max-width: 1024px) 100vw, 1440px",
   priority,
 }: ProjectLivePreviewProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(eager);
   const [interactive, setInteractive] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    const update = () => {
+      setIsDesktop(media.matches);
+      if (!media.matches) setInteractive(false);
+    };
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (eager || inView) return;
@@ -57,6 +69,8 @@ export function ProjectLivePreview({
     return () => observer.disconnect();
   }, [eager, inView]);
 
+  const showIframe = isDesktop && inView;
+
   return (
     <div ref={rootRef} className={cn("w-full", className)}>
       <div
@@ -76,7 +90,7 @@ export function ProjectLivePreview({
           priority={priority}
           className="absolute inset-0 h-full w-full object-cover object-top"
         />
-        {inView ? (
+        {showIframe ? (
           <iframe
             src={url}
             title={`Live-Vorschau von ${title}`}
@@ -87,38 +101,50 @@ export function ProjectLivePreview({
           />
         ) : null}
 
-        {interactive ? (
-          <button
-            type="button"
-            onClick={() => setInteractive(false)}
-            className={cn(
-              "absolute z-10 rounded-md bg-bg font-semibold text-ink ring-1 ring-border transition-colors hover:bg-bg-soft",
-              compact
-                ? "right-2 top-2 px-2 py-1 text-[11px]"
-                : "right-3 top-3 px-3 py-1.5 text-xs",
-            )}
-          >
-            Scrollen beenden
-          </button>
+        {isDesktop ? (
+          interactive ? (
+            <button
+              type="button"
+              onClick={() => setInteractive(false)}
+              className={cn(
+                "absolute z-10 rounded-md bg-bg font-semibold text-ink ring-1 ring-border transition-colors hover:bg-bg-soft",
+                compact
+                  ? "right-2 top-2 px-2 py-1 text-[11px]"
+                  : "right-3 top-3 px-3 py-1.5 text-xs",
+              )}
+            >
+              Scrollen beenden
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setInteractive(true)}
+              className={cn(
+                "absolute z-10 -translate-x-1/2 rounded-md bg-bg font-semibold text-ink ring-1 ring-border transition-colors hover:bg-bg-soft",
+                compact
+                  ? "bottom-2 left-1/2 px-2.5 py-1.5 text-[11px]"
+                  : "bottom-4 left-1/2 px-4 py-2.5 text-sm",
+              )}
+            >
+              {compact ? "Scrollen" : "In der Website scrollen"}
+            </button>
+          )
         ) : (
-          <button
-            type="button"
-            onClick={() => setInteractive(true)}
-            className={cn(
-              "absolute z-10 -translate-x-1/2 rounded-md bg-bg font-semibold text-ink ring-1 ring-border transition-colors hover:bg-bg-soft",
-              compact
-                ? "bottom-2 left-1/2 px-2.5 py-1.5 text-[11px]"
-                : "bottom-4 left-1/2 px-4 py-2.5 text-sm",
-            )}
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-md bg-bg px-4 py-2.5 text-sm font-semibold text-ink ring-1 ring-border"
           >
-            {compact ? "Scrollen" : "In der Website scrollen"}
-          </button>
+            Live-Website ansehen
+            <ExternalLink className="size-3.5" aria-hidden />
+          </a>
         )}
       </div>
 
       {showCaption ? (
         <p className="mt-4 text-center text-sm text-ink-subtle">
-          Live-Vorschau ·{" "}
+          {isDesktop ? "Live-Vorschau · " : null}
           <a
             href={url}
             target="_blank"
