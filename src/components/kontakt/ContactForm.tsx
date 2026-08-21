@@ -80,7 +80,7 @@ export function ContactForm() {
           topic,
           hasWebsite,
           websiteUrl: websiteUrl.trim(),
-          company: honeypot,
+          hp_field: honeypot,
         }),
       });
 
@@ -166,10 +166,10 @@ export function ContactForm() {
         className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
         aria-hidden
       >
-        <label htmlFor={`${formId}-company`}>Firma</label>
+        <label htmlFor={`${formId}-hp`}>Website</label>
         <input
-          id={`${formId}-company`}
-          name="company"
+          id={`${formId}-hp`}
+          name="hp_field"
           type="text"
           tabIndex={-1}
           autoComplete="off"

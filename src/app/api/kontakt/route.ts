@@ -1,6 +1,5 @@
 import { kontaktTopics, type KontaktTopicId } from "@/data/kontakt";
-import { siteConfig } from "@/data/site";
-import { Resend } from "resend";
+import { isMailConfigured, sendContactMail } from "@/lib/send-contact-mail";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -22,7 +21,7 @@ type ContactPayload = {
   topic?: string;
   hasWebsite?: "ja" | "nein" | "";
   websiteUrl?: string;
-  company?: string; // honeypot
+  hp_field?: string; // honeypot
 };
 
 function getClientIp(request: Request): string {
@@ -92,7 +91,7 @@ export async function POST(request: Request) {
   }
 
   // Honeypot: silently succeed for bots
-  if (sanitize(body.company, 200)) {
+  if (sanitize(body.hp_field, 200)) {
     return NextResponse.json({ ok: true });
   }
 
@@ -141,14 +140,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL;
-
-  if (!apiKey || !fromEmail) {
-    console.error(
-      "[kontakt] RESEND_API_KEY oder CONTACT_FROM_EMAIL fehlt – Anfrage nicht versendet.",
-    );
+  if (!isMailConfigured()) {
+    console.error("[kontakt] SMTP oder Resend ist nicht konfiguriert.");
     return NextResponse.json(
       {
         ok: false,
@@ -192,38 +185,26 @@ export async function POST(request: Request) {
   `;
 
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from: fromEmail,
-      to: [toEmail],
-      replyTo: email,
+    await sendContactMail({
+      name,
+      email,
       subject: `Projektanfrage von ${name}`,
       text: textBody,
       html: htmlBody,
     });
 
-    if (error) {
-      console.error("[kontakt] Resend error:", error);
-      return NextResponse.json(
-        {
-          ok: false,
-          error:
-            "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt.",
-        },
-        { status: 502 },
-      );
-    }
-
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[kontakt] Unexpected error:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Unbekannter Fehler";
+    console.error("[kontakt] Versandfehler:", errorMessage);
     return NextResponse.json(
       {
         ok: false,
         error:
           "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt.",
       },
-      { status: 500 },
+      { status: 502 },
     );
   }
 }
