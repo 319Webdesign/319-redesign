@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/legal/CookieConsent";
+import { GOOGLE_CONSENT_DEFAULT_SCRIPT } from "@/lib/analytics";
 import {
   isIndexable,
   isProductionDeployment,
@@ -40,8 +42,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const analyticsEnabled =
+    isProductionDeployment() || process.env.NEXT_PUBLIC_GA_DEBUG === "true";
+
   return (
     <html lang="de" className={`${geist.variable} h-full antialiased`}>
+      <head>
+        <script
+          id="google-consent-default"
+          dangerouslySetInnerHTML={{ __html: GOOGLE_CONSENT_DEFAULT_SCRIPT }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-bg font-sans text-ink">
         <a href="#inhalt" className="skip-link">
           Zum Inhalt springen
@@ -51,7 +62,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="flex min-h-full flex-1 flex-col">
           {children}
         </div>
-        <CookieConsent enableAnalytics={isProductionDeployment()} />
+        <CookieConsent />
+        <Analytics enabled={analyticsEnabled} />
       </body>
     </html>
   );

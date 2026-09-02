@@ -90,9 +90,9 @@ export async function POST(request: Request) {
     );
   }
 
-  // Honeypot: silently succeed for bots
+  // Honeypot: silently succeed for bots, without Lead-Conversion
   if (sanitize(body.hp_field, 200)) {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, ignored: true });
   }
 
   const name = sanitize(body.name, 120);

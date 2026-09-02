@@ -272,6 +272,19 @@ export const datenschutzContent: LegalPageContent = {
           type: "p",
           text: "Sie können Ihre Cookie-Einstellungen jederzeit über das Cookie-Banner anpassen oder Ihre Browser-Einstellungen ändern, um Cookies zu blockieren. Bitte beachten Sie, dass die Funktionalität der Website dadurch eingeschränkt sein kann.",
         },
+        { type: "h3", text: "Google Analytics 4 und Google Ads" },
+        {
+          type: "p",
+          text: "Diese Website nutzt Google Analytics 4 sowie Conversion-Messung für Google Ads (Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; Mutterkonzern: Google LLC, USA). Die Dienste werden nur geladen, wenn Sie über das Cookie-Banner zugestimmt haben.",
+        },
+        {
+          type: "p",
+          text: "Vor einer Einwilligung ist der Google Consent Mode v2 auf „denied“ gesetzt (analytics_storage, ad_storage, ad_user_data und ad_personalization). Nach Ihrer Zustimmung werden Seitenaufrufe sowie erfolgreiche Projektanfragen (Event „request_quote“) und optionale Interaktionen mit Telefon-, E-Mail- oder WhatsApp-Links erfasst. IP-Adressen werden anonymisiert. Ein Besuch der Kontaktseite oder das bloße Ausfüllen des Formulars ohne erfolgreichen Versand gilt nicht als Conversion.",
+        },
+        {
+          type: "p",
+          text: "Die Einwilligung können Sie jederzeit über den Link „Cookie-Einstellungen“ im Footer mit Wirkung für die Zukunft widerrufen. Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. a DSGVO.",
+        },
         { type: "h3", text: "Server-Log-Dateien" },
         {
           type: "p",
@@ -345,7 +358,7 @@ export const datenschutzContent: LegalPageContent = {
         },
         {
           type: "p",
-          text: "Stand: August 2026",
+          text: "Stand: September 2026",
         },
       ],
     },

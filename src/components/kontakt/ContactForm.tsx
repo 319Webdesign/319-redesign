@@ -6,9 +6,10 @@ import {
   kontaktTopics,
   type KontaktTopicId,
 } from "@/data/kontakt";
+import { trackRequestQuote } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
-import { useId, useState, type FormEvent } from "react";
+import { useId, useRef, useState, type FormEvent } from "react";
 
 type FieldErrors = Partial<
   Record<"name" | "email" | "phone" | "message" | "topic" | "websiteUrl", string>
@@ -41,6 +42,7 @@ export function ContactForm() {
   const [formError, setFormError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
   const [success, setSuccess] = useState(false);
+  const leadTrackedRef = useRef(false);
 
   function validateClient(): FieldErrors {
     const errors: FieldErrors = {};
@@ -86,6 +88,7 @@ export function ContactForm() {
 
       const data = (await response.json()) as {
         ok?: boolean;
+        ignored?: boolean;
         error?: string;
         fieldErrors?: FieldErrors;
       };
@@ -99,6 +102,15 @@ export function ContactForm() {
             "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
         );
         return;
+      }
+
+      if (!data.ignored && !leadTrackedRef.current) {
+        leadTrackedRef.current = true;
+        trackRequestQuote({
+          form_name: "contact_form",
+          lead_type: "quote",
+          ...(topic ? { topic } : {}),
+        });
       }
 
       setSuccess(true);

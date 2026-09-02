@@ -1,92 +1,31 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { ANALYTICS } from "@/lib/seo";
+import {
+  CONSENT_OPEN_EVENT,
+  openCookieSettings,
+  readConsent,
+  writeConsent,
+} from "@/lib/consent";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "319-consent";
-const OPEN_EVENT = "319-open-consent";
-
-type ConsentState = {
-  analytics: boolean;
-};
-
-function readConsent(): ConsentState | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as ConsentState;
-    if (typeof parsed.analytics !== "boolean") return null;
-    return parsed;
-  } catch {
-    return null;
-  }
-}
-
-function writeConsent(value: ConsentState) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
-}
-
-function loadAnalytics() {
-  if (window.gtag) return;
-
-  const gaId = ANALYTICS.gaMeasurementId;
-  const pirsch = ANALYTICS.pirschCode;
-
-  const gtagScript = document.createElement("script");
-  gtagScript.async = true;
-  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-  document.head.appendChild(gtagScript);
-
-  window.dataLayer = window.dataLayer ?? [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
-  };
-  window.gtag("js", new Date());
-  window.gtag("config", gaId, { anonymize_ip: true });
-
-  if (!document.getElementById("pianjs")) {
-    const pirschScript = document.createElement("script");
-    pirschScript.defer = true;
-    pirschScript.src = "https://api.pirsch.io/pa.js";
-    pirschScript.id = "pianjs";
-    pirschScript.setAttribute("data-code", pirsch);
-    document.head.appendChild(pirschScript);
-  }
-}
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
-export function CookieConsent({
-  enableAnalytics = false,
-}: {
-  enableAnalytics?: boolean;
-}) {
+export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const existing = readConsent();
-    if (enableAnalytics && existing?.analytics) {
-      loadAnalytics();
-    }
     if (!existing) {
       setVisible(true);
     }
 
     const onOpen = () => setVisible(true);
-    window.addEventListener(OPEN_EVENT, onOpen);
-    return () => window.removeEventListener(OPEN_EVENT, onOpen);
-  }, [enableAnalytics]);
+    window.addEventListener(CONSENT_OPEN_EVENT, onOpen);
+    return () => window.removeEventListener(CONSENT_OPEN_EVENT, onOpen);
+  }, []);
 
   function accept() {
     writeConsent({ analytics: true });
-    if (enableAnalytics) loadAnalytics();
     setVisible(false);
   }
 
@@ -112,9 +51,10 @@ export function CookieConsent({
             Cookies & Analyse
           </p>
           <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            Wir verwenden optionale Analyse-Cookies, um die Website zu
-            verbessern. Notwendige Funktionen bleiben ohne Einwilligung nutzbar.
-            Details stehen in der{" "}
+            Wir verwenden optionale Analyse-Cookies von Google Analytics, um die
+            Website zu verbessern und erfolgreiche Anfragen zu messen.
+            Notwendige Funktionen bleiben ohne Einwilligung nutzbar. Details
+            stehen in der{" "}
             <Link
               href="/datenschutz"
               className="font-medium text-brand underline-offset-2 hover:underline"
@@ -137,7 +77,4 @@ export function CookieConsent({
   );
 }
 
-export function openCookieSettings() {
-  if (typeof window === "undefined") return;
-  window.dispatchEvent(new Event(OPEN_EVENT));
-}
+export { openCookieSettings };

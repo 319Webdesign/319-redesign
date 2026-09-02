@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://www.319webdesign.de";
 
 export const ANALYTICS = {
-  gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-2F2YJSZXG5",
+  gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "",
   pirschCode:
     process.env.NEXT_PUBLIC_PIRSCH_CODE ?? "vJWT37N3h190aNHNNLe4ZWy9zexmJm6H",
 } as const;
