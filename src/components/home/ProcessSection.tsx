@@ -21,7 +21,13 @@ const steps = processSteps.map((step, index) => ({
   side: (index % 2 === 0 ? 1 : -1) as -1 | 1,
 }));
 
-export function ProcessSection() {
+export function ProcessSection({
+  lead = "Klar, persönlich und ohne Stress — die meisten Projekte sind innerhalb von 3–6 Wochen online.",
+  showCta = true,
+}: {
+  lead?: string;
+  showCta?: boolean;
+}) {
   return (
     <section className="overflow-hidden bg-brand">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24 lg:py-28">
@@ -40,8 +46,7 @@ export function ProcessSection() {
 
           <Reveal variant="slide" delay={0.1}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
-              Klar, persönlich und ohne Stress — die meisten Projekte sind
-              innerhalb von 3–6 Wochen online.
+              {lead}
             </p>
           </Reveal>
         </div>
@@ -78,21 +83,23 @@ export function ProcessSection() {
           ))}
         </ol>
 
-        <Reveal variant="slide">
-          <div className="mt-14 flex flex-col items-start gap-5 border-t border-white/20 pt-10 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-            <h3 className="font-display text-xl font-medium tracking-tight text-white sm:text-2xl">
-              Bereit für den ersten Schritt?
-            </h3>
-            <Button
-              href="/kontakt"
-              variant="primary"
-              size="md"
-              className="shrink-0 hover:-translate-y-0.5"
-            >
-              Kostenloses Erstgespräch vereinbaren
-            </Button>
-          </div>
-        </Reveal>
+        {showCta ? (
+          <Reveal variant="slide">
+            <div className="mt-14 flex flex-col items-start gap-5 border-t border-white/20 pt-10 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+              <h3 className="font-display text-xl font-medium tracking-tight text-white sm:text-2xl">
+                Bereit für den ersten Schritt?
+              </h3>
+              <Button
+                href="/kontakt"
+                variant="primary"
+                size="md"
+                className="shrink-0 hover:-translate-y-0.5"
+              >
+                Kostenloses Erstgespräch vereinbaren
+              </Button>
+            </div>
+          </Reveal>
+        ) : null}
       </div>
     </section>
   );

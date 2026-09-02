@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/cn";
-import { motion, useReducedMotion } from "framer-motion";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 export type TimelineStep = {
@@ -45,7 +46,7 @@ function StackTimeline({
   className?: string;
   tone: "default" | "brand";
 }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
   const onBrand = tone === "brand";
 
   return (
@@ -101,7 +102,7 @@ function StaggerTimeline({
   className?: string;
   tone: "default" | "brand";
 }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
   const onBrand = tone === "brand";
 
   return (

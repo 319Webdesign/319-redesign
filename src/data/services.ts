@@ -27,6 +27,7 @@ export type ServiceLanding = {
     primaryCta: string;
     secondaryCta: string;
     secondaryHref: string;
+    hideMedia?: boolean;
   };
   problem: {
     eyebrow: string;
@@ -425,6 +426,7 @@ export const serviceLandings: ServiceLanding[] = [
       primaryCta: "Kostenloses Erstgespräch",
       secondaryCta: "Referenzen ansehen",
       secondaryHref: "/portfolio",
+      hideMedia: true,
     },
     problem: {
       eyebrow: "Das Problem",

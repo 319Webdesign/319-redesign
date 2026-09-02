@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/cn";
-import { motion, useReducedMotion } from "framer-motion";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type RevealVariant = "fade" | "slide" | "scale" | "subtle";
@@ -15,7 +16,10 @@ export type RevealProps = {
 
 const variants: Record<
   RevealVariant,
-  { hidden: { opacity: number; y?: number; scale?: number }; visible: { opacity: number; y?: number; scale?: number } }
+  {
+    hidden: { opacity: number; y?: number; scale?: number };
+    visible: { opacity: number; y?: number; scale?: number };
+  }
 > = {
   fade: {
     hidden: { opacity: 0 },
@@ -41,23 +45,24 @@ export function Reveal({
   delay = 0,
   className,
 }: RevealProps) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
+  const prefersReducedMotion = useHydratedReducedMotion();
 
   return (
     <motion.div
       className={cn(className)}
-      initial="hidden"
-      whileInView="visible"
+      initial={prefersReducedMotion ? false : "hidden"}
+      animate={prefersReducedMotion ? "visible" : undefined}
+      whileInView={prefersReducedMotion ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.55,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : {
+              duration: 0.55,
+              delay,
+              ease: [0.22, 1, 0.36, 1],
+            }
+      }
       variants={variants[variant]}
     >
       {children}

@@ -2,6 +2,8 @@ import {
   DeviceMockup,
   MobileMockup,
 } from "@/components/home/DeviceMockup";
+import { HeroSection } from "@/components/home/HeroSection";
+import { ProcessSection } from "@/components/home/ProcessSection";
 import { SiteShell } from "@/components/layout/SiteShell";
 import {
   Button,
@@ -22,11 +24,27 @@ import Link from "next/link";
 
 export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
   const related = getRelatedProjects(service.relatedProjectHrefs);
+  const hideHeroMedia = service.hero.hideMedia === true;
 
   return (
     <SiteShell>
       <main>
-        {/* Hero */}
+        {hideHeroMedia ? (
+          <HeroSection
+            eyebrow={service.hero.eyebrow}
+            headline={service.hero.headline}
+            lead={service.hero.lead}
+            primaryCta={service.hero.primaryCta}
+            secondaryCta={service.hero.secondaryCta}
+            secondaryHref={service.hero.secondaryHref}
+            equalButtons
+            breadcrumbs={[
+              { label: "Start", href: "/" },
+              { label: "Leistungen", href: "/leistungen" },
+              { label: service.title },
+            ]}
+          />
+        ) : (
         <section className="relative overflow-hidden border-b border-border">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_80%_0%,_#d6e4f5_0%,_transparent_55%),linear-gradient(180deg,_#ffffff_0%,_#f4f7fb_100%)]"
@@ -100,6 +118,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
             </div>
           </div>
         </section>
+        )}
 
         {/* Problem */}
         <section className="border-b border-border bg-bg-soft">
@@ -223,6 +242,14 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
         ) : null}
 
         {/* Projektablauf */}
+        {hideHeroMedia ? (
+          <ProcessSection
+            lead={
+              service.processNote ??
+              "Klarer Prozess — vorhersehbar und ohne Agentur-Theater."
+            }
+          />
+        ) : (
         <section className="border-b border-border bg-bg-soft">
           <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
             <Reveal variant="slide">
@@ -242,6 +269,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
             </Reveal>
           </div>
         </section>
+        )}
 
         {/* FAQ */}
         <section className="border-b border-border bg-bg">

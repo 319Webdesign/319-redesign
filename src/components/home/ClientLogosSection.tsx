@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { clientLogos, type ClientLogo } from "@/data/clients";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/cn";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
 
 function LogoItem({
   name,
@@ -61,7 +62,7 @@ function LogoItem({
 }
 
 export function ClientLogosSection() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
 
   return (
     <section className="bg-bg" aria-labelledby="client-logos-heading">

@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/cn";
-import { motion, useReducedMotion } from "framer-motion";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 export type SpreadFromCenterProps = {
@@ -20,31 +21,42 @@ export function SpreadFromCenter({
   distance = 110,
   className,
 }: SpreadFromCenterProps) {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
+  const prefersReducedMotion = useHydratedReducedMotion();
 
   return (
     <motion.div
       className={cn(className)}
-      initial={{
-        opacity: 0,
-        x: side * distance,
-        scale: side === 0 ? 0.96 : 0.98,
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-        scale: 1,
-      }}
+      initial={
+        prefersReducedMotion
+          ? false
+          : {
+              opacity: 0,
+              x: side * distance,
+              scale: side === 0 ? 0.96 : 0.98,
+            }
+      }
+      animate={
+        prefersReducedMotion ? { opacity: 1, x: 0, scale: 1 } : undefined
+      }
+      whileInView={
+        prefersReducedMotion
+          ? undefined
+          : {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+            }
+      }
       viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={
+        prefersReducedMotion
+          ? { duration: 0 }
+          : {
+              duration: 0.8,
+              delay,
+              ease: [0.22, 1, 0.36, 1],
+            }
+      }
     >
       {children}
     </motion.div>
