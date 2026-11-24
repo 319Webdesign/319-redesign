@@ -475,7 +475,7 @@ export const portfolioProjects: PortfolioProject[] = [
     featuredOrder: 3,
     relatedServices: [
       {
-        label: "Homepage für Handwerker",
+        label: "Webdesign für Handwerker",
         href: "/webdesign-handwerker",
       },
       { label: "Website Relaunch", href: "/website-relaunch" },
@@ -595,7 +595,7 @@ export const portfolioProjects: PortfolioProject[] = [
     moreOrder: 1,
     relatedServices: [
       {
-        label: "Homepage für Handwerker",
+        label: "Webdesign für Handwerker",
         href: "/webdesign-handwerker",
       },
       { label: "Webdesign Darmstadt", href: "/webdesign/darmstadt" },

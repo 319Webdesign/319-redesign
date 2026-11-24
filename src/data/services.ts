@@ -1,3 +1,14 @@
+import {
+  handwerkerCosts,
+  handwerkerCta,
+  handwerkerFaq,
+  handwerkerHero,
+  handwerkerMeta,
+  handwerkerOffers,
+  handwerkerPath,
+  handwerkerScope,
+  handwerkerTitle,
+} from "@/data/handwerker";
 import { processSteps } from "@/data/site";
 import { projects } from "@/data/projects";
 
@@ -40,6 +51,8 @@ export type ServiceLanding = {
     title: string;
     lead: string;
     paragraphs: string[];
+    /** Kurzer Verweis mit Link unter den Absätzen (optional). */
+    note?: { text: string; linkLabel: string; href: string };
   };
   benefits: {
     eyebrow: string;
@@ -641,6 +654,11 @@ export const serviceLandings: ServiceLanding[] = [
         "Konzept vor Pixeln: Zielgruppe, Leistungen, lokale Signale und klare Call-to-Actions.",
         "Technischer Neustart ohne Baukasten-Limitierungen, inkl. sauberer Weiterleitungen wo nötig.",
       ],
+      note: {
+        text: "Du führst einen Handwerksbetrieb? Dann findest du auf dieser Seite, wie ich neue und bestehende Handwerker-Websites angehe:",
+        linkLabel: "Webdesign für Handwerker",
+        href: "/webdesign-handwerker",
+      },
     },
     benefits: {
       eyebrow: "Vorteile",
@@ -690,94 +708,47 @@ export const serviceLandings: ServiceLanding[] = [
   },
   {
     slug: "homepage-handwerker",
-    title: "Homepage für Handwerker",
-    path: "/webdesign-handwerker",
-    metaTitle: "Homepage für Handwerker · Webdesign das Aufträge bringt",
-    metaDescription:
-      "Homepage für Handwerker: Webdesign speziell für Handwerksbetriebe — klar, lokal, anfrageorientiert. Persönliche Betreuung aus dem Raum Darmstadt.",
+    // Diese Route rendert `HandwerkerPage` (Inhalte in `@/data/handwerker`).
+    // Der Eintrag speist Leistungsübersicht und Sitemap; Titel, Beschreibung
+    // und Hero-Text stammen aus derselben Quelle wie die Seite selbst.
+    title: handwerkerTitle,
+    path: handwerkerPath,
+    metaTitle: handwerkerMeta.title,
+    metaDescription: handwerkerMeta.description,
     hero: {
-      eyebrow: "Homepage für Handwerker",
-      headline: "Websites, die Handwerk als Auftraggeber ernst nehmen",
-      lead: "Keine austauschbare Firmenhomepage — sondern eine Seite, die Vertrauen schafft und Anrufe generiert.",
-      primaryCta: "Kostenloses Erstgespräch",
-      secondaryCta: "Referenzen Handwerk",
-      secondaryHref: "/portfolio",
+      eyebrow: handwerkerTitle,
+      headline: handwerkerHero.headline,
+      lead: handwerkerHero.lead,
+      primaryCta: handwerkerHero.primaryCta,
+      secondaryCta: handwerkerHero.secondaryCta,
+      secondaryHref: handwerkerHero.secondaryHref,
     },
     problem: {
-      eyebrow: "Das Problem",
-      title: "Handwerk braucht andere Websites als Startups",
-      lead: "Viele Baukästen und Agentur-Templates sprechen die falsche Sprache — zu generisch, zu soft, zu unklar.",
-      items: [
-        {
-          title: "Leistungen versinken",
-          text: "Was du kannst und wo du tätig bist, steht nicht klar genug.",
-        },
-        {
-          title: "Kein Vertrauensbeweis",
-          text: "Projekte, Bewertungen und Persönlichkeit fehlen oder wirken nachrangig.",
-        },
-        {
-          title: "Anfrage zu kompliziert",
-          text: "Kunden wollen anrufen oder kurz schreiben — nicht Formular-Hindernisse überwinden.",
-        },
-      ],
+      eyebrow: "",
+      title: handwerkerOffers.title,
+      lead: "",
+      items: [],
     },
     solution: {
-      eyebrow: "Die Lösung",
-      title: "Eine Homepage, die zu Betrieben und Bauherren passt",
-      lead: "Ich kenne die Anforderungen regionaler Handwerksbetriebe — und baue danach.",
-      paragraphs: [
-        "Klare Leistungsseiten, starke Projektfotos, lokale Signale und CTAs, die zum Telefon passen.",
-        "Persönliche Betreuung statt Agentur-Prozess: du sprichst mit dem, der die Seite umsetzt.",
-      ],
+      eyebrow: "",
+      title: handwerkerScope.title,
+      lead: handwerkerScope.lead,
+      paragraphs: [],
     },
     benefits: {
-      eyebrow: "Vorteile",
-      title: "Was Handwerksbetriebe davon haben",
-      lead: "Mehr Klarheit. Mehr Vertrauen. Mehr Anfragen.",
-      items: [
-        {
-          title: "Branchengerecht",
-          text: "Sprache, Struktur und Design für echte Aufträge — nicht für Design-Awards.",
-        },
-        {
-          title: "Lokal stark",
-          text: "Region, Einsatzgebiet und Auffindbarkeit von Anfang an mitgedacht.",
-        },
-        {
-          title: "Mobil zuerst",
-          text: "Die meisten suchen unterwegs — deine Seite muss dort überzeugen.",
-        },
-        {
-          title: "Direkt erreichbar",
-          text: "Anruf, WhatsApp, Formular — niedrige Hemmschwelle.",
-        },
-      ],
+      eyebrow: "",
+      title: handwerkerCosts.title,
+      lead: "",
+      items: [],
     },
     relatedProjectHrefs: [
       "/portfolio/elektrotechnik-betrieb",
-      "/portfolio/he-immologis",
+      "/portfolio/baudienstleistungen-hofmann",
     ],
-    faq: [
-      {
-        question: "Für welche Gewerke eignet sich das?",
-        answer:
-          "Für die meisten regionalen Handwerksbetriebe — von Elektro über SHK bis Garten- und Ausbaugewerke.",
-      },
-      {
-        question: "Brauch ich Fotos von Baustellen?",
-        answer:
-          "Echte Projektbilder helfen enorm. Fehlen sie, planen wir Alternativen und eine spätere Bildstrecke mit.",
-      },
-      {
-        question: "Kann ich Angebote online verkaufen?",
-        answer:
-          "Fokus ist Anfragen und Vertrauen. Shop-Funktionen nur, wenn sie wirklich zu deinem Modell passen.",
-      },
-    ],
+    faq: handwerkerFaq,
     cta: {
-      title: "Homepage, die zu deinem Handwerk passt?",
-      lead: "Erzähl mir kurz von deinem Betrieb — im Erstgespräch wird klar, was sinnvoll ist.",
+      title: handwerkerCta.title,
+      lead: handwerkerCta.lead,
     },
   },
   {

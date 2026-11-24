@@ -15,32 +15,51 @@ const stepIcons: ReactNode[] = [
   <Rocket key="launch" className="size-4" strokeWidth={1.5} aria-hidden />,
 ];
 
-const steps = processSteps.map((step, index) => ({
-  ...step,
-  icon: stepIcons[index],
-  side: (index % 2 === 0 ? 1 : -1) as -1 | 1,
-}));
+export type ProcessSectionStep = {
+  title: string;
+  description: string;
+};
 
 export function ProcessSection({
+  eyebrow = "Projektablauf",
+  title = "So läuft die Zusammenarbeit",
   lead = "Klar, persönlich und ohne Stress — die meisten Projekte sind innerhalb von 3–6 Wochen online.",
+  steps: stepItems = processSteps,
   showCta = true,
 }: {
+  /** `false` blendet das Label über der Überschrift aus. */
+  eyebrow?: string | false;
+  title?: string;
   lead?: string;
+  steps?: readonly ProcessSectionStep[];
   showCta?: boolean;
 }) {
+  const steps = stepItems.map((step, index) => ({
+    ...step,
+    icon: stepIcons[index % stepIcons.length],
+    side: (index % 2 === 0 ? 1 : -1) as -1 | 1,
+  }));
+
   return (
     <section className="overflow-hidden bg-brand">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24 lg:py-28">
         <div className="max-w-3xl">
-          <Reveal variant="fade">
-            <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70">
-              Projektablauf
-            </p>
-          </Reveal>
+          {eyebrow ? (
+            <Reveal variant="fade">
+              <p className="text-sm font-medium uppercase tracking-[0.14em] text-white/70">
+                {eyebrow}
+              </p>
+            </Reveal>
+          ) : null}
 
           <Reveal variant="slide" delay={0.05}>
-            <h2 className="mt-4 text-balance font-display text-[2.125rem] font-medium leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
-              So läuft die Zusammenarbeit
+            <h2
+              className={cn(
+                "text-balance font-display text-[2.125rem] font-medium leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]",
+                eyebrow && "mt-4",
+              )}
+            >
+              {title}
             </h2>
           </Reveal>
 

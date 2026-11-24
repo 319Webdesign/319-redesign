@@ -169,6 +169,19 @@ export function ServiceLandingPage({ service }: { service: ServiceLanding }) {
                     <p className="text-lg leading-relaxed text-ink-muted">{p}</p>
                   </Reveal>
                 ))}
+                {service.solution.note ? (
+                  <Reveal variant="slide" delay={0.12}>
+                    <p className="text-lg leading-relaxed text-ink-muted">
+                      {service.solution.note.text}{" "}
+                      <Link
+                        href={service.solution.note.href}
+                        className="font-medium text-brand underline underline-offset-4 transition-motion hover:text-brand-dark"
+                      >
+                        {service.solution.note.linkLabel}
+                      </Link>
+                    </p>
+                  </Reveal>
+                ) : null}
               </div>
             </div>
           </div>

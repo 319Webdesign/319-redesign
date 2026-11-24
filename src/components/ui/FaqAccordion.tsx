@@ -2,11 +2,14 @@
 
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
+import Link from "next/link";
 import { useId, useState } from "react";
 
 export type FaqItem = {
   question: string;
   answer: string;
+  /** Optionale Verweise unter der Antwort (Abschnitt oder Leistungsseite). */
+  links?: { label: string; href: string }[];
 };
 
 export type FaqAccordionProps = {
@@ -58,9 +61,27 @@ export function FaqAccordion({ items, className }: FaqAccordionProps) {
               hidden={!isOpen}
               className={cn(!isOpen && "hidden")}
             >
-              <p className="max-w-2xl pb-8 text-base leading-relaxed text-ink-muted sm:text-lg">
+              <p
+                className={cn(
+                  "max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg",
+                  item.links?.length ? "pb-4" : "pb-8",
+                )}
+              >
                 {item.answer}
               </p>
+              {item.links?.length ? (
+                <p className="flex max-w-2xl flex-wrap gap-x-6 gap-y-2 pb-8 text-base font-medium">
+                  {item.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-brand underline-offset-4 transition-motion hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </p>
+              ) : null}
             </div>
           </div>
         );

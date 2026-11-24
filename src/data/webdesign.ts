@@ -267,6 +267,10 @@ export const webdesignAudience = {
     "Für Unternehmen aus Darmstadt und dem Rhein-Main-Gebiet gibt es zusätzlich lokale Informationen zum Webdesign vor Ort.",
   localLinkLabel: "Webdesign Darmstadt",
   localLinkHref: "/webdesign/darmstadt",
+  handwerkNote:
+    "Für Handwerksbetriebe gibt es eine eigene Seite mit Leistungsumfang, Referenz und Kostenorientierung.",
+  handwerkLinkLabel: "Webdesign für Handwerker",
+  handwerkLinkHref: "/webdesign-handwerker",
 } as const;
 
 export const webdesignFaq = [

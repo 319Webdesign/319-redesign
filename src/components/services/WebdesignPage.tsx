@@ -725,6 +725,15 @@ export function WebdesignPage() {
                   {webdesignAudience.localLinkLabel}
                 </Link>
               </p>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
+                {webdesignAudience.handwerkNote}{" "}
+                <Link
+                  href={webdesignAudience.handwerkLinkHref}
+                  className="font-medium text-brand transition-motion hover:underline"
+                >
+                  {webdesignAudience.handwerkLinkLabel}
+                </Link>
+              </p>
             </Reveal>
           </div>
         </section>
